@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Welcome to Family App 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="login-content" padding>
+  <ion-row>
+    <ion-col>
+      <h1 class="logo">FAMILY APP</h1>      
+      <p class="description">Courtesy of <a href="https://davidduckwitz.de" target="_blank">David Duckwitz</a> & Arina ;)</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col>
+        <ion-button class="log-in-button" color="danger" expand="block" [routerLink]="['/login']">
+          START
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  <ion-row>
+  <ion-slides pager="true" [options]="slideOpts" style="height:60%;">
+      <ion-slide>          
+        <img style="max-height: 40%; max-width:100%; overflow: hidden;" src="/assets/images/arina.jpg">
+      </ion-slide>
+      <ion-slide>
+          <img src="https://via.placeholder.com/300x300?text=I+Love+Arina+Amirian">
+      </ion-slide>
+      <ion-slide>
+          <img style="max-height: 40%;" src="/assets/images/dave.png">
+      </ion-slide>
+    </ion-slides>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-button class="log-in-button" color="danger" expand="block" [routerLink]="['/login']">
+        START
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

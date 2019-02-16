@@ -1,0 +1,66 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Your Dashboard
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+<ion-content *ngIf='userReady'>
+  <ion-card>
+    <ion-img [src]="user.picture"></ion-img>
+    <ion-card-header>
+      <ion-card-title>{{user.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{user.email}}</p>
+    </ion-card-content>
+    <ion-button expand="block" (click)="Logout()">Log Out</ion-button>
+  </ion-card>
+</ion-content>
+<ion-content *ngIf='!userReady'>
+    <ion-card>
+      <ion-img src="https://www.selfpres.app//static/user/szftn7w96j62ioj.png" style="padding: 15px; margin: 10px;max-height: 100px; max-width: 150px;"></ion-img>
+      <ion-card-header>
+        <ion-card-title>David Duckwitz</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>davidduckwitz@googlemail.com</p>
+      </ion-card-content>
+      <ion-button expand="block" (click)="Logout()">Log Out</ion-button>
+    </ion-card>
+  </ion-content>
+
+  <ion-tabs>
+      <!-- Tab bar -->
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="dashboard" [routerLink]="['/user']">
+          <ion-icon name="paper"></ion-icon>
+          <ion-label>Dashboard</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="account" [routerLink]="['/family']">
+          <ion-icon name="person"></ion-icon>
+          <ion-label>Family</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="contact" [routerLink]="['/communication']">
+          <ion-icon name="call"></ion-icon>
+          <ion-label>Communication</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="calendar" [routerLink]="['/calendar']">
+          <ion-icon name="calendar"></ion-icon>
+          <ion-label>Calendar</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="tracking" [routerLink]="['/tracking']">
+          <ion-icon name="locate"></ion-icon>
+          <ion-label>Tracking</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="settings" [routerLink]="['/settings']">
+          <ion-icon name="settings"></ion-icon>
+          <ion-label>Settings</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>

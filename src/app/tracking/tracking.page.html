@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>tracking: {{location.lat}} {{location.lng}}</ion-title>
+    <ion-button color="danger" expand="block" (click)="locate()">
+        Meine Position
+      </ion-button>
+  </ion-toolbar>  
+</ion-header>
+
+ <!--create a element for map. #Map - identifier -->  
+ <div #Map class="map"></div>
+
+
+<ion-content>
+  <ion-row>
+    <ion-col>
+     
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+
+  <!-- Tab bar -->
+  <ion-tab-bar slot="bottom" class="tbs-10" style="max-height: 10%;">
+    <ion-tab-button tab="dashboard" [routerLink]="['/user']">
+      <ion-icon name="paper"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="account" [routerLink]="['/family']">
+      <ion-icon name="person"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="contact" [routerLink]="['/communication']">
+      <ion-icon name="call"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="calendar" [routerLink]="['/calendar']">
+      <ion-icon name="calendar"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="tracking" [routerLink]="['/tracking']">
+      <ion-icon name="locate"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="settings" [routerLink]="['/settings']">
+      <ion-icon name="settings"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+

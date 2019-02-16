@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>calendar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+</ion-content>
+
+<ion-tabs>
+    <!-- Tab bar -->
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="dashboard" [routerLink]="['/user']">
+        <ion-icon name="paper"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="account" [routerLink]="['/family']">
+        <ion-icon name="person"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="contact" [routerLink]="['/communication']">
+        <ion-icon name="call"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="calendar" [routerLink]="['/calendar']">
+        <ion-icon name="calendar"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="tracking" [routerLink]="['/tracking']">
+        <ion-icon name="locate"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="settings" [routerLink]="['/settings']">
+        <ion-icon name="settings"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>

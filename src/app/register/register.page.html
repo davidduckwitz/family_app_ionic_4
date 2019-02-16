@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-row>
+        <ion-col>
+          <h1 class="logo" [routerLink]="['/home']">FAMILY APP</h1>      
+          <p class="description">A Project by <a href="https://davidduckwitz.de" target="_blank">David Duckwitz & Arina ;)</a></p>
+        </ion-col>
+    </ion-row>
+
+	  <ion-list>
+  
+		  <ion-item>
+			<ion-label position="floating">Username</ion-label>
+			<ion-input type="text" [(ngModel)]="username" #userna></ion-input>
+			</ion-item>
+			
+			<ion-item>
+				<ion-label position="floating">Email</ion-label>
+				<ion-input type="email" [(ngModel)]="useremail" #userem></ion-input>
+				</ion-item>
+		
+		  <ion-item>
+			<ion-label position="floating">Password</ion-label>
+			<ion-input type="password" [(ngModel)]="password" #pass></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+			<ion-label position="floating">Confirm Password</ion-label>
+			<ion-input type="password" [(ngModel)]="cpassword" #cpass></ion-input>
+		  </ion-item>
+		
+		</ion-list>
+  
+		<ion-button fill="solid" expand="block" color="dark" (click)="register(this.userna.value, this.userem.value, this.pass.value, this.cpass.value)">Signup</ion-button>
+</ion-content>

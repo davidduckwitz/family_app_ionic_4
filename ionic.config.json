@@ -1,0 +1,7 @@
+{
+  "name": "FamilyApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

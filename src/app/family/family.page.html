@@ -1,0 +1,89 @@
+<ion-header translucent="" class="header header-ios header-translucent header-translucent-ios hydrated">
+  <ion-toolbar class="hydrated">
+    <ion-title class="title-ios hydrated">Family</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Tab bar -->
+<ion-tab-bar slot="start">  
+  <ion-tab-button tab="person-add" *ngIf="SelectedFamily > 0" (click)="openAddMemberModal(SelectedFamily)">
+    <ion-icon style="height: 20px;" name="person-add"></ion-icon>
+      Familienmitglied hinzufügen
+  </ion-tab-button>
+  <ion-tab-button tab="add-family" >
+    <ion-icon style="height: 20px;" name="person-add"></ion-icon>
+     Neue Familie
+  </ion-tab-button>
+  <ion-tab-button tab="locate" (click)="locate()">
+    <ion-icon name="pin"></ion-icon>
+    Position Senden<br>
+    {{ Mylocation }}
+  </ion-tab-button>
+  <ion-tab-button tab="settings" [routerLink]="['/settings']">
+    <ion-icon name="settings"></ion-icon>
+    Familien Einstellungen
+  </ion-tab-button>
+</ion-tab-bar>
+
+<!-- Segment in a toolbar -->
+<ion-toolbar>      
+        <ion-row>
+        <ion-col col-4>
+           <!-- Enter Code -->
+           <ion-input type="text" [(ngModel)]="familycodeInput" placeholder="Family Code eingeben" #familycode></ion-input>
+           <ion-button (click)="addFamilyCode(familycode.value)">ENTER Family Code</ion-button>
+          <ion-list>
+            <ion-item *ngFor="let group of family">              
+              <ion-label *ngIf="group.invite !=='true'"> {{ group.name }} (CODE: {{ group.hash }})</ion-label>
+              <ion-button *ngIf="group.invite !=='true'" fill="outline" slot="end" (click)="loadFamilyMembers(group.id)">View</ion-button>
+              <ion-label *ngIf="group.invite ==='true'"> {{ group.name }}</ion-label>
+              <ion-button *ngIf="group.invite ==='true'" fill="outline" slot="end" (click)="loadFamilyMembers(group.family_id)">View</ion-button>
+            </ion-item>
+          </ion-list>
+    
+        </ion-col>
+        <ion-col col-8>
+        
+          <!-- Searchbar with value -->
+          <ion-searchbar value="Name"></ion-searchbar>
+          <ion-item ion-button class="hydrated" (click)="openModal(member)" *ngFor="let member of familymembers" detail>
+            <ion-avatar slot="start" class="hydrated">
+              <img [src]="member.image" *ngIf="member.image">
+              <img [src]="'http://www.bitcoin-tech.com//components/com_community/assets/default-male-avatar.png'" *ngIf="!member.image">
+            </ion-avatar>
+            <ion-label class="sc-ion-label-md-h sc-ion-label-md-s hydrated">
+              <h2>{{ member.firstname }} {{ member.lastname }}</h2>            
+            </ion-label>      
+          </ion-item>    
+        </ion-col>
+        </ion-row>
+</ion-toolbar>
+
+<ion-content padding>
+  <ion-row>  
+       
+  </ion-row>
+</ion-content>
+<ion-tabs>
+    <!-- Tab bar -->
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="dashboard" [routerLink]="['/user']">
+        <ion-icon name="paper"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="account" [routerLink]="['/family']">
+        <ion-icon name="person"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="contact" [routerLink]="['/communication']">
+        <ion-icon name="call"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="calendar" [routerLink]="['/calendar']">
+        <ion-icon name="calendar"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="tracking" [routerLink]="['/tracking']">
+        <ion-icon name="locate"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="settings" [routerLink]="['/settings']">
+        <ion-icon name="settings"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>

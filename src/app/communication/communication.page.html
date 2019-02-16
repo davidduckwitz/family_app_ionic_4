@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>communication</ion-title>
+  </ion-toolbar>
+  <ion-row>
+      <ion-col>
+        
+        <ion-item (click)="openModal(conversation.conversation_id)" *ngFor="let conversation of conversations">
+          <ion-avatar item-left>
+            <img [src]="conversation.image">
+          </ion-avatar>
+        <h2>{{conversation.firstname}} {{conversation.lastname}}</h2>
+        <p slot="end">{{ conversation.message_text }}</p>
+        </ion-item>
+           
+      </ion-col>
+    </ion-row>
+</ion-header>
+
+
+
+<ion-content padding>
+  
+ </ion-content>
+
+<ion-tabs>
+    <!-- Tab bar -->
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="dashboard" [routerLink]="['/user']">
+        <ion-icon name="paper"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="account" [routerLink]="['/family']">
+        <ion-icon name="person"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="contact" [routerLink]="['/communication']">
+        <ion-icon name="call"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="calendar" [routerLink]="['/calendar']">
+        <ion-icon name="calendar"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="tracking" [routerLink]="['/tracking']">
+        <ion-icon name="locate"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="settings" [routerLink]="['/settings']">
+        <ion-icon name="settings"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
