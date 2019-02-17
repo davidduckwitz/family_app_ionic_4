@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { MessagesService } from '../../services/messages.service';
+import { AuthenticationService } from '../../services/authentication.service';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -10,26 +11,31 @@ import { ModalController } from '@ionic/angular';
 export class ChatModalComponent implements OnInit {
   @ViewChild('chat_input') messageInput: ElementRef;
   @Input() conversation_id: number;
-  @Input() from_user_id: number = 2;
-  @Input() to_user_id: number = 4;
+  @Input() from_user_id: number;
+  @Input() to_user_id: number;
   msgList: any = [];
-  user: {id: 2, name: 'dave', avatar: '/assets/immages/dave.jpg'};
-  toUser:{id: 1, name: 'dave', avatar: '/assets/immages/arina.jpg'};
+  user: any;
+  toUser: any;
   editorMsg = '';
   showEmojiPicker = false;
   events: any;
 
-  constructor(private messagesService: MessagesService, public modalController: ModalController) { }
+  constructor( private authenticationService: AuthenticationService,
+    private messagesService: MessagesService,
+    public modalController: ModalController) {
+      this.user = this.authenticationService.getUser();
+    }
 
   ngOnInit() {
-    let id = this.conversation_id;
-    console.log("ConversationID: "+id);
-    //get message list
-    this.getMsg(id);
+    console.log('ConversationID: ' + this.conversation_id);
+    console.log('from: ' + this.user.userid);
+    console.log('to: ' + this.to_user_id);
+    // get message list
+    this.getMsg(this.conversation_id);
   }
 
   onFocus() {
-    this.showEmojiPicker = false;    
+    this.showEmojiPicker = false;
     this.scrollToBottom();
   }
 
@@ -46,6 +52,7 @@ export class ChatModalComponent implements OnInit {
   getMsg(id: number) {
     this.messagesService.getMessagesByConversationId(id).subscribe(messages => {
       this.msgList = messages;
+      this.scrollToBottom();
     });
   }
 
@@ -57,22 +64,22 @@ export class ChatModalComponent implements OnInit {
 
     // Mock message
     const id = Date.now().toString();
-    let newMsg: any = {
-      messageId: Date.now().toString(),
-      from_user_id: '2',
-      to_user_id: '4',
+    const newMsg = {
+      messageId: id,
+      from_user_id: this.user.userid,
+      to_user_id: this.to_user_id,
       time: Date.now(),
+      image: this.user.picture,
       message_text: this.editorMsg,
-      readed: '0'
+      readed: 0
     };
 
-    this.messagesService.createMessage(this.from_user_id, this.to_user_id, this.editorMsg).subscribe(messages => {
-      this.msgList = messages;
+    this.messagesService.createMessage(this.user.userid, this.to_user_id, this.editorMsg).subscribe(messages => {
+      this.pushNewMsg(newMsg);
+      this.editorMsg = '';
+      this.scrollToBottom();
     });
-
-    this.pushNewMsg(newMsg);
-    this.editorMsg = '';
-
+    
     if (!this.showEmojiPicker) {
       this.focus();
     }
@@ -85,7 +92,7 @@ export class ChatModalComponent implements OnInit {
   pushNewMsg(msg: any) {
     this.msgList.push(msg);
     this.scrollToBottom();
-  }  
+  }
 
   scrollToBottom() {
   }
@@ -101,8 +108,8 @@ export class ChatModalComponent implements OnInit {
     textarea.scrollTop = textarea.scrollHeight;
   }
 
-  dismissModal(){
-    this.modalController.dismiss({})
+  dismissModal() {
+    this.modalController.dismiss({});
   }
 
 }

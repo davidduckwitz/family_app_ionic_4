@@ -16,8 +16,7 @@
           <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
             <app-menu-item [link]="p">{{ p.title }}</app-menu-item>
           </ion-menu-toggle>
-        </ion-list>
-        <ion-tabs>
+        </ion-list>        
             <!-- Tab bar -->
             <ion-tab-bar slot="bottom">
               <ion-tab-button tab="account">
@@ -29,8 +28,7 @@
               <ion-tab-button tab="settings">
                 <ion-icon name="settings"></ion-icon>
               </ion-tab-button>
-            </ion-tab-bar>
-          </ion-tabs>
+            </ion-tab-bar>          
       </ion-content>
     </ion-menu>
   

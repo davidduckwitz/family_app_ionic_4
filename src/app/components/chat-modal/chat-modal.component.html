@@ -3,6 +3,9 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+    <ion-button slot="end" (click)="getMsg(conversation_id)">
+      Reload
+    </ion-button>
     <ion-title (click)="dismissModal()">
       schließen 
     </ion-title>
@@ -14,8 +17,7 @@
 
     <div *ngFor="let msg of msgList"
          class="message"
-         [class.left]="msg.from_user_id === '2'"
-         [class.right]="msg.to_user_id === '2'">
+         [ngClass]="msg.from_user_id == this.user.userid ? ' left' : ' right'">
       <img class="user-img" [src]="msg.image" alt="" >
       <ion-spinner name="dots" *ngIf="msg.readed === '0'"></ion-spinner>
       <div class="msg-detail">

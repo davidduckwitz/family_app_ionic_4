@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NavParams } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 
-
 @Component({
   selector: 'app-family-modal',
   templateUrl: './family-modal.component.html',
@@ -12,6 +11,7 @@ export class FamilyModalComponent implements OnInit {
 
   // "value" passed in componentProps
   @Input() value: string;
+  @Input() currentuserId: number;
 
   constructor(navParams: NavParams, public modalController: ModalController) {
     // componentProps can also be accessed at construction time using NavParams
@@ -20,21 +20,18 @@ export class FamilyModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  async familyModal(name) {
-    console.log("openModal");
+  async familyModal(value) {
+    console.log('openModal');
     const modal = await this.modalController.create({
       component: FamilyModalComponent,
-      componentProps: { value: name }
+      componentProps: { value: value, currentuserId: this.currentuserId }
     });
     return await modal.present();
   }
 
-  dismissModal(){
+  dismissModal() {
     this.modalController.dismiss({
       'result': this.value
-    })
+    });
   }
-
-  
-
 }

@@ -23,32 +23,29 @@ export class LoginPage {
     private authenticationService: AuthenticationService
   ) { }
 
-  async doGoogleLogin(){
+  async doGoogleLogin() {
     const loading = await this.loadingController.create({
       message: 'Please wait...'
     });
     this.presentLoading(loading);
     this.googlePlus.login({
-      'scopes': '', // optional - space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
+      'scopes': '', // optional - space-separated list of scopes, If not defaults to `profile` and `email`.
       'webClientId': environment.googleWebClientId, // optional - clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
       'offline': true, // Optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
       })
       .then(user => {
-        //save user data on the native storage
-        this.nativeStorage.setItem('user', {
+        // save user data on the native storage
+         const loadeduser = {
           name: user.displayName,
           email: user.email,
           picture: user.imageUrl
-        })
-        .then(() => {
-           this.router.navigate(['/user']);
-        }, (error) => {
-          console.log(error);
-        });
+        };
+        this.authenticationService.setUser(loadeduser);
+        this.router.navigate(['/user']);
         loading.dismiss();
       }, err => {
         console.log(err);
-        if(!this.platform.is('cordova')) {
+        if (!this.platform.is('cordova')) {
           this.presentAlert('success', 'Cordova kann im Browser nicht geladen werden');
         }
         loading.dismiss();
@@ -60,21 +57,38 @@ export class LoginPage {
     this.authenticationService.loginV1(email, password)
       .subscribe(response => {
 
-        if(response['status'] === 1) {
-					console.log(response['message']);
+        if (response['status'] === 1) {
+          console.log(response['message']);
           this.presentAlert('Success', response['message']);
-          this.nativeStorage.setItem('user', {
+          const user = {
             name: response['username'],
+            firstname: response['firstname'],
+            lastname: response['firstname'],
             email: response['email'],
-            picture: response['image'],
+            image: response['image'],
             userid: response['userid']
-          });
+          };
+          // check if web or mobile and choose storage
 
-					this.router.navigate(['/user']);
-				} else {
-					console.log(response['message']);
-					this.presentAlert('Danger', response['message']);
-				}
+          if (!this.platform.is('cordova')) {
+            this.presentAlert('success', 'Cordova kann im Browser nicht geladen werden');
+            this.authenticationService.setUser(user);
+            this.router.navigate(['/user']);
+          } else {
+            this.nativeStorage.setItem('user', user);
+          this.nativeStorage.getItem('user')
+            .then( data => {
+              // user is previously logged and we have his data
+              // we will let him access the app
+              this.router.navigate(['/user']);
+            }, error => {
+              this.router.navigate(['/home']);
+            });
+          }
+        } else {
+        console.log(response['message']);
+        this.presentAlert('Danger', response['message']);
+        }
       }, error => {
         console.log(error.status);
         this.presentAlert('Danger', error.status);
@@ -93,18 +107,16 @@ export class LoginPage {
         message: content,
         buttons: ['OK']
       });
-  
       await alert.present();
     }
-
 
   async presentLoading(loading) {
     return await loading.present();
   }
 
-  async login() {   
-    console.log("Login");		
-    this.router.navigate(["/user"]);
+  async login() {
+    console.log('Login');
+    this.router.navigate(['/user']);
   }
 
 }

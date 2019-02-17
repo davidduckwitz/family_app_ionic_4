@@ -63,7 +63,7 @@ export class AppComponent {
             this.menuCtrl.enable(false);
             console.log("NOT Show Menu");
           } else {
-            this.menuCtrl.enable(false);
+            this.menuCtrl.enable(true);
             console.log("Show Menu");
           }
 
