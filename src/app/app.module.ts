@@ -28,10 +28,17 @@ import { File } from '@ionic-native/File/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { ChatModalComponent } from './components/chat-modal/chat-modal.component';
+import { EmojiPickerComponent } from './components/emoji-picker/emoji-picker.component';
 
 
 @NgModule({
-  declarations: [AppComponent, MenuItemComponent, FamilyModalComponent, AddtofamilyModalComponent, ChatModalComponent],
+  declarations: [
+    AppComponent, 
+    MenuItemComponent, 
+    FamilyModalComponent, 
+    AddtofamilyModalComponent, 
+    ChatModalComponent, 
+    EmojiPickerComponent],
   entryComponents: [FamilyModalComponent, AddtofamilyModalComponent, ChatModalComponent],
   imports: [FormsModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [

@@ -18,7 +18,7 @@
     <div *ngFor="let msg of msgList"
          class="message"
          [ngClass]="msg.from_user_id == this.user.userid ? ' left' : ' right'">
-      <img class="user-img" [src]="msg.image" alt="" >
+      <img class="user-img" [src]="'http://familyapp.arina-web-innovations.online'+msg.image" alt="" >
       <ion-spinner name="dots" *ngIf="msg.readed === '0'"></ion-spinner>
       <div class="msg-detail">
         <div class="msg-info">
@@ -50,4 +50,5 @@
       <ion-icon name="ios-send" ios="ios-send" md="md-send"></ion-icon>
     </button>
   </div>
-  <!-- <emoji-picker [(ngModel)]="editorMsg"></emoji-picker> -->
+  <app-emoji-picker [(ngModel)]="editorMsg"></app-emoji-picker>
+  </ion-footer>

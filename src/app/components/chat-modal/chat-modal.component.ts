@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { MessagesService } from '../../services/messages.service';
 import { AuthenticationService } from '../../services/authentication.service';
-import { ModalController } from '@ionic/angular';
+import { ModalController, Platform, Events, Content } from '@ionic/angular';
+import { ApplicationRef } from '@angular/core';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 @Component({
   selector: 'app-chat-modal',
@@ -9,6 +11,7 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./chat-modal.component.scss']
 })
 export class ChatModalComponent implements OnInit {
+  @ViewChild(Content) content: Content;
   @ViewChild('chat_input') messageInput: ElementRef;
   @Input() conversation_id: number;
   @Input() from_user_id: number;
@@ -18,12 +21,25 @@ export class ChatModalComponent implements OnInit {
   toUser: any;
   editorMsg = '';
   showEmojiPicker = false;
-  events: any;
+  myevents: any;
 
-  constructor( private authenticationService: AuthenticationService,
-    private messagesService: MessagesService,
-    public modalController: ModalController) {
-      this.user = this.authenticationService.getUser();
+  constructor(private messagesService: MessagesService,
+    public modalController: ModalController,
+    private authenticationService: AuthenticationService,
+    private platform: Platform,
+    private nativeStorage: NativeStorage,
+    private events: Events,
+    public app: ApplicationRef) {
+      if(!this.platform.is('cordova')) {
+        this.user = this.authenticationService.getUser();
+      } else {
+        this.nativeStorage.getItem('user')
+        .then( data => {
+          // user is previously logged and we have his data
+          // we will let him access the app
+          this.user = data;
+        }, error => {});
+      }
     }
 
   ngOnInit() {
@@ -36,6 +52,7 @@ export class ChatModalComponent implements OnInit {
 
   onFocus() {
     this.showEmojiPicker = false;
+    
     this.scrollToBottom();
   }
 
@@ -46,6 +63,7 @@ export class ChatModalComponent implements OnInit {
     } else {
       this.setTextareaScroll();
     }
+    this.app.tick();
     this.scrollToBottom();
   }
 
@@ -69,7 +87,7 @@ export class ChatModalComponent implements OnInit {
       from_user_id: this.user.userid,
       to_user_id: this.to_user_id,
       time: Date.now(),
-      image: this.user.picture,
+      image: this.user.image,
       message_text: this.editorMsg,
       readed: 0
     };
@@ -79,7 +97,7 @@ export class ChatModalComponent implements OnInit {
       this.editorMsg = '';
       this.scrollToBottom();
     });
-    
+
     if (!this.showEmojiPicker) {
       this.focus();
     }
@@ -95,6 +113,11 @@ export class ChatModalComponent implements OnInit {
   }
 
   scrollToBottom() {
+    setTimeout(() => {
+      if (this.content.scrollToBottom) {
+        this.content.scrollToBottom();
+      }
+    }, 400);
   }
 
   private focus() {

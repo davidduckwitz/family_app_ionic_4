@@ -12,20 +12,75 @@
 
 
 <ion-content *ngIf='userReady'>
-  <ion-card>
-    <ion-img [src]="user.image"></ion-img>
+  <ion-card>    
     <ion-card-header>
-      <ion-card-title>{{user.name}}</ion-card-title>
+      <ion-card-title>{{user.firstname}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <p>{{user.email}}</p>
     </ion-card-content>  
     <ion-button expand="block" class="danger" (click)="Logout()">Log Out</ion-button> 
   </ion-card>
+
+  <ion-card>
+    <ion-item [routerLink]="['/family']">
+      <ion-icon name="person" slot="start"></ion-icon>
+      <ion-label>Familys</ion-label>
+      <ion-button fill="outline" slot="end">View</ion-button>
+    </ion-item>
+    <ion-card-content>
+      Manage your Familys, send or enter invite codes and get Details about Familymembers
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-item [routerLink]="['/communication']">
+      <ion-icon name="call" slot="start"></ion-icon>
+      <ion-label>Communication</ion-label>
+      <ion-button fill="outline" slot="end">View</ion-button>
+    </ion-item>
+    <ion-card-content>
+      Stay in contact with your Familymembers - Chat with text and Emojis
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-item [routerLink]="['/calendar']">
+      <ion-icon name="calendar" slot="start"></ion-icon>
+      <ion-label>Calendar</ion-label>
+      <ion-button fill="outline" slot="end">View</ion-button>
+    </ion-item>
+    <ion-card-content>
+      Manage your Dates, Events and Birthdays
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-item [routerLink]="['/tracking']">
+      <ion-icon name="locate" slot="start"></ion-icon>
+      <ion-label>Tracking</ion-label>
+      <ion-button fill="outline" slot="end">View</ion-button>
+    </ion-item>
+    <ion-card-content>
+      Display your Position and get Position of your Familymembers (only if they push their location)
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-item [routerLink]="['/settings']">
+      <ion-icon name="settings" slot="start"></ion-icon>
+      <ion-label>Settings</ion-label>
+      <ion-button fill="outline" slot="end">View</ion-button>
+    </ion-item>
+    <ion-card-content>
+      Manage your Account
+    </ion-card-content>
+  </ion-card>
+  
+
 </ion-content>
 <ion-content *ngIf='!userReady'>
-    <ion-card>
-      <ion-img src="https://www.selfpres.app/static/user/szftn7w96j62ioj.png" style="padding: 15px; margin: 10px;max-height: 100px; max-width: 150px;"></ion-img>
+    <ion-card>     
       <ion-card-header>
         <ion-card-title>David Duckwitz</ion-card-title>
       </ion-card-header>
@@ -34,34 +89,70 @@
       </ion-card-content>
       <ion-button expand="block" (click)="Logout()">Log Out</ion-button>
     </ion-card>
-  </ion-content>
 
+    <ion-card>
+      <ion-img [src]="user.image"></ion-img>
+      <ion-card-header>
+        <ion-card-title>{{user.name}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{user.email}}</p>
+      </ion-card-content>  
+      <ion-button expand="block" class="danger" (click)="Logout()">Log Out</ion-button> 
+    </ion-card>
   
-      <!-- Tab bar -->
-      <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="dashboard" [routerLink]="['/user']">
-          <ion-icon name="paper"></ion-icon>
-          <ion-label>Dashboard</ion-label>
-        </ion-tab-button>
-        <ion-tab-button tab="account" [routerLink]="['/family']">
-          <ion-icon name="person"></ion-icon>
-          <ion-label>Family</ion-label>
-        </ion-tab-button>
-        <ion-tab-button tab="contact" [routerLink]="['/communication']">
-          <ion-icon name="call"></ion-icon>
-          <ion-label>Communication</ion-label>
-        </ion-tab-button>
-        <ion-tab-button tab="calendar" [routerLink]="['/calendar']">
-          <ion-icon name="calendar"></ion-icon>
-          <ion-label>Calendar</ion-label>
-        </ion-tab-button>
-        <ion-tab-button tab="tracking" [routerLink]="['/tracking']">
-          <ion-icon name="locate"></ion-icon>
-          <ion-label>Tracking</ion-label>
-        </ion-tab-button>
-        <ion-tab-button tab="settings" [routerLink]="['/settings']">
-          <ion-icon name="settings"></ion-icon>
-          <ion-label>Settings</ion-label>
-        </ion-tab-button>
-      </ion-tab-bar>
-   
+    <ion-card>
+      <ion-item [routerLink]="['/family']">
+        <ion-icon name="person" slot="start"></ion-icon>
+        <ion-label>Familys</ion-label>
+        <ion-button fill="outline" slot="end">View</ion-button>
+      </ion-item>
+      <ion-card-content>
+        Manage your Familys, send or enter invite codes and get Details about Familymembers
+      </ion-card-content>
+    </ion-card>
+  
+    <ion-card>
+      <ion-item [routerLink]="['/communication']">
+        <ion-icon name="call" slot="start"></ion-icon>
+        <ion-label>Communication</ion-label>
+        <ion-button fill="outline" slot="end">View</ion-button>
+      </ion-item>
+      <ion-card-content>
+        Stay in contact with your Familymembers - Chat with text and Emojis
+      </ion-card-content>
+    </ion-card>
+  
+    <ion-card>
+      <ion-item [routerLink]="['/calendar']">
+        <ion-icon name="calendar" slot="start"></ion-icon>
+        <ion-label>Calendar</ion-label>
+        <ion-button fill="outline" slot="end">View</ion-button>
+      </ion-item>
+      <ion-card-content>
+        Manage your Dates, Events and Birthdays
+      </ion-card-content>
+    </ion-card>
+  
+    <ion-card>
+      <ion-item [routerLink]="['/tracking']">
+        <ion-icon name="locate" slot="start"></ion-icon>
+        <ion-label>Tracking</ion-label>
+        <ion-button fill="outline" slot="end">View</ion-button>
+      </ion-item>
+      <ion-card-content>
+        Display your Position and get Position of your Familymembers (only if they push their location)
+      </ion-card-content>
+    </ion-card>
+  
+    <ion-card>
+      <ion-item [routerLink]="['/settings']">
+        <ion-icon name="settings" slot="start"></ion-icon>
+        <ion-label>Settings</ion-label>
+        <ion-button fill="outline" slot="end">View</ion-button>
+      </ion-item>
+      <ion-card-content>
+        Manage your Account
+      </ion-card-content>
+    </ion-card>
+  </ion-content>     

@@ -6,6 +6,7 @@ import { AddtofamilyModalComponent } from '../components/addtofamily-modal/addto
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { FamilyService } from '../services/family.service';
 import { AuthenticationService } from '../services/authentication.service';
+import { TrackingService } from '../services/tracking.service';
 import { AlertController, Platform } from '@ionic/angular';
 
 @Component({
@@ -27,6 +28,7 @@ export class FamilyPage implements OnInit {
     private familyService: FamilyService,
     private authenticationService: AuthenticationService,
     private platform: Platform,
+    private trackingService: TrackingService,
     private nativeStorage: NativeStorage) {}
 
   ngOnInit() {
@@ -84,8 +86,21 @@ export class FamilyPage implements OnInit {
   locate() {
     this.geolocation.getCurrentPosition().then((resp) => {
       this.Mylocation = 'lat' + resp.coords.latitude + '- long' + resp.coords.longitude;
+      this.Mylocation.lat = resp.coords.latitude;
+          this.Mylocation.lng = resp.coords.longitude;
       console.log('lat' + resp.coords.latitude + '- long' + resp.coords.longitude);
+      let encodedLoation = JSON.stringify(this.Mylocation);
+          this.trackingService.setNewPosition(
+            this.user.userid,
+            this.user.image,
+            encodedLoation,
+            this.SelectedFamily)
+          .subscribe(messages => {
+           console.log(encodedLoation);
+           this.presentAlert('success', encodedLoation);
+          });
      }).catch((error) => {
+      this.presentAlert('danger', 'Error getting location' + error.status);
        console.log('Error getting location', error);
      });
   }

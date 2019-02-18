@@ -4,11 +4,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content padding style="height:85%;">
+  <div *ngIf="calendarOptions">
+      <ng-fullcalendar #ucCalendar [options]="calendarOptions" (eventClick)="eventClick($event.detail)" (eventDrop)="updateEvent($event.detail)"
+          (eventResize)="updateEvent($event.detail)" (dayClick)="dayClick($event.detail)" (clickButton)="clickButton($event.detail)" [(eventsModel)]="events"></ng-fullcalendar>
+  </div>
 </ion-content>
 
-<ion-tabs>
+
     <!-- Tab bar -->
     <ion-tab-bar slot="bottom">
       <ion-tab-button tab="dashboard" [routerLink]="['/user']">
@@ -30,4 +33,4 @@
         <ion-icon name="settings"></ion-icon>
       </ion-tab-button>
     </ion-tab-bar>
-  </ion-tabs>
+ 
