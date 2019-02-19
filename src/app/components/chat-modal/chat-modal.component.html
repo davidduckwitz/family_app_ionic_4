@@ -18,7 +18,7 @@
     <div *ngFor="let msg of msgList"
          class="message"
          [ngClass]="msg.from_user_id == this.user.userid ? ' left' : ' right'">
-      <img class="user-img" [src]="'http://familyapp.arina-web-innovations.online'+msg.image" alt="" >
+      <img class="user-img" [src]="msg.image" alt="" >
       <ion-spinner name="dots" *ngIf="msg.readed === '0'"></ion-spinner>
       <div class="msg-detail">
         <div class="msg-info">

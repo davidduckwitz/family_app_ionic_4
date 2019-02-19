@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CalendarComponent } from 'ng-fullcalendar';
-import { Options } from 'fullcalendar';
+
 // import { EventSesrvice } from './event.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { Options } from 'fullcalendar';
   styleUrls: ['./calendar.page.scss'],
 })
 export class CalendarPage implements OnInit {
-  calendarOptions: Options;
+  calendarOptions;
   displayEvent: any;
   events = null;
   dateObj = new Date();

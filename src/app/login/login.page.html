@@ -10,11 +10,11 @@
         <ion-list style="border: 1px solid lightgrey;">
             <ion-item>
               <ion-label position="floating">Email</ion-label>
-              <ion-input type="text" [(ngModel)]="username" #email></ion-input>
+              <ion-input type="text" #email></ion-input>
             </ion-item>          
             <ion-item>
               <ion-label position="floating">Password</ion-label>
-              <ion-input type="password" [(ngModel)]="password" #pass></ion-input>
+              <ion-input type="password" #pass></ion-input>
             </ion-item>          
           </ion-list>
           <ion-col>
@@ -35,10 +35,6 @@
         LOG IN WITH GOOGLE
       </ion-button>
     </ion-col>
-    <ion-col>
-        <ion-button class="log-in-button" color="primary" expand="block" (click)="doFacebookLogin()">
-          LOG IN WITH FACEBOOK
-        </ion-button>
-      </ion-col>
+   
   </ion-row>
 </ion-content>

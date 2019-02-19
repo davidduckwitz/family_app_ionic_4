@@ -11,7 +11,7 @@ import { MenuController } from '@ionic/angular';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthenticationService } from './services/authentication.service';
 import { MessagesService } from './services/messages.service';
-
+import * as $ from 'jquery';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -30,6 +30,14 @@ import { FilePath } from '@ionic-native/file-path/ngx';
 import { ChatModalComponent } from './components/chat-modal/chat-modal.component';
 import { EmojiPickerComponent } from './components/emoji-picker/emoji-picker.component';
 
+const config = {
+    apiKey: "AIzaSyAu7Kqpv1oFM6fFX3MATrZHUE_gARBiHHY",
+    authDomain: "myfamilyapp-84d63.firebaseapp.com",
+    databaseURL: "https://myfamilyapp-84d63.firebaseio.com",
+    projectId: "myfamilyapp-84d63",
+    storageBucket: "myfamilyapp-84d63.appspot.com",
+    messagingSenderId: "735730595325"
+  };
 
 @NgModule({
   declarations: [

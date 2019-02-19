@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { Router, NavigationEnd, RouterEvent } from '@angular/router';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
-
-import { MenuController } from '@ionic/angular';
+// import { Push, PushObject, PushOptions } from '@ionic-native/push';
+import { MenuController, AlertController } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
@@ -13,7 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  ActualPage = "";
+  ActualPage = '';
   pages = [
     {
       title: 'Dashboard',
@@ -43,12 +42,14 @@ export class AppComponent {
 
 
   constructor(
+    // public push: Push,
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private nativeStorage: NativeStorage,
     public menuCtrl: MenuController,
-    private router: Router
+    private router: Router,    
+    public alertCtrl: AlertController
   ) {
     this.initializeApp();
   }
@@ -87,6 +88,7 @@ export class AppComponent {
         //user is previously logged and we have his data
         //we will let him access the app
         this.router.navigate(["/user"]);
+        //this.initPushNotification();
         this.splashScreen.hide();
       }, err => {
         this.router.navigate(["/home"]);
@@ -95,4 +97,11 @@ export class AppComponent {
       this.statusBar.styleDefault();
     });
   }
+
+  saveDeviceToken(t) {
+    this.nativeStorage.setItem('fcmtoken',{'token': t});
+    localStorage.setItem('fcmtoken', t);
+
+}
+  
 }

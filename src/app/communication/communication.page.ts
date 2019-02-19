@@ -6,6 +6,7 @@ import { FamilyService } from '../services/family.service';
 import { ModalController, AlertController, Platform } from '@ionic/angular';
 import { ChatModalComponent } from '../components/chat-modal/chat-modal.component';
 import { AuthenticationService } from '../services/authentication.service';
+
 // import { Events, Content } from '@ionic-native';
 
 @Component({
@@ -19,13 +20,17 @@ export class CommunicationPage implements OnInit {
   to_user_id: any;
   private sub: any;
   loadingid: number;
+
+  
+
   constructor(private messagesService: MessagesService,
                 private authenticationService: AuthenticationService,
                 public modalController: ModalController,
                 public alertController: AlertController,
                 private activatedRoute: ActivatedRoute,
                 private platform: Platform,
-                private nativeStorage: NativeStorage) {
+                private nativeStorage: NativeStorage,
+                ) {
                   }
   ngOnInit() {
     if(!this.platform.is('cordova')) {
@@ -87,5 +92,4 @@ export class CommunicationPage implements OnInit {
   async presentLoading(loading) {
     return await loading.present();
   }
-
 }

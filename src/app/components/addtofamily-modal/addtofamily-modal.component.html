@@ -17,17 +17,17 @@
   
 		  <ion-item>
 			<ion-label position="floating">Firstname</ion-label>
-			<ion-input type="text" [(ngModel)]="firstname" #firstna></ion-input>
+			<ion-input type="text" #firstna></ion-input>
 			</ion-item>
 			
 		  <ion-item>
 			<ion-label position="floating">Lastname</ion-label>
-			<ion-input type="text" [(ngModel)]="lastname" #lastna></ion-input>
+			<ion-input type="text" #lastna></ion-input>
       </ion-item>
       
       <ion-item>
 				<ion-label position="floating">Email</ion-label>
-				<ion-input type="email" [(ngModel)]="email" #userem></ion-input>
+				<ion-input type="email" #userem></ion-input>
       </ion-item>	
       
       <ion-button (click)="addToFamily(this.firstna.value, this.lastna.value, this.userem.value); dismissModal()">

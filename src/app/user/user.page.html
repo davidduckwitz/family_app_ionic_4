@@ -24,7 +24,7 @@
 
   <ion-card>
     <ion-item [routerLink]="['/family']">
-      <ion-icon name="person" slot="start"></ion-icon>
+      <img src="/assets/icon/family_blue.png" style="width: 40px; height: 40px;" slot="start">
       <ion-label>Familys</ion-label>
       <ion-button fill="outline" slot="end">View</ion-button>
     </ion-item>
@@ -35,7 +35,7 @@
 
   <ion-card>
     <ion-item [routerLink]="['/communication']">
-      <ion-icon name="call" slot="start"></ion-icon>
+      <img src="/assets/icon/communication_blue.png" style="width: 40px; height: 40px;" slot="start">
       <ion-label>Communication</ion-label>
       <ion-button fill="outline" slot="end">View</ion-button>
     </ion-item>
@@ -46,7 +46,7 @@
 
   <ion-card>
     <ion-item [routerLink]="['/calendar']">
-      <ion-icon name="calendar" slot="start"></ion-icon>
+      <img src="/assets/icon/calendar_blue.png" style="width: 40px; height: 40px;" slot="start">
       <ion-label>Calendar</ion-label>
       <ion-button fill="outline" slot="end">View</ion-button>
     </ion-item>
@@ -57,7 +57,7 @@
 
   <ion-card>
     <ion-item [routerLink]="['/tracking']">
-      <ion-icon name="locate" slot="start"></ion-icon>
+      <img src="/assets/icon/tracking2_blue.png" style="width: 40px; height: 40px;" slot="start">
       <ion-label>Tracking</ion-label>
       <ion-button fill="outline" slot="end">View</ion-button>
     </ion-item>
@@ -68,7 +68,7 @@
 
   <ion-card>
     <ion-item [routerLink]="['/settings']">
-      <ion-icon name="settings" slot="start"></ion-icon>
+      <img src="/assets/icon/settings_blue.png" style="width: 40px; height: 40px;" slot="start">
       <ion-label>Settings</ion-label>
       <ion-button fill="outline" slot="end">View</ion-button>
     </ion-item>
@@ -76,9 +76,10 @@
       Manage your Account
     </ion-card-content>
   </ion-card>
+</ion-content> 
   
 
-</ion-content>
+
 <ion-content *ngIf='!userReady'>
     <ion-card>     
       <ion-card-header>
@@ -90,20 +91,13 @@
       <ion-button expand="block" (click)="Logout()">Log Out</ion-button>
     </ion-card>
 
-    <ion-card>
-      <ion-img [src]="user.image"></ion-img>
-      <ion-card-header>
-        <ion-card-title>{{user.name}}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>{{user.email}}</p>
-      </ion-card-content>  
+    <ion-card>    
       <ion-button expand="block" class="danger" (click)="Logout()">Log Out</ion-button> 
     </ion-card>
   
     <ion-card>
       <ion-item [routerLink]="['/family']">
-        <ion-icon name="person" slot="start"></ion-icon>
+        <img src="/assets/icon/family_blue.png" style="width: 40px; height: 40px;" slot="start">
         <ion-label>Familys</ion-label>
         <ion-button fill="outline" slot="end">View</ion-button>
       </ion-item>
@@ -114,7 +108,7 @@
   
     <ion-card>
       <ion-item [routerLink]="['/communication']">
-        <ion-icon name="call" slot="start"></ion-icon>
+        <img src="/assets/icon/communication_blue.png" style="width: 40px; height: 40px;" slot="start">
         <ion-label>Communication</ion-label>
         <ion-button fill="outline" slot="end">View</ion-button>
       </ion-item>
@@ -125,7 +119,7 @@
   
     <ion-card>
       <ion-item [routerLink]="['/calendar']">
-        <ion-icon name="calendar" slot="start"></ion-icon>
+        <img src="/assets/icon/calendar_blue.png" style="width: 40px; height: 40px;" slot="start">
         <ion-label>Calendar</ion-label>
         <ion-button fill="outline" slot="end">View</ion-button>
       </ion-item>
@@ -136,7 +130,7 @@
   
     <ion-card>
       <ion-item [routerLink]="['/tracking']">
-        <ion-icon name="locate" slot="start"></ion-icon>
+        <img src="/assets/icon/tracking2_blue.png" style="width: 40px; height: 40px;" slot="start">
         <ion-label>Tracking</ion-label>
         <ion-button fill="outline" slot="end">View</ion-button>
       </ion-item>
@@ -147,7 +141,7 @@
   
     <ion-card>
       <ion-item [routerLink]="['/settings']">
-        <ion-icon name="settings" slot="start"></ion-icon>
+        <img src="/assets/icon/settings_blue.png" style="width: 40px; height: 40px;" slot="start">
         <ion-label>Settings</ion-label>
         <ion-button fill="outline" slot="end">View</ion-button>
       </ion-item>
