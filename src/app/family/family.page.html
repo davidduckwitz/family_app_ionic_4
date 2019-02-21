@@ -5,32 +5,25 @@
 </ion-header>
 
 <ion-content padding>
-  <!-- Tab bar -->
-  <ion-tab-bar slot="start">  
-      <ion-tab-button tab="person-add" *ngIf="SelectedFamily > 0" (click)="openAddMemberModal(SelectedFamily)">
+  <ion-row>  
+    <ion-col>
+      <ion-button expand="full" *ngIf="SelectedFamily > 0" (click)="openAddMemberModal(SelectedFamily)">
         <ion-icon style="height: 20px;" name="person-add"></ion-icon>
-          Familienmitglied hinzufügen
-      </ion-tab-button>
-      <ion-tab-button tab="add-family" (click)="addFamilyModal()">
+           Add Member
+      </ion-button>           
+    </ion-col>
+    <ion-col>
+      <ion-button expand="full" (click)="addFamilyModal()">
         <ion-icon style="height: 20px;" name="person-add"></ion-icon>
-        Neue Familie
-      </ion-tab-button>
-      <ion-tab-button tab="locate" (click)="locate()">
-        <ion-icon name="pin"></ion-icon>
-        Position Senden<br>
-        {{ Mylocation }}
-      </ion-tab-button>
-      <ion-tab-button tab="settings" [routerLink]="['/settings']">
-        <ion-icon name="settings"></ion-icon>
-        Familien Einstellungen
-      </ion-tab-button>
-    </ion-tab-bar>
-
+         Add Family
+      </ion-button>           
+    </ion-col>
+  </ion-row>
   <ion-row>
   <ion-col col-4>
       <!-- Enter Code -->
       <ion-input type="text" placeholder="Family Code eingeben" #familycode></ion-input>
-      <ion-button (click)="addFamilyCode(familycode.value)">ENTER Family Code</ion-button>           
+      <ion-button color="warning" (click)="addFamilyCode(familycode.value)">ENTER Family Code</ion-button>           
       <ion-select #newFam placeholder="Select Your Family" (ionChange)="onChangeNewfam($event)">
         <ion-select-option [value]="group.id" *ngFor="let group of family">
           <span *ngIf="group.invite !== 'true'">
@@ -44,7 +37,7 @@
   </ion-col>
   <ion-col col-8>
     Family Quickselect                      
-    <button ion-button color="warning" *ngFor="let group of family; let i = index"  (click)="loadFamilyMembers(group.id)">{{ i + 1 }}</button>           
+    <ion-button ion-button color="warning" *ngFor="let group of family; let i = index"  (click)="loadFamilyMembers(group.id)">{{ i + 1 }}</ion-button>           
     <!-- Searchbar with value -->
     <ion-searchbar value="Name"></ion-searchbar>
     <span *ngIf="familymembers.length === 0">
