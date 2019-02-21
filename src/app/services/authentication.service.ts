@@ -34,35 +34,14 @@ export class AuthenticationService {
       .pipe(map((response: Object) => response));
   }
 
-  setUser(user: any){
-    if (!this.platform.is('cordova')) {
-      console.log('save user local');
-      localStorage.setItem('user', JSON.stringify(user));
-      return true;
-    } else {
-      this.nativeStorage.setItem('user', user)
-      .then(() => {
-         return true;
-      }, (error) => {
-        console.log(error);
-        return false;
-      });
-    }
+  setUser(user: any){    
+    localStorage.setItem('user', JSON.stringify(user));
+    return true;
   }
 
   getUser(){
-    if (!this.platform.is('cordova')) {
-      const user = JSON.parse(localStorage.getItem('user'));
-      return user;
-    } else {
-      this.nativeStorage.getItem('user').then(data => {
-        const user = data;
-        return user;
-      }, error => {
-        console.log(error);
-        return false;
-      });
-    }
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user;
   }
 
 }

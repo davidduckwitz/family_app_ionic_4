@@ -68,23 +68,9 @@ export class LoginPage {
             image: response['image'],
             userid: response['userid']
           };
-          // check if web or mobile and choose storage
-
-          if (!this.platform.is('cordova')) {
-            this.presentAlert('success', 'Cordova kann im Browser nicht geladen werden');
+            // this.presentAlert('success', 'Cordova kann im Browser nicht geladen werden');
             this.authenticationService.setUser(user);
             this.router.navigate(['/user']);
-          } else {
-            this.nativeStorage.setItem('user', user);
-          this.nativeStorage.getItem('user')
-            .then( data => {
-              // user is previously logged and we have his data
-              // we will let him access the app
-              this.router.navigate(['/user']);
-            }, error => {
-              this.router.navigate(['/home']);
-            });
-          }
         } else {
         console.log(response['message']);
         this.presentAlert('Danger', response['message']);

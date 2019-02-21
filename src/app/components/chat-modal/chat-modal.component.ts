@@ -30,16 +30,7 @@ export class ChatModalComponent implements OnInit {
     private nativeStorage: NativeStorage,
     private events: Events,
     public app: ApplicationRef) {
-      if(!this.platform.is('cordova')) {
-        this.user = this.authenticationService.getUser();
-      } else {
-        this.nativeStorage.getItem('user')
-        .then( data => {
-          // user is previously logged and we have his data
-          // we will let him access the app
-          this.user = data;
-        }, error => {});
-      }
+      this.user = this.authenticationService.getUser();
     }
 
   ngOnInit() {

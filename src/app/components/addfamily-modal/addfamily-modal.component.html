@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title (click)="dismissModal()">
+        schließen 
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding class='modal-content'>
+  <h1>Add a new Family</h1>
+    <p>      
+      <ion-list>
+    
+        <ion-item>
+        <ion-label position="floating">Family Name</ion-label>
+        <ion-input type="text" #familyname></ion-input>
+        </ion-item>
+        <ion-button (click)="addFamily(this.familyname.value); dismissModal()">
+          Hinzufügen
+        </ion-button>
+  
+        <ion-button class="" color="warning" (click)="dismissModal()">
+            Abbrechen
+          </ion-button>
+      
+      </ion-list>
+      <small>
+        You can add Familymembers later, after creating a family
+      </small>
+    </p>
+  </ion-content>

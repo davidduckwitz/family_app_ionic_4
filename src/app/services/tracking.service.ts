@@ -11,9 +11,10 @@ export class TrackingService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getFamilyMemberLastPositions(familyId: number) {
+  getFamilyMemberLastPositions(familyId: number, userid: number) {
     const params = new HttpParams()
       .append('id', familyId.toString())
+      .append('userid', userid.toString())
      ;
      return this.httpClient.get('http://familyapp.arina-web-innovations.online/api/v1/getFamilyMemberLastPositions.php', {params: params})
        .pipe(map((response) => response));

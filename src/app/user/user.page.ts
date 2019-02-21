@@ -30,37 +30,12 @@ export class UserPage implements OnInit {
       message: 'Please wait...'
     });
      await loading.present();
-     if(!this.platform.is('cordova') && localStorage.getItem('user')){
-       const u = JSON.parse(localStorage.getItem('user'));
-       console.log('loading from local',u);
-      this.user = {
-        name: u.name,
-        email: u.email,
-        picture: u.picture,
-        userid: u.userid
-      };
+      this.user = this.authenticationService.getUser();
       this.userReady = true;
-        loading.dismiss();
-     } else {
-      this.nativeStorage.getItem('user').then(data => {
-        this.user = {
-          name: data.name,
-          email: data.email,
-          picture: data.picture,
-          userid: data.userid
-        };
-        this.userReady = true;
-        loading.dismiss();
-      }, error => {
-        console.log(error);
-        loading.dismiss();
-      });
-     }
-     
+      loading.dismiss();
   }
 
   logoutV1() {
-    this.nativeStorage.remove('user');
     localStorage.removeItem('user');
     this.router.navigate(['/home']);
   }
@@ -69,7 +44,6 @@ export class UserPage implements OnInit {
     this.googlePlus.logout()
     .then(res => {
       // user logged out so we will remove him from the NativeStorage
-      this.nativeStorage.remove('user');
       localStorage.removeItem('user');
       this.router.navigate(['/home']);
     }, err => {
@@ -79,7 +53,6 @@ export class UserPage implements OnInit {
 
   Logout() {
     // user logged out so we will remove him from the NativeStorage
-    this.nativeStorage.remove('user');
     localStorage.removeItem('user');
     this.router.navigate(['/home']);
   }

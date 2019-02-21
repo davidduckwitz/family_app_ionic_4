@@ -33,18 +33,8 @@ export class CommunicationPage implements OnInit {
                 ) {
                   }
   ngOnInit() {
-    if(!this.platform.is('cordova')) {
-      this.currentUser = this.authenticationService.getUser();
-      this.getConversationsByUserId(this.currentUser.userid);
-    } else {
-      this.nativeStorage.getItem('user')
-      .then( data => {
-        // user is previously logged and we have his data
-        // we will let him access the app
-        this.currentUser = data;
-        this.getConversationsByUserId(this.currentUser.userid);
-      }, error => {});
-    }
+    this.currentUser = this.authenticationService.getUser();
+    this.getConversationsByUserId(this.currentUser.userid);
 
   }
 

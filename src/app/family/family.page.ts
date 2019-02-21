@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { FamilyModalComponent } from '../components/family-modal/family-modal.component';
 import { AddtofamilyModalComponent } from '../components/addtofamily-modal/addtofamily-modal.component';
+import { AddfamilyModalComponent } from '../components/addfamily-modal/addfamily-modal.component';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { FamilyService } from '../services/family.service';
 import { AuthenticationService } from '../services/authentication.service';
@@ -15,7 +16,7 @@ import { AlertController, Platform } from '@ionic/angular';
   styleUrls: ['./family.page.scss'],
 })
 export class FamilyPage implements OnInit {
-  Mylocation: any = 'Hier kommt die Position';
+  Mylocation: any = '';
   SelectedFamily = 0;
   family: any = [];
   familymembers: any = [];
@@ -32,18 +33,8 @@ export class FamilyPage implements OnInit {
     private nativeStorage: NativeStorage) {}
 
   ngOnInit() {
-    if(!this.platform.is('cordova')) {
       this.user = this.authenticationService.getUser();
       this.loadFamily(this.user.userid);
-    } else {
-      this.nativeStorage.getItem('user')
-      .then( data => {
-        // user is previously logged and we have his data
-        // we will let him access the app
-        this.user = data;
-        this.loadFamily(this.user.userid)
-      }, error => {});
-    }
   }
 
   addFamilyCode(hash: string) {
@@ -58,6 +49,11 @@ export class FamilyPage implements OnInit {
   loadFamily(id: number) {
     this.familyService.getFamilysByUserId(id).subscribe(response => {
       this.family = response;
+      if(response[0].id){
+        this.loadFamilyMembers(response[0].id);
+      } else {
+        this.presentAlert('Success', 'You do not have any Familys yet, Create a Family to start...');
+      }
     }, error => {
           console.log(error.status);
           this.presentAlert('Success', error.status);
@@ -71,6 +67,11 @@ export class FamilyPage implements OnInit {
         buttons: ['OK']
       });
       await alert.present();
+    }
+
+    onChangeNewfam($event){
+      console.log($event.detail.value);
+      this.loadFamilyMembers($event.detail.value);
     }
 
   loadFamilyMembers(id: number) {
@@ -129,6 +130,25 @@ export class FamilyPage implements OnInit {
     const modal = await this.modalController.create({
       component: AddtofamilyModalComponent,
       componentProps: { family_id: id }
+    });
+    modal.onDidDismiss().then((d: any) => {
+      console.log('Hre is response from Modal: ', d);
+      this.loadFamily(this.user.userid);
+      // this.addToFamilyModal(d);
+    });
+    return await modal.present();
+  }
+
+  async addFamilyModal() {
+    console.log('openModal');
+    const modal = await this.modalController.create({
+      component: AddfamilyModalComponent,
+      componentProps: { userid: this.user.userid }
+    });
+    modal.onDidDismiss().then((d: any) => {
+      console.log('Hre is response from Modal: ', d);
+      this.loadFamily(this.user.userid);
+      // this.addToFamilyModal(d);
     });
     return await modal.present();
   }

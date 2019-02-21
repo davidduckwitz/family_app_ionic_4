@@ -15,35 +15,32 @@ export class AddtofamilyModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  async addToFamilyModal(id) {
-    console.log("openModal");
+  async addToFamilyModal(family_id) {
     const modal = await this.modalController.create({
       component: AddtofamilyModalComponent,
-      componentProps: { family_id: id }
+      componentProps: { family_id: family_id }
     });
     return await modal.present();
   }
 
   addToFamily(firstname: string, lastname: string, email: string){
-    this.familyService.addToFamily(firstname,lastname, email, this.family_id).subscribe(response => {
+    this.familyService.addToFamily(firstname, lastname, email, this.family_id).subscribe(response => {
       // dismissModal
-			}, error => {
+      }, error => {
           console.log(error.status);
           this.presentAlert('Success', error.status);
-			});
+      });
   }
-  
+
   async presentAlert(title: string, content: string) {
     const alert = await this.alertController.create({
     header: title,
         message: content,
         buttons: ['OK']
       });
-  
+
       await alert.present();
     }
-
-  
 
   dismissModal(){
     this.modalController.dismiss({

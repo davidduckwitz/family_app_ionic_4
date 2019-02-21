@@ -1,0 +1,27 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.davidduckwitz.familyapp"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.davidduckwitz.familyapp"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.davidduckwitz.familyapp"
+    },
+    "cordova-plugin-filepath": {
+      "PACKAGE_NAME": "com.davidduckwitz.familyapp"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.davidduckwitz.familyapp"
+    }
+  },
+  "dependent_plugins": {}
+}

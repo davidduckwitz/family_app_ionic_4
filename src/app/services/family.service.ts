@@ -39,6 +39,16 @@ export class FamilyService {
       .pipe(map((response: Object) => response));
   }
 
+  addFamily(firstname: string, userid: number) {
+    const params = new HttpParams()
+      .set('familyname', firstname)
+      .set('userid', userid.toString());
+
+    return this.httpClient
+      .post('http://familyapp.arina-web-innovations.online/api/v1/addfamily.php', params)
+      .pipe(map((response: Object) => response));
+  }
+
   addTamilyByHash(hash: string, user: number) {
     const params = new HttpParams()
       .set('code', hash)

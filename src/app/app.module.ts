@@ -22,6 +22,7 @@ import { FamilyModalComponent } from './components/family-modal/family-modal.com
 
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { AddtofamilyModalComponent } from './components/addtofamily-modal/addtofamily-modal.component';
+import { AddfamilyModalComponent } from './components/addfamily-modal/addfamily-modal.component';
 
 import { Camera } from '@ionic-native/Camera/ngx';
 import { File } from '@ionic-native/File/ngx';
@@ -31,23 +32,24 @@ import { ChatModalComponent } from './components/chat-modal/chat-modal.component
 import { EmojiPickerComponent } from './components/emoji-picker/emoji-picker.component';
 
 const config = {
-    apiKey: "AIzaSyAu7Kqpv1oFM6fFX3MATrZHUE_gARBiHHY",
-    authDomain: "myfamilyapp-84d63.firebaseapp.com",
-    databaseURL: "https://myfamilyapp-84d63.firebaseio.com",
-    projectId: "myfamilyapp-84d63",
-    storageBucket: "myfamilyapp-84d63.appspot.com",
-    messagingSenderId: "735730595325"
+    apiKey: 'AIzaSyAu7Kqpv1oFM6fFX3MATrZHUE_gARBiHHY',
+    authDomain: 'myfamilyapp-84d63.firebaseapp.com',
+    databaseURL: 'https://myfamilyapp-84d63.firebaseio.com',
+    projectId: 'myfamilyapp-84d63',
+    storageBucket: 'myfamilyapp-84d63.appspot.com',
+    messagingSenderId: '735730595325'
   };
 
 @NgModule({
   declarations: [
-    AppComponent, 
-    MenuItemComponent, 
-    FamilyModalComponent, 
-    AddtofamilyModalComponent, 
-    ChatModalComponent, 
+    AppComponent,
+    MenuItemComponent,
+    FamilyModalComponent,
+    AddtofamilyModalComponent,
+    AddfamilyModalComponent,
+    ChatModalComponent,
     EmojiPickerComponent],
-  entryComponents: [FamilyModalComponent, AddtofamilyModalComponent, ChatModalComponent],
+  entryComponents: [FamilyModalComponent, AddtofamilyModalComponent, AddfamilyModalComponent, ChatModalComponent],
   imports: [FormsModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [
     StatusBar,

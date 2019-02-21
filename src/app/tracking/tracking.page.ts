@@ -183,12 +183,12 @@ export class TrackingPage implements OnInit {
     family_locations: any =[
       {
         location: {
-          lat: 50.5824654, 
+          lat: 50.5824654,
           lng: 9.6261155}
       },
       {
         location: {
-          lat: 50.5824674, 
+          lat: 50.5824674,
           lng: 9.6261155}
       }
     ];
@@ -216,7 +216,7 @@ export class TrackingPage implements OnInit {
             this.location.lat = position.coords.latitude;
             this.location.lng = position.coords.longitude;
         });
-        
+
         /*Map options*/
         this.mapOptions = {
             center: this.location,
@@ -224,19 +224,9 @@ export class TrackingPage implements OnInit {
             mapTypeControl: true,
             styles: this.gmapstyles
         };
-
-        if(!this.platform.is('cordova')) {
-          this.user = this.authenticationService.getUser();
-        } else {
-          this.nativeStorage.getItem('user')
-          .then( data => {
-            // user is previously logged and we have his data
-            // we will let him access the app
-            this.user = data;
-          }, error => {});
-        }
     }
     ngOnInit(){
+      this.user = this.authenticationService.getUser();
         setTimeout(() => {
             this.initMap();
         }, 3000);
@@ -249,18 +239,19 @@ export class TrackingPage implements OnInit {
       this.markerOptions.map = this.map;
       this.markerOptions.title = 'My Location';
       // this.marker = new google.maps.Marker(this.markerOptions);
-      this.trackingService.getFamilyMemberLastPositions(1).subscribe(FamilyMemberLastPositions => {
+      this.trackingService.getFamilyMemberLastPositions(0, this.user.userid).subscribe(FamilyMemberLastPositions => {
         console.log(JSON.stringify(FamilyMemberLastPositions));
-        //const fam = JSON.stringify(FamilyMemberLastPositions);
+        // const fam = JSON.stringify(FamilyMemberLastPositions);
         const fam: any = FamilyMemberLastPositions;
         // Iterate trough my places / add marker & eventlistener
         for (let i = 0; i < fam.length; i++) {
           console.log('FAM', fam[i]);
-          this.addMarker(fam[i].location, 'http://familyapp.arina-web-innovations.online' + fam[i].user.image);
+          console.log(fam[i].image);
+          this.addMarker(fam[i].location, 'http://familyapp.arina-web-innovations.online' + fam[i].image);
         }
        });
         // Adds a marker at the center of the map.
-        this.addMarker(this.location, 'http://familyapp.arina-web-innovations.online' + this.user.image);
+        this.addMarker(this.location, 'http://familyapp.arina-web-innovations.online/assets/icon/gmaps_icon_big.png');
       }
 
       locate() {
@@ -273,21 +264,19 @@ export class TrackingPage implements OnInit {
           this.trackingService.setNewPosition(this.user.userid, this.user.image, encodedLoation, 1).subscribe(messages => {
            // console.log(encodedLoation);
           });
-          
 
-          if ((!this.map.getBounds().contains(this.location))) { // Note the double &  
-            this.map.setCenter(this.location);  
-            // OR map.panTo(marker.getPosition());  
+          if ((!this.map.getBounds().contains(this.location))) { // Note the double &
+            this.map.setCenter(this.location);
+            // OR map.panTo(marker.getPosition());
         }
-        
 
          }).catch((error) => {
            console.log('Error getting location', error);
          });
       }
 
-      bouncingListener(marker) {	
-        if(marker.bouncingMarker){
+      bouncingListener(marker) {
+        if(marker.bouncingMarker) {
           marker.bouncingMarker.setAnimation(null);
         }
         if(marker.bouncingMarker != this) {
@@ -305,22 +294,23 @@ export class TrackingPage implements OnInit {
         let image = {
           url: icon,
           // This marker is 20 pixels wide by 32 pixels high.
-          size: new google.maps.Size(50, 50),
+          size: new google.maps.Size(100, 100),
           // The origin for this image is (0, 0).
-          origin: new google.maps.Point(0, 0),
+          // origin: new google.maps.Point(0, 0),
           // The anchor for this image is the base of the flagpole at (0, 32).
-          anchor: new google.maps.Point(0, 32)
+          // anchor: new google.maps.Point(0, 80)
         };
         let shape = {
           coords: [1, 1, 1, 20, 18, 20, 18, 1],
           type: 'poly'
         };
 
-
+        let Myicon = new google.maps.MarkerImage(icon, null, null, null, new google.maps.Size(100, 100));
         let marker = new google.maps.Marker({
           position: location,
-          map: this.map
-
+          title: 'Snazzy!',
+          map: this.map,
+          icon: Myicon
         });
         // This event listener will call addMarker() when the map is clicked.
         marker.addListener('click', function(event) {
@@ -332,11 +322,11 @@ export class TrackingPage implements OnInit {
             this.bouncingListener(marker);
           }
         });
-        this.infoWindows.push(infowindow);         
-          this.bounds = new google.maps.LatLngBounds();	
+        this.infoWindows.push(infowindow);
+          this.bounds = new google.maps.LatLngBounds();
         this.markers.push(marker);
         this.showMarkers();
-        
+
       }
 
       // Sets the map on all markers in the array.
@@ -344,7 +334,7 @@ export class TrackingPage implements OnInit {
         for (let i = 0; i < this.markers.length; i++) {
           this.markers[i].setMap(this.map);
         }
-      }      
+      }
 
       // Removes the markers from the map, but keeps them in the array.
       clearMarkers() {

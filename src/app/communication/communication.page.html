@@ -5,13 +5,13 @@
 </ion-header>
 
 <ion-content>
-    <ion-item>
-        <ion-label>New Conversation</ion-label>
-        <ion-select #newConv placeholder="Select Familymember" (ionChange)="onChangeNewConv(newConv.value)">
-          <ion-select-option value="4">Arina Amirian</ion-select-option>
-          <ion-select-option value="1">Dave No. 1</ion-select-option>
-        </ion-select>
-      </ion-item>
+  <ion-item>
+    <ion-label>New Conversation</ion-label>
+    <ion-select #newConv placeholder="Select Familymember" (ionChange)="onChangeNewConv(newConv.value)" >
+      <ion-select-option value="4" >Arina Amirian</ion-select-option>
+      <ion-select-option value="1">Dave No. 1</ion-select-option>
+    </ion-select>
+  </ion-item>
   <ion-row>
     <ion-col>
       <ion-item (click)="chatModal(conversation.conversation_id, conversation.userid, currentUser.userid)" *ngFor="let conversation of conversations">
