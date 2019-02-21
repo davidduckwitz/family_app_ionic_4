@@ -34,16 +34,12 @@ export class ChatModalComponent implements OnInit {
     }
 
   ngOnInit() {
-    console.log('ConversationID: ' + this.conversation_id);
-    console.log('from: ' + this.user.userid);
-    console.log('to: ' + this.to_user_id);
     // get message list
     this.getMsg(this.conversation_id);
   }
 
   onFocus() {
     this.showEmojiPicker = false;
-    
     this.scrollToBottom();
   }
 

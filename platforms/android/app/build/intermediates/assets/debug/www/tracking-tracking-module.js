@@ -332,13 +332,10 @@ var TrackingPage = /** @class */ (function () {
         this.markerOptions.title = 'My Location';
         // this.marker = new google.maps.Marker(this.markerOptions);
         this.trackingService.getFamilyMemberLastPositions(0, this.user.userid).subscribe(function (FamilyMemberLastPositions) {
-            console.log(JSON.stringify(FamilyMemberLastPositions));
             // const fam = JSON.stringify(FamilyMemberLastPositions);
             var fam = FamilyMemberLastPositions;
             // Iterate trough my places / add marker & eventlistener
             for (var i = 0; i < fam.length; i++) {
-                console.log('FAM', fam[i]);
-                console.log(fam[i].image);
                 _this.addMarker(fam[i].location, 'http://familyapp.arina-web-innovations.online' + fam[i].image);
             }
         });
@@ -350,7 +347,6 @@ var TrackingPage = /** @class */ (function () {
         this.geolocation.getCurrentPosition().then(function (resp) {
             _this.location.lat = resp.coords.latitude;
             _this.location.lng = resp.coords.longitude;
-            console.log(_this.location.lat);
             var encodedLoation = JSON.stringify(_this.location);
             _this.trackingService.setNewPosition(_this.user.userid, _this.user.image, encodedLoation, 1).subscribe(function (messages) {
                 // console.log(encodedLoation);
@@ -380,15 +376,6 @@ var TrackingPage = /** @class */ (function () {
     // Adds a marker to the map and push to the array.
     TrackingPage.prototype.addMarker = function (location, icon) {
         var infowindow = new google.maps.InfoWindow();
-        var image = {
-            url: icon,
-            // This marker is 20 pixels wide by 32 pixels high.
-            size: new google.maps.Size(100, 100),
-        };
-        var shape = {
-            coords: [1, 1, 1, 20, 18, 20, 18, 1],
-            type: 'poly'
-        };
         var Myicon = new google.maps.MarkerImage(icon, null, null, null, new google.maps.Size(100, 100));
         var marker = new google.maps.Marker({
             position: location,
@@ -398,7 +385,6 @@ var TrackingPage = /** @class */ (function () {
         });
         // This event listener will call addMarker() when the map is clicked.
         marker.addListener('click', function (event) {
-            console.log(event);
             return function () {
                 // closeAllInfoWindows();
                 infowindow.setContent('loadInfoWindowContent(i, la, lo)');

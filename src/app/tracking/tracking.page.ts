@@ -240,13 +240,10 @@ export class TrackingPage implements OnInit {
       this.markerOptions.title = 'My Location';
       // this.marker = new google.maps.Marker(this.markerOptions);
       this.trackingService.getFamilyMemberLastPositions(0, this.user.userid).subscribe(FamilyMemberLastPositions => {
-        console.log(JSON.stringify(FamilyMemberLastPositions));
         // const fam = JSON.stringify(FamilyMemberLastPositions);
         const fam: any = FamilyMemberLastPositions;
         // Iterate trough my places / add marker & eventlistener
         for (let i = 0; i < fam.length; i++) {
-          console.log('FAM', fam[i]);
-          console.log(fam[i].image);
           this.addMarker(fam[i].location, 'http://familyapp.arina-web-innovations.online' + fam[i].image);
         }
        });
@@ -258,9 +255,7 @@ export class TrackingPage implements OnInit {
         this.geolocation.getCurrentPosition().then((resp) => {
           this.location.lat = resp.coords.latitude;
           this.location.lng = resp.coords.longitude;
-          console.log( this.location.lat);
-
-          let encodedLoation = JSON.stringify(this.location);
+          const encodedLoation = JSON.stringify(this.location);
           this.trackingService.setNewPosition(this.user.userid, this.user.image, encodedLoation, 1).subscribe(messages => {
            // console.log(encodedLoation);
           });
@@ -291,20 +286,6 @@ export class TrackingPage implements OnInit {
       // Adds a marker to the map and push to the array.
       addMarker(location, icon) {
         let infowindow = new google.maps.InfoWindow();
-        let image = {
-          url: icon,
-          // This marker is 20 pixels wide by 32 pixels high.
-          size: new google.maps.Size(100, 100),
-          // The origin for this image is (0, 0).
-          // origin: new google.maps.Point(0, 0),
-          // The anchor for this image is the base of the flagpole at (0, 32).
-          // anchor: new google.maps.Point(0, 80)
-        };
-        let shape = {
-          coords: [1, 1, 1, 20, 18, 20, 18, 1],
-          type: 'poly'
-        };
-
         let Myicon = new google.maps.MarkerImage(icon, null, null, null, new google.maps.Size(100, 100));
         let marker = new google.maps.Marker({
           position: location,
@@ -314,16 +295,15 @@ export class TrackingPage implements OnInit {
         });
         // This event listener will call addMarker() when the map is clicked.
         marker.addListener('click', function(event) {
-          console.log(event);
           return function () {
             // closeAllInfoWindows();
             infowindow.setContent('loadInfoWindowContent(i, la, lo)');
             infowindow.open(this.map, event);
             this.bouncingListener(marker);
-          }
+          };
         });
         this.infoWindows.push(infowindow);
-          this.bounds = new google.maps.LatLngBounds();
+        this.bounds = new google.maps.LatLngBounds();
         this.markers.push(marker);
         this.showMarkers();
 
@@ -351,5 +331,4 @@ export class TrackingPage implements OnInit {
         this.clearMarkers();
         this.markers = [];
       }
-
   }

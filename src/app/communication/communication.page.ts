@@ -21,8 +21,6 @@ export class CommunicationPage implements OnInit {
   private sub: any;
   loadingid: number;
 
-  
-
   constructor(private messagesService: MessagesService,
                 private authenticationService: AuthenticationService,
                 public modalController: ModalController,
@@ -30,8 +28,7 @@ export class CommunicationPage implements OnInit {
                 private activatedRoute: ActivatedRoute,
                 private platform: Platform,
                 private nativeStorage: NativeStorage,
-                ) {
-                  }
+                ) { }
   ngOnInit() {
     this.currentUser = this.authenticationService.getUser();
     this.getConversationsByUserId(this.currentUser.userid);

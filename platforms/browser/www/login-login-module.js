@@ -200,7 +200,6 @@ var LoginPage = /** @class */ (function () {
         this.authenticationService.loginV1(email, password)
             .subscribe(function (response) {
             if (response['status'] === 1) {
-                console.log(response['message']);
                 _this.presentAlert('Success', response['message']);
                 var user = {
                     name: response['username'],
@@ -215,7 +214,6 @@ var LoginPage = /** @class */ (function () {
                 _this.router.navigate(['/user']);
             }
             else {
-                console.log(response['message']);
                 _this.presentAlert('Danger', response['message']);
             }
         }, function (error) {
@@ -224,7 +222,6 @@ var LoginPage = /** @class */ (function () {
         });
     };
     LoginPage.prototype.devloginV1 = function (email, password) {
-        console.log(email, password);
         this.loginV1(email, password);
         this.router.navigate(['/user']);
     };
@@ -255,15 +252,6 @@ var LoginPage = /** @class */ (function () {
                     case 0: return [4 /*yield*/, loading.present()];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
-            });
-        });
-    };
-    LoginPage.prototype.login = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                console.log('Login');
-                this.router.navigate(['/user']);
-                return [2 /*return*/];
             });
         });
     };

@@ -63,7 +63,7 @@ var FamilyPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header translucent=\"\" class=\"header header-ios header-translucent header-translucent-ios hydrated\">\n  <ion-toolbar class=\"hydrated\">\n    <ion-title class=\"title-ios hydrated\">Family</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<!-- Tab bar -->\n<ion-tab-bar slot=\"start\">  \n  <ion-tab-button tab=\"person-add\" *ngIf=\"SelectedFamily > 0\" (click)=\"openAddMemberModal(SelectedFamily)\">\n    <ion-icon style=\"height: 20px;\" name=\"person-add\"></ion-icon>\n      Familienmitglied hinzufügen\n  </ion-tab-button>\n  <ion-tab-button tab=\"add-family\" (click)=\"addFamilyModal()\">\n    <ion-icon style=\"height: 20px;\" name=\"person-add\"></ion-icon>\n     Neue Familie\n  </ion-tab-button>\n  <ion-tab-button tab=\"locate\" (click)=\"locate()\">\n    <ion-icon name=\"pin\"></ion-icon>\n    Position Senden<br>\n    {{ Mylocation }}\n  </ion-tab-button>\n  <ion-tab-button tab=\"settings\" [routerLink]=\"['/settings']\">\n    <ion-icon name=\"settings\"></ion-icon>\n    Familien Einstellungen\n  </ion-tab-button>\n</ion-tab-bar>\n\n<!-- Segment in a toolbar -->\n<ion-toolbar>\n        <ion-row>\n        <ion-col col-4>\n           <!-- Enter Code -->\n           <ion-input type=\"text\" placeholder=\"Family Code eingeben\" #familycode></ion-input>\n           <ion-button (click)=\"addFamilyCode(familycode.value)\">ENTER Family Code</ion-button>           \n           <ion-select #newFam placeholder=\"Select Your Family\" (ionChange)=\"onChangeNewfam($event)\">\n              <ion-select-option [value]=\"group.id\" *ngFor=\"let group of family\">\n\n                <span *ngIf=\"group.invite !== 'true'\">\n                  {{ group.name }} (CODE: {{ group.hash }})\n                </span>\n                <span *ngIf=\"group.invite === 'true'\">\n                  {{ group.name }} \n                </span>\n\n              </ion-select-option>                           \n            </ion-select>\n        </ion-col>\n        <ion-col col-8>\n          Family Quickselect                      \n          <button ion-button *ngFor=\"let group of family; let i = index\"  (click)=\"loadFamilyMembers(group.id)\">{{ i + 1 }}</button>           \n          <!-- Searchbar with value -->\n          <ion-searchbar value=\"Name\"></ion-searchbar>\n          <span *ngIf=\"familymembers.length === 0\">\n              <p>Add a member to your Family</p>\n              <p>\n                <ion-button tab=\"person-add\" *ngIf=\"SelectedFamily > 0\" (click)=\"openAddMemberModal(SelectedFamily)\">\n                  <ion-icon style=\"height: 20px;\" name=\"person-add\"></ion-icon>\n                    Familienmitglied hinzufügen\n                </ion-button>\n              </p>\n            </span>\n          <ion-item ion-button class=\"hydrated\" (click)=\"openModal(member)\" *ngFor=\"let member of familymembers\" detail>              \n              \n              <ion-avatar slot=\"start\" class=\"hydrated\">\n                <img [src]=\"member.image\" >              \n              </ion-avatar>\n              <ion-label class=\"sc-ion-label-md-h sc-ion-label-md-s hydrated\">\n                <h2>{{ member.firstname }} {{ member.lastname }}</h2>            \n              </ion-label> \n              \n          </ion-item>    \n        </ion-col>\n        </ion-row>\n</ion-toolbar>\n\n<ion-content padding>\n  <ion-row>  \n       \n  </ion-row>\n</ion-content>\n  <!-- Tab bar -->\n  <ion-tab-bar slot=\"bottom\" class=\"tbs-10\" style=\"max-height: 10%;\">\n    <ion-tab-button tab=\"dashboard\" [routerLink]=\"['/user']\"> \n      <img src=\"/assets/icon/mypage.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"account\" [routerLink]=\"['/family']\">\n      <img src=\"/assets/icon/family_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"contact\" [routerLink]=\"['/communication']\">\n      <img src=\"/assets/icon/communication_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"calendar\" [routerLink]=\"['/calendar']\">\n      <img src=\"/assets/icon/calendar_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"tracking\" [routerLink]=\"['/tracking']\">\n      <img src=\"/assets/icon/tracking2_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"settings\" [routerLink]=\"['/settings']\">\n      <img src=\"/assets/icon/settings_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n  </ion-tab-bar>\n"
+module.exports = "<ion-header translucent=\"\" class=\"header header-ios header-translucent header-translucent-ios hydrated\">\n  <ion-toolbar class=\"hydrated\">\n    <ion-title class=\"title-ios hydrated\">Family</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<!-- Tab bar -->\n<ion-tab-bar slot=\"start\">  \n  <ion-tab-button tab=\"person-add\" *ngIf=\"SelectedFamily > 0\" (click)=\"openAddMemberModal(SelectedFamily)\">\n    <ion-icon style=\"height: 20px;\" name=\"person-add\"></ion-icon>\n      Familienmitglied hinzufügen\n  </ion-tab-button>\n  <ion-tab-button tab=\"add-family\" (click)=\"addFamilyModal()\">\n    <ion-icon style=\"height: 20px;\" name=\"person-add\"></ion-icon>\n     Neue Familie\n  </ion-tab-button>\n  <ion-tab-button tab=\"locate\" (click)=\"locate()\">\n    <ion-icon name=\"pin\"></ion-icon>\n    Position Senden<br>\n    {{ Mylocation }}\n  </ion-tab-button>\n  <ion-tab-button tab=\"settings\" [routerLink]=\"['/settings']\">\n    <ion-icon name=\"settings\"></ion-icon>\n    Familien Einstellungen\n  </ion-tab-button>\n</ion-tab-bar>\n\n<!-- Segment in a toolbar -->\n<ion-toolbar>\n        <ion-row>\n        <ion-col col-4>\n           <!-- Enter Code -->\n           <ion-input type=\"text\" placeholder=\"Family Code eingeben\" #familycode></ion-input>\n           <ion-button (click)=\"addFamilyCode(familycode.value)\">ENTER Family Code</ion-button>           \n           <ion-select #newFam placeholder=\"Select Your Family\" (ionChange)=\"onChangeNewfam($event)\">\n              <ion-select-option [value]=\"group.id\" *ngFor=\"let group of family\">\n\n                <span *ngIf=\"group.invite !== 'true'\">\n                  {{ group.name }} (CODE: {{ group.hash }})\n                </span>\n                <span *ngIf=\"group.invite === 'true'\">\n                  {{ group.name }} \n                </span>\n\n              </ion-select-option>                           \n            </ion-select>\n        </ion-col>\n        <ion-col col-8>\n          Family Quickselect                      \n          <button ion-button color=\"warning\" *ngFor=\"let group of family; let i = index\"  (click)=\"loadFamilyMembers(group.id)\">{{ i + 1 }}</button>           \n          <!-- Searchbar with value -->\n          <ion-searchbar value=\"Name\"></ion-searchbar>\n          <span *ngIf=\"familymembers.length === 0\">\n              <p>Add a member to your Family</p>\n              <p>\n                <ion-button tab=\"person-add\" *ngIf=\"SelectedFamily > 0\" (click)=\"openAddMemberModal(SelectedFamily)\">\n                  <ion-icon style=\"height: 20px;\" name=\"person-add\"></ion-icon>\n                    Familienmitglied hinzufügen\n                </ion-button>\n              </p>\n            </span>\n          <ion-item ion-button class=\"hydrated\" (click)=\"openModal(member)\" *ngFor=\"let member of familymembers\" detail>              \n              \n              <ion-avatar slot=\"start\" class=\"hydrated\">\n                <img [src]=\"member.image\" >              \n              </ion-avatar>\n              <ion-label class=\"sc-ion-label-md-h sc-ion-label-md-s hydrated\">\n                <h2>{{ member.firstname }} {{ member.lastname }}</h2>            \n              </ion-label> \n              \n          </ion-item>    \n        </ion-col>\n        </ion-row>\n</ion-toolbar>\n\n<ion-content padding>\n  <ion-row>  \n       \n  </ion-row>\n</ion-content>\n  <!-- Tab bar -->\n  <ion-tab-bar slot=\"bottom\" class=\"tbs-10\" style=\"max-height: 10%;\">\n    <ion-tab-button tab=\"dashboard\" [routerLink]=\"['/user']\"> \n      <img src=\"/assets/icon/mypage.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"account\" [routerLink]=\"['/family']\">\n      <img src=\"/assets/icon/family_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"contact\" [routerLink]=\"['/communication']\">\n      <img src=\"/assets/icon/communication_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"calendar\" [routerLink]=\"['/calendar']\">\n      <img src=\"/assets/icon/calendar_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"tracking\" [routerLink]=\"['/tracking']\">\n      <img src=\"/assets/icon/tracking2_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"settings\" [routerLink]=\"['/settings']\">\n      <img src=\"/assets/icon/settings_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n  </ion-tab-bar>\n"
 
 /***/ }),
 
@@ -217,7 +217,6 @@ var FamilyPage = /** @class */ (function () {
         });
     };
     FamilyPage.prototype.onChangeNewfam = function ($event) {
-        console.log($event.detail.value);
         this.loadFamilyMembers($event.detail.value);
     };
     FamilyPage.prototype.loadFamilyMembers = function (id) {
@@ -233,10 +232,8 @@ var FamilyPage = /** @class */ (function () {
     FamilyPage.prototype.locate = function () {
         var _this = this;
         this.geolocation.getCurrentPosition().then(function (resp) {
-            _this.Mylocation = 'lat' + resp.coords.latitude + '- long' + resp.coords.longitude;
             _this.Mylocation.lat = resp.coords.latitude;
             _this.Mylocation.lng = resp.coords.longitude;
-            console.log('lat' + resp.coords.latitude + '- long' + resp.coords.longitude);
             var encodedLoation = JSON.stringify(_this.Mylocation);
             _this.trackingService.setNewPosition(_this.user.userid, _this.user.image, encodedLoation, _this.SelectedFamily)
                 .subscribe(function (messages) {
@@ -245,7 +242,6 @@ var FamilyPage = /** @class */ (function () {
             });
         }).catch(function (error) {
             _this.presentAlert('danger', 'Error getting location' + error.status);
-            console.log('Error getting location', error);
         });
     };
     FamilyPage.prototype.openModal = function (value) {
@@ -259,12 +255,10 @@ var FamilyPage = /** @class */ (function () {
             var modal;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        console.log('openModal');
-                        return [4 /*yield*/, this.modalController.create({
-                                component: _components_family_modal_family_modal_component__WEBPACK_IMPORTED_MODULE_3__["FamilyModalComponent"],
-                                componentProps: { value: value, currentuserId: this.user.userid }
-                            })];
+                    case 0: return [4 /*yield*/, this.modalController.create({
+                            component: _components_family_modal_family_modal_component__WEBPACK_IMPORTED_MODULE_3__["FamilyModalComponent"],
+                            componentProps: { value: value, currentuserId: this.user.userid }
+                        })];
                     case 1:
                         modal = _a.sent();
                         return [4 /*yield*/, modal.present()];
@@ -279,16 +273,13 @@ var FamilyPage = /** @class */ (function () {
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        console.log('openModal');
-                        return [4 /*yield*/, this.modalController.create({
-                                component: _components_addtofamily_modal_addtofamily_modal_component__WEBPACK_IMPORTED_MODULE_4__["AddtofamilyModalComponent"],
-                                componentProps: { family_id: id }
-                            })];
+                    case 0: return [4 /*yield*/, this.modalController.create({
+                            component: _components_addtofamily_modal_addtofamily_modal_component__WEBPACK_IMPORTED_MODULE_4__["AddtofamilyModalComponent"],
+                            componentProps: { family_id: id }
+                        })];
                     case 1:
                         modal = _a.sent();
                         modal.onDidDismiss().then(function (d) {
-                            console.log('Hre is response from Modal: ', d);
                             _this.loadFamily(_this.user.userid);
                             // this.addToFamilyModal(d);
                         });
@@ -304,16 +295,13 @@ var FamilyPage = /** @class */ (function () {
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        console.log('openModal');
-                        return [4 /*yield*/, this.modalController.create({
-                                component: _components_addfamily_modal_addfamily_modal_component__WEBPACK_IMPORTED_MODULE_5__["AddfamilyModalComponent"],
-                                componentProps: { userid: this.user.userid }
-                            })];
+                    case 0: return [4 /*yield*/, this.modalController.create({
+                            component: _components_addfamily_modal_addfamily_modal_component__WEBPACK_IMPORTED_MODULE_5__["AddfamilyModalComponent"],
+                            componentProps: { userid: this.user.userid }
+                        })];
                     case 1:
                         modal = _a.sent();
                         modal.onDidDismiss().then(function (d) {
-                            console.log('Hre is response from Modal: ', d);
                             _this.loadFamily(_this.user.userid);
                             // this.addToFamilyModal(d);
                         });

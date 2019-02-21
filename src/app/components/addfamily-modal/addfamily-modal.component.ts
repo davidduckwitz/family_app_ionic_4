@@ -27,13 +27,11 @@ export class AddfamilyModalComponent implements OnInit {
   addFamily(familyname: string){
     this.familyService.addFamily(familyname, this.userid).subscribe(response => {
       // dismissModal
-      console.log(response['family_id']);
       if (response['family_id']){
         this.family_id = response['family_id'];
       } else {
         this.presentAlert('ERROR', 'Family Not created');
       }
-      
     }, error => {
           console.log(error.status);
           this.presentAlert('Success', error.status);

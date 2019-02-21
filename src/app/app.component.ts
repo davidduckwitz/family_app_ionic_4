@@ -6,6 +6,7 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 // import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { MenuController, AlertController } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AuthenticationService } from './services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent {
   ActualPage = '';
+  currentUser: any;
   pages = [
     {
       title: 'Dashboard',
@@ -49,10 +51,9 @@ export class AppComponent {
     private nativeStorage: NativeStorage,
     public menuCtrl: MenuController,
     private router: Router,    
-    public alertCtrl: AlertController
-  ) {
-    this.initializeApp();
-  }
+    public alertCtrl: AlertController,
+    private authenticationService: AuthenticationService
+  ) { }
 
   ngOnInit() {
     this.router.events.subscribe((event: RouterEvent) => {
@@ -60,19 +61,16 @@ export class AppComponent {
         this.pages.map( p => {
 
           this.ActualPage = event.url;
-          if(this.ActualPage === "/home" || this.ActualPage === "/login" || this.ActualPage === "/register"){
+          if(this.ActualPage === '/home' || this.ActualPage === '/login' || this.ActualPage === '/register') {
             this.menuCtrl.enable(false);
-            console.log("NOT Show Menu");
           } else {
             this.menuCtrl.enable(true);
-            console.log("Show Menu");
           }
-
           return p['active'] = (event.url === p.url);
         });
       }
-     
     });
+    this.initializeApp();
   }
 
   toggleMenu(){
@@ -81,27 +79,19 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      //Here we will check if the user is already logged in
-      //because we don't want to ask users to log in each time they open the app
-      this.nativeStorage.getItem('user')
-      .then( data => {
-        //user is previously logged and we have his data
-        //we will let him access the app
-        this.router.navigate(["/user"]);
-        //this.initPushNotification();
-        this.splashScreen.hide();
-      }, err => {
-        this.router.navigate(["/home"]);
-        this.splashScreen.hide();
-      })
       this.statusBar.styleDefault();
+      this.currentUser = this.authenticationService.getUser();
+      if (this.currentUser !== null ) {
+        if (this.currentUser.userid ) {
+          this.router.navigate(['/user']);
+        }
+      }
+
     });
   }
 
   saveDeviceToken(t) {
-    this.nativeStorage.setItem('fcmtoken',{'token': t});
     localStorage.setItem('fcmtoken', t);
+  }
 
-}
-  
 }

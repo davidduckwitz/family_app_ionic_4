@@ -47,7 +47,7 @@
         </ion-col>
         <ion-col col-8>
           Family Quickselect                      
-          <button ion-button class="warning" *ngFor="let group of family; let i = index"  (click)="loadFamilyMembers(group.id)">{{ i + 1 }}</button>           
+          <button ion-button color="warning" *ngFor="let group of family; let i = index"  (click)="loadFamilyMembers(group.id)">{{ i + 1 }}</button>           
           <!-- Searchbar with value -->
           <ion-searchbar value="Name"></ion-searchbar>
           <span *ngIf="familymembers.length === 0">

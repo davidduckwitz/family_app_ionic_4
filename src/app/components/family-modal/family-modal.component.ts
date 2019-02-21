@@ -10,7 +10,7 @@ import { ModalController } from '@ionic/angular';
 export class FamilyModalComponent implements OnInit {
 
   // "value" passed in componentProps
-  @Input() value: string;
+  @Input() value: any;
   @Input() currentuserId: number;
 
   constructor(navParams: NavParams, public modalController: ModalController) {

@@ -49,7 +49,7 @@ export class FamilyPage implements OnInit {
   loadFamily(id: number) {
     this.familyService.getFamilysByUserId(id).subscribe(response => {
       this.family = response;
-      if(response[0].id){
+      if (response[0].id){
         this.loadFamilyMembers(response[0].id);
       } else {
         this.presentAlert('Success', 'You do not have any Familys yet, Create a Family to start...');
@@ -69,8 +69,7 @@ export class FamilyPage implements OnInit {
       await alert.present();
     }
 
-    onChangeNewfam($event){
-      console.log($event.detail.value);
+    onChangeNewfam($event) {
       this.loadFamilyMembers($event.detail.value);
     }
 
@@ -86,10 +85,8 @@ export class FamilyPage implements OnInit {
 
   locate() {
     this.geolocation.getCurrentPosition().then((resp) => {
-      this.Mylocation = 'lat' + resp.coords.latitude + '- long' + resp.coords.longitude;
       this.Mylocation.lat = resp.coords.latitude;
-          this.Mylocation.lng = resp.coords.longitude;
-      console.log('lat' + resp.coords.latitude + '- long' + resp.coords.longitude);
+      this.Mylocation.lng = resp.coords.longitude;
       let encodedLoation = JSON.stringify(this.Mylocation);
           this.trackingService.setNewPosition(
             this.user.userid,
@@ -102,7 +99,6 @@ export class FamilyPage implements OnInit {
           });
      }).catch((error) => {
       this.presentAlert('danger', 'Error getting location' + error.status);
-       console.log('Error getting location', error);
      });
   }
 
@@ -116,7 +112,6 @@ export class FamilyPage implements OnInit {
 
 
   async familyModal(value: any) {
-    console.log('openModal');
     const modal = await this.modalController.create({
       component: FamilyModalComponent,
       componentProps: { value: value, currentuserId: this.user.userid }
@@ -126,13 +121,11 @@ export class FamilyPage implements OnInit {
   }
 
   async addToFamilyModal(id: number) {
-    console.log('openModal');
     const modal = await this.modalController.create({
       component: AddtofamilyModalComponent,
       componentProps: { family_id: id }
     });
     modal.onDidDismiss().then((d: any) => {
-      console.log('Hre is response from Modal: ', d);
       this.loadFamily(this.user.userid);
       // this.addToFamilyModal(d);
     });
@@ -140,13 +133,11 @@ export class FamilyPage implements OnInit {
   }
 
   async addFamilyModal() {
-    console.log('openModal');
     const modal = await this.modalController.create({
       component: AddfamilyModalComponent,
       componentProps: { userid: this.user.userid }
     });
     modal.onDidDismiss().then((d: any) => {
-      console.log('Hre is response from Modal: ', d);
       this.loadFamily(this.user.userid);
       // this.addToFamilyModal(d);
     });

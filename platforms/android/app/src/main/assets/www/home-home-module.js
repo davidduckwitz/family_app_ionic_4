@@ -62,7 +62,7 @@ var HomePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      Welcome to Family App \n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"login-content\" padding>\n  <ion-row>\n    <ion-col>\n      <h1 class=\"logo\">FAMILY APP</h1>      \n      <p class=\"description\">Courtesy of <a href=\"https://davidduckwitz.de\" target=\"_blank\">David Duckwitz</a> & Arina ;)</p>\n    </ion-col>\n  </ion-row>\n  <ion-row>\n      <ion-col>\n        <ion-button class=\"log-in-button\" color=\"danger\" expand=\"block\" [routerLink]=\"['/login']\">\n          START\n        </ion-button>\n      </ion-col>\n    </ion-row>\n  <ion-row>\n  <ion-slides pager=\"true\" [options]=\"slideOpts\" style=\"height:60%;\">\n      <ion-slide>          \n        <img style=\"max-height: 40%; max-width:100%; overflow: hidden;\" src=\"/assets/images/arina.jpg\">\n      </ion-slide>\n      <ion-slide>\n          <img src=\"https://via.placeholder.com/300x300?text=I+Love+Arina+Amirian\">\n      </ion-slide>\n      <ion-slide>\n          <img style=\"max-height: 40%;\" src=\"/assets/images/dave.png\">\n      </ion-slide>\n    </ion-slides>\n  </ion-row>\n  <ion-row>\n    <ion-col>\n      <ion-button class=\"log-in-button\" color=\"danger\" expand=\"block\" [routerLink]=\"['/login']\">\n        START\n      </ion-button>\n    </ion-col>\n  </ion-row>\n</ion-content>\n"
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      Welcome to Family App \n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"login-content\" padding>\n  <ion-row>\n    <ion-col>\n      <h1 class=\"logo\">FAMILY APP</h1>      \n      <p class=\"description\">Courtesy of <a href=\"https://davidduckwitz.de\" target=\"_blank\">David Duckwitz</a> & Arina ;)</p>\n    </ion-col>\n  </ion-row>\n  <ion-row>\n      <ion-col>\n        <ion-button class=\"log-in-button\" color=\"danger\" expand=\"block\" [routerLink]=\"['/login']\">\n          START\n        </ion-button>\n      </ion-col>\n    </ion-row>\n  <ion-row>\n  <ion-slides pager=\"true\" [options]=\"slideOpts\" style=\"height:60%;\">\n      <ion-slide>          \n        <img style=\"max-height: 60% !important; max-width:100%; overflow: hidden;\" src=\"/assets/images/arina.jpg\">\n      </ion-slide>\n      <ion-slide>\n          <img src=\"https://via.placeholder.com/300x300?text=I+Love+Arina+Amirian\">\n      </ion-slide>\n      <ion-slide>\n          <img style=\"max-height: 60% !important;\" src=\"/assets/images/dave.png\">\n      </ion-slide>\n    </ion-slides>\n  </ion-row>\n  <ion-row>\n    <ion-col>\n      <ion-button class=\"log-in-button\" color=\"danger\" expand=\"block\" [routerLink]=\"['/login']\">\n        START\n      </ion-button>\n    </ion-col>\n  </ion-row>\n</ion-content>\n"
 
 /***/ }),
 
@@ -115,28 +115,7 @@ var HomePage = /** @class */ (function () {
             effect: 'flip'
         };
     }
-    HomePage.prototype.ngOnInit = function () {
-        /*this.nativeStorage.setItem('user', {
-          name: "dave",
-          email: "davidduckwitz@googlemail.com",
-          picture: "data.picture"
-        });*/
-    };
-    HomePage.prototype.checkLogIn = function () {
-        var _this = this;
-        this.platform.ready().then(function () {
-            // Here we will check if the user is already logged in
-            // because we don't want to ask users to log in each time they open the app
-            _this.nativeStorage.getItem('user')
-                .then(function (data) {
-                // user is previously logged and we have his data
-                // we will let him access the app
-                _this.router.navigate(['/user']);
-            }, function (error) {
-                _this.router.navigate(['/home']);
-            });
-        });
-    };
+    HomePage.prototype.ngOnInit = function () { };
     HomePage = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-home',

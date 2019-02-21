@@ -1672,6 +1672,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/authentication.service */ "./src/app/services/authentication.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1689,10 +1690,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 // import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
 
+
 var AppComponent = /** @class */ (function () {
     function AppComponent(
     // public push: Push,
-    platform, splashScreen, statusBar, nativeStorage, menuCtrl, router, alertCtrl) {
+    platform, splashScreen, statusBar, nativeStorage, menuCtrl, router, alertCtrl, authenticationService) {
         this.platform = platform;
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
@@ -1700,6 +1702,7 @@ var AppComponent = /** @class */ (function () {
         this.menuCtrl = menuCtrl;
         this.router = router;
         this.alertCtrl = alertCtrl;
+        this.authenticationService = authenticationService;
         this.ActualPage = '';
         this.pages = [
             {
@@ -1727,7 +1730,6 @@ var AppComponent = /** @class */ (function () {
                 url: '/settings'
             }
         ];
-        this.initializeApp();
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1735,18 +1737,17 @@ var AppComponent = /** @class */ (function () {
             if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_3__["NavigationEnd"]) {
                 _this.pages.map(function (p) {
                     _this.ActualPage = event.url;
-                    if (_this.ActualPage === "/home" || _this.ActualPage === "/login" || _this.ActualPage === "/register") {
+                    if (_this.ActualPage === '/home' || _this.ActualPage === '/login' || _this.ActualPage === '/register') {
                         _this.menuCtrl.enable(false);
-                        console.log("NOT Show Menu");
                     }
                     else {
                         _this.menuCtrl.enable(true);
-                        console.log("Show Menu");
                     }
                     return p['active'] = (event.url === p.url);
                 });
             }
         });
+        this.initializeApp();
     };
     AppComponent.prototype.toggleMenu = function () {
         this.menuCtrl.toggle();
@@ -1754,24 +1755,16 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.initializeApp = function () {
         var _this = this;
         this.platform.ready().then(function () {
-            //Here we will check if the user is already logged in
-            //because we don't want to ask users to log in each time they open the app
-            _this.nativeStorage.getItem('user')
-                .then(function (data) {
-                //user is previously logged and we have his data
-                //we will let him access the app
-                _this.router.navigate(["/user"]);
-                //this.initPushNotification();
-                _this.splashScreen.hide();
-            }, function (err) {
-                _this.router.navigate(["/home"]);
-                _this.splashScreen.hide();
-            });
             _this.statusBar.styleDefault();
+            _this.currentUser = _this.authenticationService.getUser();
+            if (_this.currentUser !== null) {
+                if (_this.currentUser.userid) {
+                    _this.router.navigate(['/user']);
+                }
+            }
         });
     };
     AppComponent.prototype.saveDeviceToken = function (t) {
-        this.nativeStorage.setItem('fcmtoken', { 'token': t });
         localStorage.setItem('fcmtoken', t);
     };
     AppComponent = __decorate([
@@ -1785,7 +1778,8 @@ var AppComponent = /** @class */ (function () {
             _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_4__["NativeStorage"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["MenuController"],
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["AlertController"]])
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["AlertController"],
+            _services_authentication_service__WEBPACK_IMPORTED_MODULE_6__["AuthenticationService"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -2023,7 +2017,6 @@ var AddfamilyModalComponent = /** @class */ (function () {
         var _this = this;
         this.familyService.addFamily(familyname, this.userid).subscribe(function (response) {
             // dismissModal
-            console.log(response['family_id']);
             if (response['family_id']) {
                 _this.family_id = response['family_id'];
             }
@@ -2308,9 +2301,6 @@ var ChatModalComponent = /** @class */ (function () {
         this.user = this.authenticationService.getUser();
     }
     ChatModalComponent.prototype.ngOnInit = function () {
-        console.log('ConversationID: ' + this.conversation_id);
-        console.log('from: ' + this.user.userid);
-        console.log('to: ' + this.to_user_id);
         // get message list
         this.getMsg(this.conversation_id);
     };

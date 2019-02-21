@@ -58,7 +58,6 @@ export class LoginPage {
       .subscribe(response => {
 
         if (response['status'] === 1) {
-          console.log(response['message']);
           this.presentAlert('Success', response['message']);
           const user = {
             name: response['username'],
@@ -72,7 +71,6 @@ export class LoginPage {
             this.authenticationService.setUser(user);
             this.router.navigate(['/user']);
         } else {
-        console.log(response['message']);
         this.presentAlert('Danger', response['message']);
         }
       }, error => {
@@ -82,7 +80,6 @@ export class LoginPage {
   }
 
   devloginV1(email: string, password: string) {
-    console.log(email, password);
     this.loginV1(email, password);
     this.router.navigate(['/user']);
   }
@@ -98,11 +95,6 @@ export class LoginPage {
 
   async presentLoading(loading) {
     return await loading.present();
-  }
-
-  async login() {
-    console.log('Login');
-    this.router.navigate(['/user']);
   }
 
 }
