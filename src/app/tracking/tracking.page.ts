@@ -180,7 +180,7 @@ export class TrackingPage implements OnInit {
       ]
     }
   ];
-    family_locations: any =[
+    family_locations: any = [
       {
         location: {
           lat: 50.5824654,
@@ -225,7 +225,7 @@ export class TrackingPage implements OnInit {
             styles: this.gmapstyles
         };
     }
-    ngOnInit(){
+    ngOnInit() {
       this.user = this.authenticationService.getUser();
         setTimeout(() => {
             this.initMap();
@@ -271,23 +271,23 @@ export class TrackingPage implements OnInit {
       }
 
       bouncingListener(marker) {
-        if(marker.bouncingMarker) {
+        if (marker.bouncingMarker) {
           marker.bouncingMarker.setAnimation(null);
         }
-        if(marker.bouncingMarker != this) {
+        if (marker.bouncingMarker !== this) {
           marker.setAnimation(google.maps.Animation.BOUNCE);
           marker.bouncingMarker = this;
         } else {
           marker.bouncingMarker = null;
         }
           console.log('Bouncing of Marker analyzed: Function "bouncingListener"');
-      };
+      }
 
       // Adds a marker to the map and push to the array.
       addMarker(location, icon) {
-        let infowindow = new google.maps.InfoWindow();
-        let Myicon = new google.maps.MarkerImage(icon, null, null, null, new google.maps.Size(100, 100));
-        let marker = new google.maps.Marker({
+        const infowindow = new google.maps.InfoWindow();
+        const Myicon = new google.maps.MarkerImage(icon, null, null, null, new google.maps.Size(100, 100));
+        const marker = new google.maps.Marker({
           position: location,
           title: 'Snazzy!',
           map: this.map,

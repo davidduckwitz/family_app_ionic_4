@@ -49,7 +49,7 @@ export class FamilyPage implements OnInit {
   loadFamily(id: number) {
     this.familyService.getFamilysByUserId(id).subscribe(response => {
       this.family = response;
-      if (response[0].id){
+      if (response[0].id) {
         this.loadFamilyMembers(response[0].id);
       } else {
         this.presentAlert('Success', 'You do not have any Familys yet, Create a Family to start...');
@@ -87,7 +87,7 @@ export class FamilyPage implements OnInit {
     this.geolocation.getCurrentPosition().then((resp) => {
       this.Mylocation.lat = resp.coords.latitude;
       this.Mylocation.lng = resp.coords.longitude;
-      let encodedLoation = JSON.stringify(this.Mylocation);
+      const encodedLoation = JSON.stringify(this.Mylocation);
           this.trackingService.setNewPosition(
             this.user.userid,
             this.user.image,

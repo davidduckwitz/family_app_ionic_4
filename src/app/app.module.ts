@@ -50,7 +50,7 @@ const config = {
     ChatModalComponent,
     EmojiPickerComponent],
   entryComponents: [FamilyModalComponent, AddtofamilyModalComponent, AddfamilyModalComponent, ChatModalComponent],
-  imports: [FormsModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  imports: [FormsModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [
     StatusBar,
     SplashScreen,

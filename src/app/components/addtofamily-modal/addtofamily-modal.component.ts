@@ -10,7 +10,7 @@ import { FamilyService } from '../../services/family.service';
 })
 export class AddtofamilyModalComponent implements OnInit {
   @Input() family_id: number;
-  constructor(public alertController:AlertController, public modalController: ModalController, private familyService: FamilyService) { }
+  constructor(public alertController: AlertController, public modalController: ModalController, private familyService: FamilyService) { }
 
   ngOnInit() {
   }
@@ -23,7 +23,7 @@ export class AddtofamilyModalComponent implements OnInit {
     return await modal.present();
   }
 
-  addToFamily(firstname: string, lastname: string, email: string){
+  addToFamily(firstname: string, lastname: string, email: string) {
     this.familyService.addToFamily(firstname, lastname, email, this.family_id).subscribe(response => {
       // dismissModal
       }, error => {
@@ -42,10 +42,10 @@ export class AddtofamilyModalComponent implements OnInit {
       await alert.present();
     }
 
-  dismissModal(){
+  dismissModal() {
     this.modalController.dismiss({
       'result': this.family_id
-    })
+    });
   }
 
 }

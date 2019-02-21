@@ -11,7 +11,7 @@ import { FamilyService } from '../../services/family.service';
 export class AddfamilyModalComponent implements OnInit {
   @Input() userid: number;
   family_id: number;
-  constructor(public alertController:AlertController, public modalController: ModalController, private familyService: FamilyService) { }
+  constructor(public alertController: AlertController, public modalController: ModalController, private familyService: FamilyService) { }
 
   ngOnInit() {
   }
@@ -24,10 +24,10 @@ export class AddfamilyModalComponent implements OnInit {
     return await modal.present();
   }
 
-  addFamily(familyname: string){
+  addFamily(familyname: string) {
     this.familyService.addFamily(familyname, this.userid).subscribe(response => {
       // dismissModal
-      if (response['family_id']){
+      if (response['family_id']) {
         this.family_id = response['family_id'];
       } else {
         this.presentAlert('ERROR', 'Family Not created');
@@ -46,7 +46,7 @@ export class AddfamilyModalComponent implements OnInit {
       await alert.present();
     }
 
-  dismissModal(){
+  dismissModal() {
     this.modalController.dismiss(this.family_id);
   }
 

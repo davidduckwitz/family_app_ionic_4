@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { Router, NavigationEnd, RouterEvent } from '@angular/router';
@@ -12,7 +12,7 @@ import { AuthenticationService } from './services/authentication.service';
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   ActualPage = '';
   currentUser: any;
   pages = [
@@ -50,7 +50,7 @@ export class AppComponent {
     private statusBar: StatusBar,
     private nativeStorage: NativeStorage,
     public menuCtrl: MenuController,
-    private router: Router,    
+    private router: Router,
     public alertCtrl: AlertController,
     private authenticationService: AuthenticationService
   ) { }
@@ -61,7 +61,7 @@ export class AppComponent {
         this.pages.map( p => {
 
           this.ActualPage = event.url;
-          if(this.ActualPage === '/home' || this.ActualPage === '/login' || this.ActualPage === '/register') {
+          if (this.ActualPage === '/home' || this.ActualPage === '/login' || this.ActualPage === '/register') {
             this.menuCtrl.enable(false);
           } else {
             this.menuCtrl.enable(true);
@@ -73,7 +73,7 @@ export class AppComponent {
     this.initializeApp();
   }
 
-  toggleMenu(){
+  toggleMenu() {
     this.menuCtrl.toggle();
   }
 
