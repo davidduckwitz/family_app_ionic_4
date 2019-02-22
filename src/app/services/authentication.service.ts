@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { Platform } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { HttpParams } from '@angular/common/http';
@@ -10,7 +9,7 @@ import { map } from 'rxjs/operators';
 })
 export class AuthenticationService {
 
-  constructor(private nativeStorage: NativeStorage, private platform: Platform, private httpClient: HttpClient) { }
+  constructor(private platform: Platform, private httpClient: HttpClient) { }
 
   loginV1(useremail: string, password: string) {
     const params = new HttpParams()
@@ -22,7 +21,7 @@ export class AuthenticationService {
       .pipe(map((response: Object) => response));
   }
 
-  registerV1(username:string, useremail: string, password: string) {
+  registerV1(username: string, useremail: string, password: string) {
     const params = new HttpParams()
     .set('useremail', useremail)
     .set('username', username)
@@ -34,12 +33,12 @@ export class AuthenticationService {
       .pipe(map((response: Object) => response));
   }
 
-  setUser(user: any){    
+  setUser(user: any) {
     localStorage.setItem('user', JSON.stringify(user));
     return true;
   }
 
-  getUser(){
+  getUser() {
     const user = JSON.parse(localStorage.getItem('user'));
     return user;
   }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { LoadingController, Platform } from '@ionic/angular';
 import { AuthenticationService } from '../services/authentication.service';
@@ -18,7 +17,6 @@ export class UserPage implements OnInit {
 
   constructor(
     private googlePlus: GooglePlus,
-    private nativeStorage: NativeStorage,
     public loadingController: LoadingController,
     private router: Router,
     private platform: Platform,

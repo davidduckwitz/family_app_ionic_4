@@ -1,7 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MessagesService } from '../services/messages.service';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { FamilyService } from '../services/family.service';
 import { ModalController, AlertController, Platform } from '@ionic/angular';
 import { ChatModalComponent } from '../components/chat-modal/chat-modal.component';
@@ -26,8 +25,7 @@ export class CommunicationPage implements OnInit {
                 public modalController: ModalController,
                 public alertController: AlertController,
                 private activatedRoute: ActivatedRoute,
-                private platform: Platform,
-                private nativeStorage: NativeStorage,
+                private platform: Platform
                 ) { }
   ngOnInit() {
     this.currentUser = this.authenticationService.getUser();

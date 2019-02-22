@@ -1,7 +1,6 @@
 import { Component, OnInit, ElementRef, NgZone, ViewChild } from '@angular/core';
-import {Geolocation} from '@ionic-native/geolocation/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { TrackingService } from '../services/tracking.service';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { AuthenticationService } from '../services/authentication.service';
 import { ModalController, Platform } from '@ionic/angular';
 declare var google: any;
@@ -198,8 +197,7 @@ export class TrackingPage implements OnInit {
     constructor(public zone: NgZone, public geolocation: Geolocation,
       private trackingService: TrackingService,
       private authenticationService: AuthenticationService,
-      private platform: Platform,
-      private nativeStorage: NativeStorage) {
+      private platform: Platform) {
 
       /*load google map script dynamically */
         const script = document.createElement('script');

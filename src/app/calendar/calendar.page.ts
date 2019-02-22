@@ -105,7 +105,7 @@ export class CalendarPage implements OnInit {
         // other params
       },
       duration: {}
-    }
+    };
     this.displayEvent = model;
   }
   updateEvent(model: any) {
@@ -120,7 +120,7 @@ export class CalendarPage implements OnInit {
       duration: {
         _data: model.duration._data
       }
-    }
+    };
     this.displayEvent = model;
   }
 }

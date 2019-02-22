@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { FamilyModalComponent } from '../components/family-modal/family-modal.component';
 import { AddtofamilyModalComponent } from '../components/addtofamily-modal/addtofamily-modal.component';
 import { AddfamilyModalComponent } from '../components/addfamily-modal/addfamily-modal.component';
@@ -29,8 +28,7 @@ export class FamilyPage implements OnInit {
     private familyService: FamilyService,
     private authenticationService: AuthenticationService,
     private platform: Platform,
-    private trackingService: TrackingService,
-    private nativeStorage: NativeStorage) {}
+    private trackingService: TrackingService) {}
 
   ngOnInit() {
       this.user = this.authenticationService.getUser();

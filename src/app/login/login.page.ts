@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { LoadingController, AlertController, Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
@@ -15,7 +14,6 @@ export class LoginPage {
 
   constructor(
     private googlePlus: GooglePlus,
-    private nativeStorage: NativeStorage,
     public loadingController: LoadingController,
     private router: Router,
     private platform: Platform,

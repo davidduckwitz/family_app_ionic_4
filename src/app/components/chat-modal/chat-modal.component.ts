@@ -3,7 +3,6 @@ import { MessagesService } from '../../services/messages.service';
 import { AuthenticationService } from '../../services/authentication.service';
 import { ModalController, Platform, Events, Content } from '@ionic/angular';
 import { ApplicationRef } from '@angular/core';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 @Component({
   selector: 'app-chat-modal',
@@ -27,7 +26,6 @@ export class ChatModalComponent implements OnInit {
     public modalController: ModalController,
     private authenticationService: AuthenticationService,
     private platform: Platform,
-    private nativeStorage: NativeStorage,
     private events: Events,
     public app: ApplicationRef) {
       this.user = this.authenticationService.getUser();
