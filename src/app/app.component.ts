@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
       url: '/user'
     },
     {
-      title: 'FamilFamily',
+      title: 'Family',
       url: '/family'
     },
     {

@@ -49,13 +49,9 @@ export class RegisterPage implements OnInit {
 					console.log(response['message']);
 					this.presentAlert('Danger', response['message']);
 				}
-
 			}, error => {
 				console.log(error.status);
 			});
-
-
-
 		} catch (error) {
 			console.dir(error);
 		}
