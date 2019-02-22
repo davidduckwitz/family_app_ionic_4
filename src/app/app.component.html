@@ -3,7 +3,7 @@
     <!--  our side menu  -->
     <ion-menu>
       <ion-header>
-        <ion-toolbar>
+        <ion-toolbar color="primary">
             <ion-buttons slot="user">
                 <ion-back-button></ion-back-button>
                 <ion-menu-button></ion-menu-button>
@@ -14,8 +14,21 @@
       <ion-content>
         <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
-            <app-menu-item [link]="p">{{ p.title }}</app-menu-item>
+
+              <ion-item [routerLink]="p.url">
+                  <img src="{{p.photo}}" style="width: 40px; height: 40px;">
+                  &nbsp;                   &nbsp;
+                  &nbsp;
+                <ion-label color="primary"> 
+                    {{p.title}}
+                  </ion-label>
+                </ion-item>
+
+            <!-- <app-menu-item [link]="p">
+            </app-menu-item> -->
+     
           </ion-menu-toggle>
+
         </ion-list>        
             <!-- Tab bar -->
             <ion-tab-bar slot="bottom">
@@ -36,3 +49,5 @@
     <ion-router-outlet main></ion-router-outlet>
   </ion-split-pane>
 </ion-app>
+
+

@@ -1,10 +1,13 @@
 <ion-header>
-    <ion-toolbar>
+    <ion-toolbar color="primary">
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>               
       </ion-buttons>
-      <ion-title *ngIf='userReady'>
-        Your Dashboard {{user.firstname}}, {{user.email}}
+      <ion-title *ngIf='userReady' text-center>
+        Your Dashboard  
+        <span text-wrap>
+            {{user.firstname}}, {{user.email}}
+        </span> 
       </ion-title>
       <ion-title *ngIf='!userReady'>
           Please Login, restart the app or delete datas in your android settings
@@ -15,7 +18,7 @@
 
 
 <ion-content>
-
+<!-- 
   <ion-card align-self: center style="width: 100%; text-align: center;" *ngIf='userReady'> 
       <ion-button expand="block" class="danger" (click)="Logout()">Log Out</ion-button>   
     <ion-card-header>
@@ -25,7 +28,7 @@
     <ion-card-content>
       <p>sdfsdfsd</p>
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
 
   <ion-card>
     <ion-item [routerLink]="['/family']">

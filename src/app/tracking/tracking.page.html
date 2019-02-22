@@ -1,6 +1,9 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>tracking: {{location.lat}} {{location.lng}}</ion-title>
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>               
+      </ion-buttons>
     <ion-button color="danger" expand="block" (click)="locate()">
         Meine Position
       </ion-button>
