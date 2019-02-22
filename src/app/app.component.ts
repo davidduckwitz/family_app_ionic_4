@@ -11,6 +11,7 @@ import { AuthenticationService } from './services/authentication.service';
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
+
 export class AppComponent implements OnInit {
   ActualPage = '';
   currentUser: any;
@@ -22,18 +23,22 @@ export class AppComponent implements OnInit {
     {
       title: 'Family',
       url: '/family'
-    },
+
+     },
     {
       title: 'Communication',
       url: '/communication'
+
     },
     {
       title: 'Calendar',
       url: '/calendar'
+
     },
     {
       title: 'Tracking (PRO)',
       url: '/tracking'
+
     },
     {
       title: 'Settings',
