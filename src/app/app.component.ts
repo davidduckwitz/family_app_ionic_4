@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { Router, NavigationEnd, RouterEvent } from '@angular/router';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
 // import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { MenuController, AlertController } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -21,15 +20,15 @@ export class AppComponent implements OnInit {
       url: '/user'
     },
     {
-      title: 'Familie',
+      title: 'FamilFamily',
       url: '/family'
     },
     {
-      title: 'Kommunikation',
+      title: 'Communication',
       url: '/communication'
     },
     {
-      title: 'Kalender',
+      title: 'Calendar',
       url: '/calendar'
     },
     {
@@ -37,7 +36,7 @@ export class AppComponent implements OnInit {
       url: '/tracking'
     },
     {
-      title: 'Einstellungen',
+      title: 'Settings',
       url: '/settings'
     }
   ];
@@ -48,7 +47,6 @@ export class AppComponent implements OnInit {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private nativeStorage: NativeStorage,
     public menuCtrl: MenuController,
     private router: Router,
     public alertCtrl: AlertController,

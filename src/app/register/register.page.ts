@@ -10,9 +10,11 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class RegisterPage implements OnInit {
 
- username: string = '';
- password: string = '';
- cpassword: string = '';
+ firstname = '';
+ lastname = '';
+ username = '';
+ password = '';
+ cpassword = '';
 
  constructor(
   public alertController: AlertController,
@@ -23,25 +25,23 @@ export class RegisterPage implements OnInit {
  ngOnInit() {}
 
  async presentAlert(title: string, content: string) {
-  const alert = await this.alertController.create({
-  header: title,
-			message: content,
-			buttons: ['OK']
-		});
+    const alert = await this.alertController.create({
+        header: title,
+        message: content,
+        buttons: ['OK']
+    });
+    await alert.present();
+}
 
-		await alert.present();
-	}
-
-	register(username: string, email: string, password: string, cpassword: string) {
-		if( password !== cpassword) {
+	register(firstname: string, lastname: string, username: string, email: string, password: string, cpassword: string) {
+		if ( password !== cpassword) {
 			return console.error('Passwords dont match');
 		}
-
 		try {
 			console.log(email, password);
-			this.authenticationService.registerV1(username, email, password)
+			this.authenticationService.registerV1(firstname, lastname, username, email, password)
 			.subscribe(response => {
-				if(response['status'] === 1){
+				if (response['status'] === 1) {
 					console.log(response['message']);
 					this.presentAlert('Success', response['message']);
 					this.router.navigate(['/login']);
@@ -49,16 +49,15 @@ export class RegisterPage implements OnInit {
 					console.log(response['message']);
 					this.presentAlert('Danger', response['message']);
 				}
-				
+
 			}, error => {
 				console.log(error.status);
 			});
 
-			
 
-		} catch(error) {
+
+		} catch (error) {
 			console.dir(error);
 		}
 	}
-
 }

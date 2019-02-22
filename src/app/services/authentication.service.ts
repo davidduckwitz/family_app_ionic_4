@@ -21,8 +21,10 @@ export class AuthenticationService {
       .pipe(map((response: Object) => response));
   }
 
-  registerV1(username: string, useremail: string, password: string) {
+  registerV1(firstname: string, lastname: string,username: string, useremail: string, password: string) {
     const params = new HttpParams()
+    .set('firstname', firstname)
+    .set('lastname', lastname)
     .set('useremail', useremail)
     .set('username', username)
     .set('password', password)
