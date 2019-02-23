@@ -30,7 +30,7 @@
       <ion-select #newFam placeholder="Select Your Family" (ionChange)="onChangeNewfam($event)">
         <ion-select-option [value]="group.id" *ngFor="let group of family">
           <span *ngIf="group.invite !== 'true'">
-            {{ group.name }} (CODE: {{ group.hash }})
+            {{ group.name }} ({{ group.hash }})
           </span>
           <span *ngIf="group.invite === 'true'">
             {{ group.name }} 

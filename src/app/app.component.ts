@@ -18,31 +18,43 @@ export class AppComponent implements OnInit {
   pages = [
     {
       title: 'Dashboard',
-      url: '/user'
+      url: '/user',
+      photo: '/assets/icon/mypage.png'
     },
     {
       title: 'Family',
-      url: '/family'
+      url: '/family',
+      photo: '/assets/icon/family_blue.png'
 
      },
     {
       title: 'Communication',
-      url: '/communication'
+      url: '/communication',
+      photo: '/assets/icon/communication_blue.png'
 
     },
     {
       title: 'Calendar',
-      url: '/calendar'
+      url: '/calendar',
+      photo: '/assets/icon/calendar_blue.png'
+
 
     },
     {
       title: 'Tracking (PRO)',
-      url: '/tracking'
+      url: '/tracking',
+      photo: '/assets/icon/tracking2_blue.png'
 
     },
     {
       title: 'Settings',
-      url: '/settings'
+      url: '/settings',
+      photo: '/assets/icon/settings_blue.png'
+    },
+    {
+      title: 'Logout',
+      url: '/login',
+      photo: '/assets/icon/logout.png'
     }
   ];
 
