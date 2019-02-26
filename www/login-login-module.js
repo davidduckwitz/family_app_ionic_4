@@ -62,7 +62,7 @@ var LoginPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content class=\"login-content\" padding>\n  <ion-row>\n      <ion-col>\n        <h1 class=\"logo\" [routerLink]=\"['/home']\">FAMILY APP</h1>      \n        <p class=\"description\">A Project by <a href=\"https://davidduckwitz.de\" target=\"_blank\">David Duckwitz & Arina ;)</a></p>\n      </ion-col>\n  </ion-row>\n  <ion-row>\n      <ion-col>\n        <ion-list style=\"border: 1px solid lightgrey;\">\n            <ion-item>\n              <ion-label position=\"floating\">Email</ion-label>\n              <ion-input type=\"text\" #email></ion-input>\n            </ion-item>          \n            <ion-item>\n              <ion-label position=\"floating\">Password</ion-label>\n              <ion-input type=\"password\" #pass></ion-input>\n            </ion-item>          \n          </ion-list>\n          <ion-col>\n              <ion-button class=\"log-in-button\" color=\"dark\" (click)=\"loginV1(this.email.value, this.pass.value)\">Login</ion-button>             \n          </ion-col>\n          <ion-col>              \n              <ion-button class=\"log-in-button\" color=\"light\" [routerLink]=\"['/register']\">SIGN UP</ion-button>\n          </ion-col> \n          <ion-col>              \n            <ion-button class=\"log-in-button\" color=\"light\" (click)=\"devloginV1('davidduckwitz@gmail.com','123456')\">DEV LOGIN</ion-button>\n        </ion-col>      \n       \n      </ion-col>\n    </ion-row>\n    <ion-row>  \n    <ion-col>\n      <ion-button class=\"log-in-button\" color=\"danger\" expand=\"block\" (click)=\"doGoogleLogin()\">\n        LOG IN WITH GOOGLE\n      </ion-button>\n    </ion-col>\n   \n  </ion-row>\n</ion-content>\n"
+module.exports = "<ion-content class=\"login-content\" padding>\r\n  <ion-row>\r\n      <ion-col>\r\n        <h1 class=\"logo\" [routerLink]=\"['/home']\">\r\n          <ion-label color=\"primary\">\r\n              FAMILY APP\r\n              <img src=\"/assets/icon/family-icon.png\" style=\"width: 50px; height: 50px;\">\r\n\r\n          </ion-label>\r\n        </h1>      \r\n        <p class=\"description\">A Project by <a href=\"https://davidduckwitz.de\" target=\"_blank\">David Duckwitz & Arina ;)</a></p>\r\n      </ion-col>\r\n  </ion-row>\r\n  <ion-row>\r\n      <ion-col>\r\n        <ion-list style=\"border: 1px solid lightgrey;\">\r\n            <ion-item>\r\n              <ion-label position=\"floating\">Email</ion-label>\r\n              <ion-input type=\"text\" #email></ion-input>\r\n            </ion-item>          \r\n            <ion-item>\r\n              <ion-label position=\"floating\">Password</ion-label>\r\n              <ion-input type=\"password\" #pass></ion-input>\r\n            </ion-item>          \r\n          </ion-list>\r\n          <ion-col>\r\n              <ion-button class=\"log-in-button\" color=\"dark\" (click)=\"loginV1(this.email.value, this.pass.value)\">Login</ion-button>             \r\n          </ion-col>\r\n          <ion-col>              \r\n              <ion-button class=\"log-in-button\" color=\"light\" [routerLink]=\"['/register']\">SIGN UP</ion-button>\r\n          </ion-col> \r\n          <ion-col>              \r\n            <ion-button class=\"log-in-button\" color=\"light\" (click)=\"devloginV1('davidduckwitz@gmail.com','123456')\">DEV LOGIN</ion-button>\r\n        </ion-col>      \r\n       \r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row>  \r\n    <ion-col>\r\n      <ion-button class=\"log-in-button\" color=\"danger\" expand=\"block\" (click)=\"doGoogleLogin()\">\r\n        LOG IN WITH GOOGLE\r\n      </ion-button>\r\n    </ion-col>\r\n   \r\n  </ion-row>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -73,7 +73,7 @@ module.exports = "<ion-content class=\"login-content\" padding>\n  <ion-row>\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".login-content {\n  --background: white; }\n\n.logo {\n  color: black;\n  font-size: 64px;\n  font-weight: bold;\n  text-align: center;\n  padding-top: 50px; }\n\n.description {\n  color: black;\n  font-size: 22px;\n  text-align: center; }\n\n.log-in-button {\n  margin-top: 40px;\n  font-weight: bold; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vRzpcXGFuZHJvaWRcXGZhbWlseV9hcHBfaW9uaWNfNC9zcmNcXGFwcFxcbG9naW5cXGxvZ2luLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLG1CQUFhLEVBQUE7O0FBR2Y7RUFDRSxZQUFZO0VBQ1osZUFBZTtFQUNmLGlCQUFpQjtFQUNqQixrQkFBa0I7RUFDbEIsaUJBQWlCLEVBQUE7O0FBR25CO0VBQ0UsWUFBWTtFQUNaLGVBQWU7RUFDZixrQkFBa0IsRUFBQTs7QUFHcEI7RUFDRSxnQkFBZ0I7RUFDaEIsaUJBQWlCLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9sb2dpbi9sb2dpbi5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubG9naW4tY29udGVudHtcbiAgLS1iYWNrZ3JvdW5kOiB3aGl0ZTtcbn1cblxuLmxvZ28ge1xuICBjb2xvcjogYmxhY2s7XG4gIGZvbnQtc2l6ZTogNjRweDtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgcGFkZGluZy10b3A6IDUwcHg7XG59XG5cbi5kZXNjcmlwdGlvbiB7XG4gIGNvbG9yOiBibGFjaztcbiAgZm9udC1zaXplOiAyMnB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5sb2ctaW4tYnV0dG9uIHtcbiAgbWFyZ2luLXRvcDogNDBweDtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG59XG4iXX0= */"
+module.exports = ".login-content {\n  --background: white; }\n\n.logo {\n  color: black;\n  font-size: 64px;\n  font-weight: bold;\n  text-align: center;\n  padding-top: 50px; }\n\n.description {\n  color: black;\n  font-size: 22px;\n  text-align: center; }\n\n.log-in-button {\n  margin-top: 40px;\n  font-weight: bold; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vRzpcXGFuZHJvaWRcXGZhbWlseV9uZXcvc3JjXFxhcHBcXGxvZ2luXFxsb2dpbi5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxtQkFBYSxFQUFBOztBQUdmO0VBQ0UsWUFBWTtFQUNaLGVBQWU7RUFDZixpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLGlCQUFpQixFQUFBOztBQUduQjtFQUNFLFlBQVk7RUFDWixlQUFlO0VBQ2Ysa0JBQWtCLEVBQUE7O0FBR3BCO0VBQ0UsZ0JBQWdCO0VBQ2hCLGlCQUFpQixFQUFBIiwiZmlsZSI6InNyYy9hcHAvbG9naW4vbG9naW4ucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmxvZ2luLWNvbnRlbnR7XHJcbiAgLS1iYWNrZ3JvdW5kOiB3aGl0ZTtcclxufVxyXG5cclxuLmxvZ28ge1xyXG4gIGNvbG9yOiBibGFjaztcclxuICBmb250LXNpemU6IDY0cHg7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHBhZGRpbmctdG9wOiA1MHB4O1xyXG59XHJcblxyXG4uZGVzY3JpcHRpb24ge1xyXG4gIGNvbG9yOiBibGFjaztcclxuICBmb250LXNpemU6IDIycHg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcblxyXG4ubG9nLWluLWJ1dHRvbiB7XHJcbiAgbWFyZ2luLXRvcDogNDBweDtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG5cclxuIl19 */"
 
 /***/ }),
 
@@ -89,11 +89,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPage", function() { return LoginPage; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _ionic_native_google_plus_ngx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic-native/google-plus/ngx */ "./node_modules/@ionic-native/google-plus/ngx/index.js");
-/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/index.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -144,11 +143,9 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
-
 var LoginPage = /** @class */ (function () {
-    function LoginPage(googlePlus, nativeStorage, loadingController, router, platform, alertController, authenticationService) {
+    function LoginPage(googlePlus, loadingController, router, platform, alertController, authenticationService) {
         this.googlePlus = googlePlus;
-        this.nativeStorage = nativeStorage;
         this.loadingController = loadingController;
         this.router = router;
         this.platform = platform;
@@ -169,7 +166,7 @@ var LoginPage = /** @class */ (function () {
                         this.presentLoading(loading);
                         this.googlePlus.login({
                             'scopes': '',
-                            'webClientId': _environments_environment__WEBPACK_IMPORTED_MODULE_5__["environment"].googleWebClientId,
+                            'webClientId': _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].googleWebClientId,
                             'offline': true,
                         })
                             .then(function (user) {
@@ -262,12 +259,11 @@ var LoginPage = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./login.page.scss */ "./src/app/login/login.page.scss")]
         }),
         __metadata("design:paramtypes", [_ionic_native_google_plus_ngx__WEBPACK_IMPORTED_MODULE_1__["GooglePlus"],
-            _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_2__["NativeStorage"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["LoadingController"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"],
-            _services_authentication_service__WEBPACK_IMPORTED_MODULE_6__["AuthenticationService"]])
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"],
+            _services_authentication_service__WEBPACK_IMPORTED_MODULE_5__["AuthenticationService"]])
     ], LoginPage);
     return LoginPage;
 }());

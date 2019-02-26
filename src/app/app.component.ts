@@ -6,6 +6,7 @@ import { Router, NavigationEnd, RouterEvent } from '@angular/router';
 import { MenuController, AlertController } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthenticationService } from './services/authentication.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -61,6 +62,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     // public push: Push,
+    translate: TranslateService,
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
@@ -68,7 +70,23 @@ export class AppComponent implements OnInit {
     private router: Router,
     public alertCtrl: AlertController,
     private authenticationService: AuthenticationService
-  ) { }
+  ) { 
+    // this language will be used as a fallback when a translation isn't found in the current language
+    translate.setDefaultLang('en-GB');
+    console.log(translate.getBrowserCultureLang());
+
+    // the lang to use, if the lang isn't available, it will use the current loader to get them
+    if (localStorage.getItem('language') !== '') {
+      translate.use(localStorage.getItem('language'));
+    } else {
+      if ( translate.getBrowserCultureLang() ) {
+        translate.use(translate.getBrowserCultureLang());
+      } else {
+        translate.use('en-GB');
+      }
+
+    }
+  }
 
   ngOnInit() {
     this.router.events.subscribe((event: RouterEvent) => {

@@ -62,7 +62,7 @@ var TrackingPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>tracking: {{location.lat}} {{location.lng}}</ion-title>\n    <ion-button color=\"danger\" expand=\"block\" (click)=\"locate()\">\n        Meine Position\n      </ion-button>\n  </ion-toolbar>  \n</ion-header>\n\n <!--create a element for map. #Map - identifier -->  \n <div #Map class=\"map\"></div>\n<ion-content>\n  <ion-row>\n    <ion-col>\n     \n    </ion-col>\n  </ion-row>\n</ion-content>\n\n\n  <!-- Tab bar -->\n  <ion-tab-bar slot=\"bottom\" class=\"tbs-10\" style=\"max-height: 10%;\">\n    <ion-tab-button tab=\"dashboard\" [routerLink]=\"['/user']\">\n      <img src=\"/assets/icon/mypage.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"account\" [routerLink]=\"['/family']\">\n      <img src=\"/assets/icon/family_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"contact\" [routerLink]=\"['/communication']\">\n      <img src=\"/assets/icon/communication_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"calendar\" [routerLink]=\"['/calendar']\">\n      <img src=\"/assets/icon/calendar_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"tracking\" [routerLink]=\"['/tracking']\">\n      <img src=\"/assets/icon/tracking2_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"settings\" [routerLink]=\"['/settings']\">\n      <img src=\"/assets/icon/settings_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n  </ion-tab-bar>\n\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar color=\"primary\">\r\n    <ion-title>tracking: {{location.lat}} {{location.lng}}</ion-title>\r\n    <ion-buttons slot=\"start\">\r\n        <ion-menu-button></ion-menu-button>               \r\n      </ion-buttons>\r\n    <ion-button color=\"danger\" expand=\"block\" (click)=\"locate()\">\r\n        Meine Position\r\n      </ion-button>\r\n  </ion-toolbar>  \r\n</ion-header>\r\n\r\n <!--create a element for map. #Map - identifier -->  \r\n <div #Map class=\"map\"></div>\r\n<ion-content>\r\n  <ion-row>\r\n    <ion-col>\r\n     \r\n    </ion-col>\r\n  </ion-row>\r\n</ion-content>\r\n\r\n\r\n  <!-- Tab bar -->\r\n  <ion-tab-bar slot=\"bottom\" class=\"tbs-10\" style=\"max-height: 10%;\">\r\n    <ion-tab-button tab=\"dashboard\" [routerLink]=\"['/user']\">\r\n      <img src=\"/assets/icon/mypage.png\" style=\"width: 40px; height: 40px;\">\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"account\" [routerLink]=\"['/family']\">\r\n      <img src=\"/assets/icon/family_blue.png\" style=\"width: 40px; height: 40px;\">\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"contact\" [routerLink]=\"['/communication']\">\r\n      <img src=\"/assets/icon/communication_blue.png\" style=\"width: 40px; height: 40px;\">\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"calendar\" [routerLink]=\"['/calendar']\">\r\n      <img src=\"/assets/icon/calendar_blue.png\" style=\"width: 40px; height: 40px;\">\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"tracking\" [routerLink]=\"['/tracking']\">\r\n      <img src=\"/assets/icon/tracking2_blue.png\" style=\"width: 40px; height: 40px;\">\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"settings\" [routerLink]=\"['/settings']\">\r\n      <img src=\"/assets/icon/settings_blue.png\" style=\"width: 40px; height: 40px;\">\r\n    </ion-tab-button>\r\n  </ion-tab-bar>\r\n\r\n"
 
 /***/ }),
 
@@ -73,7 +73,7 @@ module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>tracking: {{loca
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".map {\n  height: 85%; }\n\n.tbs-10 {\n  height: 15%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdHJhY2tpbmcvRzpcXGFuZHJvaWRcXGZhbWlseV9hcHBfaW9uaWNfNC9zcmNcXGFwcFxcdHJhY2tpbmdcXHRyYWNraW5nLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQVcsRUFBQTs7QUFHZjtFQUNFLFdBQVcsRUFBQSIsImZpbGUiOiJzcmMvYXBwL3RyYWNraW5nL3RyYWNraW5nLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5tYXB7XHJcbiAgICBoZWlnaHQ6IDg1JTtcclxuICAgIFxyXG4gIH1cclxuLnRicy0xMHtcclxuICBoZWlnaHQ6IDE1JTtcclxufSJdfQ== */"
+module.exports = ".map {\n  height: 85%; }\n\n.tbs-10 {\n  height: 15%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdHJhY2tpbmcvRzpcXGFuZHJvaWRcXGZhbWlseV9uZXcvc3JjXFxhcHBcXHRyYWNraW5nXFx0cmFja2luZy5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxXQUFXLEVBQUE7O0FBR2Y7RUFDRSxXQUFXLEVBQUEiLCJmaWxlIjoic3JjL2FwcC90cmFja2luZy90cmFja2luZy5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFwe1xyXG4gICAgaGVpZ2h0OiA4NSU7XHJcbiAgICBcclxuICB9XHJcbi50YnMtMTB7XHJcbiAgaGVpZ2h0OiAxNSU7XHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -90,9 +90,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
 /* harmony import */ var _services_tracking_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/tracking.service */ "./src/app/services/tracking.service.ts");
-/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
-/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/index.js");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -107,16 +106,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
 var TrackingPage = /** @class */ (function () {
-    function TrackingPage(zone, geolocation, trackingService, authenticationService, platform, nativeStorage) {
+    function TrackingPage(zone, geolocation, trackingService, authenticationService, platform) {
         var _this = this;
         this.zone = zone;
         this.geolocation = geolocation;
         this.trackingService = trackingService;
         this.authenticationService = authenticationService;
         this.platform = platform;
-        this.nativeStorage = nativeStorage;
         this.infoWindows = [];
         this.markers = [];
         this.location = { lat: 50.5822654, lng: 9.6260155 };
@@ -363,7 +360,7 @@ var TrackingPage = /** @class */ (function () {
         if (marker.bouncingMarker) {
             marker.bouncingMarker.setAnimation(null);
         }
-        if (marker.bouncingMarker != this) {
+        if (marker.bouncingMarker !== this) {
             marker.setAnimation(google.maps.Animation.BOUNCE);
             marker.bouncingMarker = this;
         }
@@ -372,7 +369,6 @@ var TrackingPage = /** @class */ (function () {
         }
         console.log('Bouncing of Marker analyzed: Function "bouncingListener"');
     };
-    ;
     // Adds a marker to the map and push to the array.
     TrackingPage.prototype.addMarker = function (location, icon) {
         var infowindow = new google.maps.InfoWindow();
@@ -428,9 +424,8 @@ var TrackingPage = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"], _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_1__["Geolocation"],
             _services_tracking_service__WEBPACK_IMPORTED_MODULE_2__["TrackingService"],
-            _services_authentication_service__WEBPACK_IMPORTED_MODULE_4__["AuthenticationService"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["Platform"],
-            _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_3__["NativeStorage"]])
+            _services_authentication_service__WEBPACK_IMPORTED_MODULE_3__["AuthenticationService"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["Platform"]])
     ], TrackingPage);
     return TrackingPage;
 }());

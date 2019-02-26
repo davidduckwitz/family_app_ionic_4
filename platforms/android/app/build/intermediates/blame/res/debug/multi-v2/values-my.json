@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "G:\\android\\family_app_ionic_4\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-my\\values-my.xml",
+            "outputFile": "G:\\android\\family_new\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-my\\values-my.xml",
             "map": [
                 {
                     "source": "C:\\Users\\david\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.8.0.aar\\ba2fa10770d8688d37a594cca143e966\\res\\values-my\\values.xml",

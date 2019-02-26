@@ -62,7 +62,7 @@ var RegisterPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Register</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n    <ion-row>\n        <ion-col>\n          <h1 class=\"logo\" [routerLink]=\"['/home']\">FAMILY APP</h1>      \n          <p class=\"description\">A Project by <a href=\"https://davidduckwitz.de\" target=\"_blank\">David Duckwitz & Arina ;)</a></p>\n        </ion-col>\n    </ion-row>\n\n\t  <ion-list>\n  \n\t\t  <ion-item>\n\t\t\t<ion-label position=\"floating\">Username</ion-label>\n\t\t\t<ion-input type=\"text\" #userna></ion-input>\n\t\t\t</ion-item>\n\t\t\t\n\t\t\t<ion-item>\n\t\t\t\t<ion-label position=\"floating\">Email</ion-label>\n\t\t\t\t<ion-input type=\"email\" #userem></ion-input>\n\t\t\t\t</ion-item>\n\t\t\n\t\t  <ion-item>\n\t\t\t<ion-label position=\"floating\">Password</ion-label>\n\t\t\t<ion-input type=\"password\" #pass></ion-input>\n\t\t  </ion-item>\n\n\t\t  <ion-item>\n\t\t\t<ion-label position=\"floating\">Confirm Password</ion-label>\n\t\t\t<ion-input type=\"password\" #cpass></ion-input>\n\t\t  </ion-item>\n\t\t\n\t\t</ion-list>\n  \n\t\t<ion-button fill=\"solid\" expand=\"block\" color=\"dark\" (click)=\"register(this.userna.value, this.userem.value, this.pass.value, this.cpass.value)\">Signup</ion-button>\n</ion-content>\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title>Register</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content padding>\r\n    <ion-row>\r\n        <ion-col>\r\n          <h1 class=\"logo\" [routerLink]=\"['/home']\">FAMILY APP</h1>      \r\n          <p class=\"description\">A Project by <a href=\"https://davidduckwitz.de\" target=\"_blank\">David Duckwitz & Arina ;)</a></p>\r\n        </ion-col>\r\n    </ion-row>\r\n\r\n\t  <ion-list>\r\n  \r\n\t\t  <ion-item>\r\n\t\t\t\t<ion-label position=\"floating\">Firstname</ion-label>\r\n\t\t\t\t<ion-input type=\"text\" #firstname></ion-input>\r\n\t\t\t</ion-item>\r\n\r\n\t\t\t<ion-item>\r\n\t\t\t\t\t<ion-label position=\"floating\">Lastname</ion-label>\r\n\t\t\t\t\t<ion-input type=\"text\" #lastname></ion-input>\r\n\t\t\t\t</ion-item>\r\n\r\n\t\t\t\t<ion-item>\r\n\t\t\t\t\t\t<ion-label position=\"floating\">Nickname / Alias</ion-label>\r\n\t\t\t\t\t\t<ion-input type=\"text\" #userna></ion-input>\r\n\t\t\t\t\t</ion-item>\r\n\t\t\t\r\n\t\t\t<ion-item>\r\n\t\t\t\t<ion-label position=\"floating\">Email</ion-label>\r\n\t\t\t\t<ion-input type=\"email\" #userem></ion-input>\r\n\t\t\t</ion-item>\r\n\t\t\r\n\t\t  <ion-item>\r\n\t\t\t\t<ion-label position=\"floating\">Password</ion-label>\r\n\t\t\t\t<ion-input type=\"password\" #pass></ion-input>\r\n\t\t  </ion-item>\r\n\r\n\t\t  <ion-item>\r\n\t\t\t\t<ion-label position=\"floating\">Confirm Password</ion-label>\r\n\t\t\t\t<ion-input type=\"password\" #cpass></ion-input>\r\n\t\t  </ion-item>\r\n\t\t\r\n\t\t</ion-list>\r\n  \r\n\t\t<ion-button fill=\"solid\" expand=\"block\" color=\"dark\" (click)=\"register(this.firstname.value, this.lastname.value, this.userna.value, this.userem.value, this.pass.value, this.cpass.value)\">Signup</ion-button>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -144,6 +144,8 @@ var RegisterPage = /** @class */ (function () {
         this.alertController = alertController;
         this.router = router;
         this.authenticationService = authenticationService;
+        this.firstname = '';
+        this.lastname = '';
         this.username = '';
         this.password = '';
         this.cpassword = '';
@@ -169,14 +171,14 @@ var RegisterPage = /** @class */ (function () {
             });
         });
     };
-    RegisterPage.prototype.register = function (username, email, password, cpassword) {
+    RegisterPage.prototype.register = function (firstname, lastname, username, email, password, cpassword) {
         var _this = this;
         if (password !== cpassword) {
             return console.error('Passwords dont match');
         }
         try {
             console.log(email, password);
-            this.authenticationService.registerV1(username, email, password)
+            this.authenticationService.registerV1(firstname, lastname, username, email, password)
                 .subscribe(function (response) {
                 if (response['status'] === 1) {
                     console.log(response['message']);

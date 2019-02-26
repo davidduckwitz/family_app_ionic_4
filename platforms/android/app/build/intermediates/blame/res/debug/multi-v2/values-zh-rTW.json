@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "G:\\android\\family_app_ionic_4\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rTW\\values-zh-rTW.xml",
+            "outputFile": "G:\\android\\family_new\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rTW\\values-zh-rTW.xml",
             "map": [
                 {
                     "source": "C:\\Users\\david\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.4.0.aar\\e58a3d2d44481af8be5cdc3f22e1ab35\\res\\values-zh-rTW\\values-zh-rTW.xml",

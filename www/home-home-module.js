@@ -62,7 +62,7 @@ var HomePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      Welcome to Family App \n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"login-content\" padding>\n  <ion-row>\n    <ion-col>\n      <h1 class=\"logo\">FAMILY APP</h1>      \n      <p class=\"description\">Courtesy of <a href=\"https://davidduckwitz.de\" target=\"_blank\">David Duckwitz</a> & Arina ;)</p>\n    </ion-col>\n  </ion-row>\n  <ion-row>\n      <ion-col>\n        <ion-button class=\"log-in-button\" color=\"danger\" expand=\"block\" [routerLink]=\"['/login']\">\n          START\n        </ion-button>\n      </ion-col>\n    </ion-row>\n  <ion-row>\n  <ion-slides pager=\"true\" [options]=\"slideOpts\" style=\"height:60%;\">\n      <ion-slide>          \n        <img style=\"max-height: 60% !important; max-width:100%; overflow: hidden;\" src=\"/assets/images/arina.jpg\">\n      </ion-slide>\n      <ion-slide>\n          <img src=\"https://via.placeholder.com/300x300?text=I+Love+Arina+Amirian\">\n      </ion-slide>\n      <ion-slide>\n          <img style=\"max-height: 60% !important;\" src=\"/assets/images/dave.png\">\n      </ion-slide>\n    </ion-slides>\n  </ion-row>\n  <ion-row>\n    <ion-col>\n      <ion-button class=\"log-in-button\" color=\"danger\" expand=\"block\" [routerLink]=\"['/login']\">\n        START\n      </ion-button>\n    </ion-col>\n  </ion-row>\n</ion-content>\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar color=\"primary\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title text-center>\r\n      Welcome to Family App \r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content class=\"login-content\" padding>\r\n  <ion-row>\r\n    <ion-col>\r\n      <h1 class=\"logo\">FAMILY APP</h1>      \r\n      <p class=\"description\">Courtesy of <a href=\"https://davidduckwitz.de\" target=\"_blank\">David Duckwitz</a> & Arina ;)</p>\r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row>\r\n      <ion-col>\r\n        <ion-button class=\"log-in-button\" color=\"primary\" expand=\"block\" [routerLink]=\"['/login']\">\r\n          START\r\n        </ion-button>\r\n      </ion-col>\r\n    </ion-row>\r\n  <ion-row>\r\n <!-- <ion-slides pager=\"true\" [options]=\"slideOpts\" style=\"height:60%;\">\r\n      <ion-slide>          \r\n        <img style=\"max-height: 60% !important; max-width:100%; overflow: hidden;\" src=\"/assets/images/arina.jpg\">\r\n      </ion-slide>\r\n      <ion-slide>\r\n          <img src=\"https://via.placeholder.com/300x300?text=I+Love+Arina+Amirian\">\r\n      </ion-slide>\r\n      <ion-slide>\r\n          <img style=\"max-height: 60% !important;\" src=\"/assets/images/dave.png\">\r\n      </ion-slide>\r\n    </ion-slides> -->\r\n  </ion-row>\r\n  <ion-row>\r\n    <ion-col>\r\n      <ion-button class=\"log-in-button\" color=\"danger\" expand=\"block\" [routerLink]=\"['/login']\">\r\n        START\r\n      </ion-button>\r\n    </ion-col>\r\n  </ion-row>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -88,9 +88,8 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePage", function() { return HomePage; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/index.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -103,10 +102,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
 var HomePage = /** @class */ (function () {
-    function HomePage(nativeStorage, loadingController, router, platform, alertController) {
-        this.nativeStorage = nativeStorage;
+    function HomePage(loadingController, router, platform, alertController) {
         this.loadingController = loadingController;
         this.router = router;
         this.platform = platform;
@@ -122,11 +119,10 @@ var HomePage = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.page.html */ "./src/app/home/home.page.html"),
             styles: [__webpack_require__(/*! ./home.page.scss */ "./src/app/home/home.page.scss")]
         }),
-        __metadata("design:paramtypes", [_ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_1__["NativeStorage"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["LoadingController"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"]])
+        __metadata("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_1__["LoadingController"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["Platform"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["AlertController"]])
     ], HomePage);
     return HomePage;
 }());

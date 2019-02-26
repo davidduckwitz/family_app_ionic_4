@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 provider#org.apache.cordova.camera.FileProvider
-INJECTED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:12:9-14:20
+INJECTED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:12:9-14:20
 	android:grantUriPermissions
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:12:92-126
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:12:92-126
 	android:authorities
-		INJECTED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:12:19-66
+		INJECTED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:12:19-66
 	android:exported
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:12:67-91
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:12:67-91
 	android:name
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:12:127-180
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:12:127-180
 manifest
-ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:2:1-24:12
+ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:2:1-24:12
 MERGED from [com.android.support:appcompat-v7:25.4.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\e58a3d2d44481af8be5cdc3f22e1ab35\AndroidManifest.xml:17:1-31:12
 MERGED from [com.google.android.gms:play-services-auth:11.8.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\play-services-auth-11.8.0.aar\06ba054c38dd4241b95c62be794d4685\AndroidManifest.xml:17:1-39:12
 MERGED from [com.google.android.gms:play-services-identity:11.8.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\play-services-identity-11.8.0.aar\39f0f8a6c6f3988f82a73f8d166bbf60\AndroidManifest.xml:17:1-24:12
@@ -37,7 +37,7 @@ MERGED from [com.android.support:support-media-compat:25.4.0] C:\Users\david\.gr
 MERGED from [com.android.support:support-core-utils:25.4.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.4.0.aar\3d19735cd59ff10b54c6b19a6c8ef839\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:25.4.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\support-compat-25.4.0.aar\2390aeea3b8fe6b520ca84fee2020fbb\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:multidex:1.0.2] C:\Users\david\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\31cd7b3a1b0f75b5a9ea6f6a1e73ac15\AndroidManifest.xml:17:1-22:12
-MERGED from [:CordovaLib] G:\android\family_app_ionic_4\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-27:12
+MERGED from [:CordovaLib] G:\android\family_new\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-27:12
 MERGED from [com.google.android.gms:play-services-identity-license:11.8.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\play-services-identity-license-11.8.0.aar\741f2912115fcbb3d1609ee131b38b7b\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.8.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\play-services-auth-api-phone-license-11.8.0.aar\d3fb0c2bfda610925ccb691dc1f4e405\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.android.gms:play-services-auth-base-license:11.8.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\play-services-auth-base-license-11.8.0.aar\554bc3c27e99b05eecf3bf229334fbd5\AndroidManifest.xml:2:1-6:12
@@ -48,41 +48,41 @@ MERGED from [com.google.firebase:firebase-analytics-license:11.8.0] C:\Users\dav
 MERGED from [com.google.firebase:firebase-common-license:11.8.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\firebase-common-license-11.8.0.aar\1eaa961570e086733882ccb737a617dd\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.firebase:firebase-analytics-impl-license:11.8.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-license-11.8.0.aar\ab1be6fb4495052dd1be29843f64d55b\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.firebase:firebase-iid-license:11.8.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\firebase-iid-license-11.8.0.aar\9c2a894e3a2b00b691f9fd7cc6f0733d\AndroidManifest.xml:2:1-6:12
-INJECTED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:2:1-24:12
-INJECTED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:2:1-24:12
+INJECTED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:2:1-24:12
 	package
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:2:98-135
-		INJECTED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml
-		INJECTED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:2:98-135
+		INJECTED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml
+		INJECTED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml
 	android:versionName
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:2:70-97
-		INJECTED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml
-		INJECTED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:2:70-97
+		INJECTED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml
+		INJECTED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml
 	android:hardwareAccelerated
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:2:11-45
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:2:11-45
 	xmlns:android
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:2:136-194
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:2:136-194
 	android:versionCode
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:2:46-69
-		INJECTED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml
-		INJECTED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:2:46-69
+		INJECTED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml
+		INJECTED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml
 supports-screens
-ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:3:5-191
+ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:3:5-191
 	android:largeScreens
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:3:49-76
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:3:49-76
 	android:smallScreens
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:3:132-159
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:3:132-159
 	android:normalScreens
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:3:77-105
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:3:77-105
 	android:xlargeScreens
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:3:160-188
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:3:160-188
 	android:resizeable
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:3:106-131
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:3:106-131
 	android:anyDensity
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:3:23-48
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:3:23-48
 uses-permission#android.permission.INTERNET
-ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:4:5-67
+ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:4:5-67
 MERGED from [com.google.firebase:firebase-analytics:11.8.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\firebase-analytics-11.8.0.aar\d9a81863cd8b838f5247ef85577e654d\AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-analytics:11.8.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\firebase-analytics-11.8.0.aar\d9a81863cd8b838f5247ef85577e654d\AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-analytics-impl:11.8.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-11.8.0.aar\470e0aa4a85dfd0d2c90fa9749d90c54\AndroidManifest.xml:23:5-67
@@ -90,9 +90,9 @@ MERGED from [com.google.firebase:firebase-analytics-impl:11.8.0] C:\Users\david\
 MERGED from [com.google.firebase:firebase-iid:11.8.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\firebase-iid-11.8.0.aar\fe6261f9fadd1f932bc634cd83d9ee2d\AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-iid:11.8.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\firebase-iid-11.8.0.aar\fe6261f9fadd1f932bc634cd83d9ee2d\AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:4:22-64
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:4:22-64
 application
-ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:5:5-15:19
+ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:5:5-15:19
 MERGED from [com.android.support:appcompat-v7:25.4.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\e58a3d2d44481af8be5cdc3f22e1ab35\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:appcompat-v7:25.4.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\e58a3d2d44481af8be5cdc3f22e1ab35\AndroidManifest.xml:25:5-29:19
 MERGED from [com.google.android.gms:play-services-auth:11.8.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\play-services-auth-11.8.0.aar\06ba054c38dd4241b95c62be794d4685\AndroidManifest.xml:22:5-37:19
@@ -152,41 +152,41 @@ MERGED from [com.google.firebase:firebase-analytics-impl-license:11.8.0] C:\User
 MERGED from [com.google.firebase:firebase-iid-license:11.8.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\firebase-iid-license-11.8.0.aar\9c2a894e3a2b00b691f9fd7cc6f0733d\AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-iid-license:11.8.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\firebase-iid-license-11.8.0.aar\9c2a894e3a2b00b691f9fd7cc6f0733d\AndroidManifest.xml:5:5-20
 	android:supportsRtl
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:5:114-140
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:5:114-140
 	android:label
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:5:81-113
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:5:81-113
 	android:hardwareAccelerated
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:5:18-52
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:5:18-52
 	android:icon
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:5:53-80
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:5:53-80
 activity#com.davidduckwitz.familyapp.MainActivity
-ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:6:9-11:20
+ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:6:9-11:20
 	android:label
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:6:97-134
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:6:97-134
 	android:launchMode
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:6:135-165
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:6:135-165
 	android:windowSoftInputMode
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:6:257-299
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:6:257-299
 	android:configChanges
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:6:19-96
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:6:19-96
 	android:theme
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:6:194-256
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:6:194-256
 	android:name
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:6:166-193
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:6:166-193
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:7:13-10:29
+ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:7:13-10:29
 	android:label
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:7:28-65
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:7:28-65
 action#android.intent.action.MAIN
-ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:8:17-69
+ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:8:17-69
 	android:name
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:8:25-66
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:8:25-66
 category#android.intent.category.LAUNCHER
-ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:9:17-77
+ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:9:17-77
 	android:name
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:9:27-74
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:9:27-74
 uses-sdk
-ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:16:5-74
+ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:16:5-74
 MERGED from [com.android.support:appcompat-v7:25.4.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\e58a3d2d44481af8be5cdc3f22e1ab35\AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:appcompat-v7:25.4.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\e58a3d2d44481af8be5cdc3f22e1ab35\AndroidManifest.xml:21:5-23:78
 MERGED from [com.google.android.gms:play-services-auth:11.8.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\play-services-auth-11.8.0.aar\06ba054c38dd4241b95c62be794d4685\AndroidManifest.xml:20:5-44
@@ -231,8 +231,8 @@ MERGED from [com.android.support:support-compat:25.4.0] C:\Users\david\.gradle\c
 MERGED from [com.android.support:support-compat:25.4.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\support-compat-25.4.0.aar\2390aeea3b8fe6b520ca84fee2020fbb\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:multidex:1.0.2] C:\Users\david\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\31cd7b3a1b0f75b5a9ea6f6a1e73ac15\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:multidex:1.0.2] C:\Users\david\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\31cd7b3a1b0f75b5a9ea6f6a1e73ac15\AndroidManifest.xml:20:5-43
-MERGED from [:CordovaLib] G:\android\family_app_ionic_4\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
-MERGED from [:CordovaLib] G:\android\family_app_ionic_4\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
+MERGED from [:CordovaLib] G:\android\family_new\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
+MERGED from [:CordovaLib] G:\android\family_new\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
 MERGED from [com.google.android.gms:play-services-identity-license:11.8.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\play-services-identity-license-11.8.0.aar\741f2912115fcbb3d1609ee131b38b7b\AndroidManifest.xml:4:5-43
 MERGED from [com.google.android.gms:play-services-identity-license:11.8.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\play-services-identity-license-11.8.0.aar\741f2912115fcbb3d1609ee131b38b7b\AndroidManifest.xml:4:5-43
 MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.8.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\play-services-auth-api-phone-license-11.8.0.aar\d3fb0c2bfda610925ccb691dc1f4e405\AndroidManifest.xml:4:5-43
@@ -256,43 +256,43 @@ MERGED from [com.google.firebase:firebase-iid-license:11.8.0] C:\Users\david\.gr
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:25.4.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\e58a3d2d44481af8be5cdc3f22e1ab35\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:16:42-71
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:16:42-71
 	android:minSdkVersion
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:16:15-41
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:16:15-41
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:17:5-81
+ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:17:5-81
 	android:name
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:17:22-78
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:17:22-78
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:18:5-80
+ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:18:5-80
 	android:name
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:18:22-77
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:18:22-77
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:19:5-81
+ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:19:5-81
 	android:name
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:19:22-78
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:19:22-78
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:20:5-79
+ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:20:5-79
 	android:name
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:20:22-76
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:20:22-76
 uses-feature#android.hardware.location.gps
-ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:21:5-66
+ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:21:5-66
 	android:name
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:21:19-63
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:21:19-63
 uses-permission#android.permission.GET_ACCOUNTS
-ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:22:5-71
+ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:22:5-71
 	android:name
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:22:22-68
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:22:22-68
 uses-permission#android.permission.USE_CREDENTIALS
-ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:23:5-74
+ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:23:5-74
 	android:name
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:23:22-71
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:23:22-71
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:13:13-123
+ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:13:13-123
 	android:resource
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:13:75-120
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:13:75-120
 	android:name
-		ADDED from G:\android\family_app_ionic_4\platforms\android\app\src\main\AndroidManifest.xml:13:24-74
+		ADDED from G:\android\family_new\platforms\android\app\src\main\AndroidManifest.xml:13:24-74
 meta-data#android.support.VERSION
 ADDED from [com.android.support:appcompat-v7:25.4.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.4.0.aar\e58a3d2d44481af8be5cdc3f22e1ab35\AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:support-v4:25.4.0] C:\Users\david\.gradle\caches\transforms-1\files-1.1\support-v4-25.4.0.aar\d232a97c243027d1a84371abc044bb50\AndroidManifest.xml:26:9-28:38

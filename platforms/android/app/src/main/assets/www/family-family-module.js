@@ -63,7 +63,7 @@ var FamilyPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header translucent=\"\" class=\"header header-ios header-translucent header-translucent-ios hydrated\">\n  <ion-toolbar class=\"hydrated\">\n    <ion-title class=\"title-ios hydrated\">Family</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<!-- Tab bar -->\n<ion-tab-bar slot=\"start\">  \n  <ion-tab-button tab=\"person-add\" *ngIf=\"SelectedFamily > 0\" (click)=\"openAddMemberModal(SelectedFamily)\">\n    <ion-icon style=\"height: 20px;\" name=\"person-add\"></ion-icon>\n      Familienmitglied hinzufügen\n  </ion-tab-button>\n  <ion-tab-button tab=\"add-family\" (click)=\"addFamilyModal()\">\n    <ion-icon style=\"height: 20px;\" name=\"person-add\"></ion-icon>\n     Neue Familie\n  </ion-tab-button>\n  <ion-tab-button tab=\"locate\" (click)=\"locate()\">\n    <ion-icon name=\"pin\"></ion-icon>\n    Position Senden<br>\n    {{ Mylocation }}\n  </ion-tab-button>\n  <ion-tab-button tab=\"settings\" [routerLink]=\"['/settings']\">\n    <ion-icon name=\"settings\"></ion-icon>\n    Familien Einstellungen\n  </ion-tab-button>\n</ion-tab-bar>\n\n<!-- Segment in a toolbar -->\n<ion-toolbar>\n        <ion-row>\n        <ion-col col-4>\n           <!-- Enter Code -->\n           <ion-input type=\"text\" placeholder=\"Family Code eingeben\" #familycode></ion-input>\n           <ion-button (click)=\"addFamilyCode(familycode.value)\">ENTER Family Code</ion-button>           \n           <ion-select #newFam placeholder=\"Select Your Family\" (ionChange)=\"onChangeNewfam($event)\">\n              <ion-select-option [value]=\"group.id\" *ngFor=\"let group of family\">\n\n                <span *ngIf=\"group.invite !== 'true'\">\n                  {{ group.name }} (CODE: {{ group.hash }})\n                </span>\n                <span *ngIf=\"group.invite === 'true'\">\n                  {{ group.name }} \n                </span>\n\n              </ion-select-option>                           \n            </ion-select>\n        </ion-col>\n        <ion-col col-8>\n          Family Quickselect                      \n          <button ion-button color=\"warning\" *ngFor=\"let group of family; let i = index\"  (click)=\"loadFamilyMembers(group.id)\">{{ i + 1 }}</button>           \n          <!-- Searchbar with value -->\n          <ion-searchbar value=\"Name\"></ion-searchbar>\n          <span *ngIf=\"familymembers.length === 0\">\n              <p>Add a member to your Family</p>\n              <p>\n                <ion-button tab=\"person-add\" *ngIf=\"SelectedFamily > 0\" (click)=\"openAddMemberModal(SelectedFamily)\">\n                  <ion-icon style=\"height: 20px;\" name=\"person-add\"></ion-icon>\n                    Familienmitglied hinzufügen\n                </ion-button>\n              </p>\n            </span>\n          <ion-item ion-button class=\"hydrated\" (click)=\"openModal(member)\" *ngFor=\"let member of familymembers\" detail>              \n              \n              <ion-avatar slot=\"start\" class=\"hydrated\">\n                <img [src]=\"member.image\" >              \n              </ion-avatar>\n              <ion-label class=\"sc-ion-label-md-h sc-ion-label-md-s hydrated\">\n                <h2>{{ member.firstname }} {{ member.lastname }}</h2>            \n              </ion-label> \n              \n          </ion-item>    \n        </ion-col>\n        </ion-row>\n</ion-toolbar>\n\n<ion-content padding>\n  <ion-row>  \n       \n  </ion-row>\n</ion-content>\n  <!-- Tab bar -->\n  <ion-tab-bar slot=\"bottom\" class=\"tbs-10\" style=\"max-height: 10%;\">\n    <ion-tab-button tab=\"dashboard\" [routerLink]=\"['/user']\"> \n      <img src=\"/assets/icon/mypage.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"account\" [routerLink]=\"['/family']\">\n      <img src=\"/assets/icon/family_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"contact\" [routerLink]=\"['/communication']\">\n      <img src=\"/assets/icon/communication_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"calendar\" [routerLink]=\"['/calendar']\">\n      <img src=\"/assets/icon/calendar_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"tracking\" [routerLink]=\"['/tracking']\">\n      <img src=\"/assets/icon/tracking2_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"settings\" [routerLink]=\"['/settings']\">\n      <img src=\"/assets/icon/settings_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n  </ion-tab-bar>\n"
+module.exports = "<ion-header translucent=\"\" class=\"header header-ios header-translucent header-translucent-ios hydrated\">\r\n  <ion-toolbar class=\"hydrated\" color=\"primary\">\r\n      <ion-buttons slot=\"start\">\r\n          <ion-menu-button></ion-menu-button>               \r\n        </ion-buttons>\r\n    <ion-title class=\"title-ios hydrated\">Family</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content padding>\r\n  <ion-row>  \r\n    <ion-col>\r\n      <ion-button expand=\"full\" *ngIf=\"SelectedFamily > 0\" (click)=\"openAddMemberModal(SelectedFamily)\">\r\n        <ion-icon style=\"height: 20px;\" name=\"person-add\"></ion-icon>\r\n           Add Member\r\n      </ion-button>           \r\n    </ion-col>\r\n    <ion-col>\r\n      <ion-button expand=\"full\" (click)=\"addFamilyModal()\">\r\n        <ion-icon style=\"height: 20px;\" name=\"person-add\"></ion-icon>\r\n         Add Family\r\n      </ion-button>           \r\n    </ion-col>\r\n  </ion-row>\r\n  <ion-row>\r\n  <ion-col col-4>\r\n      <!-- Enter Code -->\r\n      <ion-input type=\"text\" placeholder=\"Family Code eingeben\" #familycode></ion-input>\r\n      <ion-button color=\"warning\" (click)=\"addFamilyCode(familycode.value)\">ENTER Family Code</ion-button>           \r\n      <ion-select #newFam placeholder=\"Select Your Family\" (ionChange)=\"onChangeNewfam($event)\">\r\n        <ion-select-option [value]=\"group.id\" *ngFor=\"let group of family\">\r\n          <span *ngIf=\"group.invite !== 'true'\">\r\n            {{ group.name }} ({{ group.hash }})\r\n          </span>\r\n          <span *ngIf=\"group.invite === 'true'\">\r\n            {{ group.name }} \r\n          </span>\r\n        </ion-select-option>                           \r\n      </ion-select>\r\n  </ion-col>\r\n  <ion-col col-8>\r\n    Family Quickselect                      \r\n    <ion-button ion-button color=\"warning\" *ngFor=\"let group of family; let i = index\"  (click)=\"loadFamilyMembers(group.id)\">{{ i + 1 }}</ion-button>           \r\n    <!-- Searchbar with value -->\r\n    <ion-searchbar value=\"Name\"></ion-searchbar>\r\n    <span *ngIf=\"familymembers.length === 0\">\r\n          <ion-button tab=\"person-add\" *ngIf=\"SelectedFamily > 0\" (click)=\"openAddMemberModal(SelectedFamily)\">\r\n            <ion-icon style=\"height: 20px;\" name=\"person-add\"></ion-icon>\r\n              Add Familymember\r\n          </ion-button>              \r\n      </span>\r\n    <ion-item ion-button class=\"hydrated\" (click)=\"openModal(member)\" *ngFor=\"let member of familymembers\" detail>\r\n        <ion-avatar slot=\"start\" class=\"hydrated\">\r\n          <img [src]=\"member.image\" >              \r\n        </ion-avatar>\r\n        <ion-label class=\"sc-ion-label-md-h sc-ion-label-md-s hydrated\">\r\n          <h2>{{ member.firstname }} {{ member.lastname }} ( {{ member.username }} )</h2>            \r\n        </ion-label>              \r\n    </ion-item>    \r\n  </ion-col>\r\n  </ion-row>  \r\n</ion-content>\r\n\r\n  <!-- Tab bar -->\r\n  <ion-tab-bar slot=\"bottom\" class=\"tbs-10\" style=\"max-height: 10%;\">\r\n    <ion-tab-button tab=\"dashboard\" [routerLink]=\"['/user']\"> \r\n      <img src=\"/assets/icon/mypage.png\" style=\"width: 40px; height: 40px;\">\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"account\" [routerLink]=\"['/family']\">\r\n      <img src=\"/assets/icon/family_blue.png\" style=\"width: 40px; height: 40px;\">\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"contact\" [routerLink]=\"['/communication']\">\r\n      <img src=\"/assets/icon/communication_blue.png\" style=\"width: 40px; height: 40px;\">\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"calendar\" [routerLink]=\"['/calendar']\">\r\n      <img src=\"/assets/icon/calendar_blue.png\" style=\"width: 40px; height: 40px;\">\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"tracking\" [routerLink]=\"['/tracking']\">\r\n      <img src=\"/assets/icon/tracking2_blue.png\" style=\"width: 40px; height: 40px;\">\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"settings\" [routerLink]=\"['/settings']\">\r\n      <img src=\"/assets/icon/settings_blue.png\" style=\"width: 40px; height: 40px;\">\r\n    </ion-tab-button>\r\n  </ion-tab-bar>\r\n"
 
 /***/ }),
 
@@ -90,14 +90,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FamilyPage", function() { return FamilyPage; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/index.js");
-/* harmony import */ var _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/native-storage/ngx */ "./node_modules/@ionic-native/native-storage/ngx/index.js");
-/* harmony import */ var _components_family_modal_family_modal_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/family-modal/family-modal.component */ "./src/app/components/family-modal/family-modal.component.ts");
-/* harmony import */ var _components_addtofamily_modal_addtofamily_modal_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/addtofamily-modal/addtofamily-modal.component */ "./src/app/components/addtofamily-modal/addtofamily-modal.component.ts");
-/* harmony import */ var _components_addfamily_modal_addfamily_modal_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/addfamily-modal/addfamily-modal.component */ "./src/app/components/addfamily-modal/addfamily-modal.component.ts");
-/* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
-/* harmony import */ var _services_family_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/family.service */ "./src/app/services/family.service.ts");
-/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
-/* harmony import */ var _services_tracking_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../services/tracking.service */ "./src/app/services/tracking.service.ts");
+/* harmony import */ var _components_family_modal_family_modal_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/family-modal/family-modal.component */ "./src/app/components/family-modal/family-modal.component.ts");
+/* harmony import */ var _components_addtofamily_modal_addtofamily_modal_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/addtofamily-modal/addtofamily-modal.component */ "./src/app/components/addtofamily-modal/addtofamily-modal.component.ts");
+/* harmony import */ var _components_addfamily_modal_addfamily_modal_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/addfamily-modal/addfamily-modal.component */ "./src/app/components/addfamily-modal/addfamily-modal.component.ts");
+/* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
+/* harmony import */ var _services_family_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/family.service */ "./src/app/services/family.service.ts");
+/* harmony import */ var _services_authentication_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../services/authentication.service */ "./src/app/services/authentication.service.ts");
+/* harmony import */ var _services_tracking_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/tracking.service */ "./src/app/services/tracking.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -152,9 +151,8 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
-
 var FamilyPage = /** @class */ (function () {
-    function FamilyPage(modalController, alertController, geolocation, familyService, authenticationService, platform, trackingService, nativeStorage) {
+    function FamilyPage(modalController, alertController, geolocation, familyService, authenticationService, platform, trackingService) {
         this.modalController = modalController;
         this.alertController = alertController;
         this.geolocation = geolocation;
@@ -162,7 +160,6 @@ var FamilyPage = /** @class */ (function () {
         this.authenticationService = authenticationService;
         this.platform = platform;
         this.trackingService = trackingService;
-        this.nativeStorage = nativeStorage;
         this.Mylocation = '';
         this.SelectedFamily = 0;
         this.family = [];
@@ -256,7 +253,7 @@ var FamilyPage = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.modalController.create({
-                            component: _components_family_modal_family_modal_component__WEBPACK_IMPORTED_MODULE_3__["FamilyModalComponent"],
+                            component: _components_family_modal_family_modal_component__WEBPACK_IMPORTED_MODULE_2__["FamilyModalComponent"],
                             componentProps: { value: value, currentuserId: this.user.userid }
                         })];
                     case 1:
@@ -274,7 +271,7 @@ var FamilyPage = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.modalController.create({
-                            component: _components_addtofamily_modal_addtofamily_modal_component__WEBPACK_IMPORTED_MODULE_4__["AddtofamilyModalComponent"],
+                            component: _components_addtofamily_modal_addtofamily_modal_component__WEBPACK_IMPORTED_MODULE_3__["AddtofamilyModalComponent"],
                             componentProps: { family_id: id }
                         })];
                     case 1:
@@ -296,7 +293,7 @@ var FamilyPage = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.modalController.create({
-                            component: _components_addfamily_modal_addfamily_modal_component__WEBPACK_IMPORTED_MODULE_5__["AddfamilyModalComponent"],
+                            component: _components_addfamily_modal_addfamily_modal_component__WEBPACK_IMPORTED_MODULE_4__["AddfamilyModalComponent"],
                             componentProps: { userid: this.user.userid }
                         })];
                     case 1:
@@ -319,12 +316,11 @@ var FamilyPage = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_1__["ModalController"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["AlertController"],
-            _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_6__["Geolocation"],
-            _services_family_service__WEBPACK_IMPORTED_MODULE_7__["FamilyService"],
-            _services_authentication_service__WEBPACK_IMPORTED_MODULE_8__["AuthenticationService"],
+            _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_5__["Geolocation"],
+            _services_family_service__WEBPACK_IMPORTED_MODULE_6__["FamilyService"],
+            _services_authentication_service__WEBPACK_IMPORTED_MODULE_7__["AuthenticationService"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["Platform"],
-            _services_tracking_service__WEBPACK_IMPORTED_MODULE_9__["TrackingService"],
-            _ionic_native_native_storage_ngx__WEBPACK_IMPORTED_MODULE_2__["NativeStorage"]])
+            _services_tracking_service__WEBPACK_IMPORTED_MODULE_8__["TrackingService"]])
     ], FamilyPage);
     return FamilyPage;
 }());

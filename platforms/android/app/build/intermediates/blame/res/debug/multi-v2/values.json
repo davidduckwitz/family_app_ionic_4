@@ -1,8 +1,25 @@
 {
     "logs": [
         {
-            "outputFile": "G:\\android\\family_app_ionic_4\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "G:\\android\\family_new\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
+                {
+                    "source": "G:\\android\\family_new\\platforms\\android\\app\\build\\generated\\res\\google-services\\debug\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,199,311,393,497,600,720,821",
+                        "endColumns": "143,111,81,103,102,119,100,77",
+                        "endOffsets": "194,306,388,492,595,715,816,894"
+                    },
+                    "to": {
+                        "startLines": "409,410,411,412,413,414,415,417",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "38833,38977,39089,39171,39275,39378,39498,39658",
+                        "endColumns": "143,111,81,103,102,119,100,77",
+                        "endOffsets": "38972,39084,39166,39270,39373,39493,39594,39731"
+                    }
+                },
                 {
                     "source": "C:\\Users\\david\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.4.0.aar\\e58a3d2d44481af8be5cdc3f22e1ab35\\res\\values\\values.xml",
                     "from": {
@@ -40,7 +57,7 @@
                     }
                 },
                 {
-                    "source": "G:\\android\\family_app_ionic_4\\platforms\\android\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "G:\\android\\family_new\\platforms\\android\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "4,2,3",
                         "startColumns": "4,4,4",
@@ -54,23 +71,6 @@
                         "startOffsets": "36387,36451,39599",
                         "endColumns": "63,48,58",
                         "endOffsets": "36446,36495,39653"
-                    }
-                },
-                {
-                    "source": "G:\\android\\family_app_ionic_4\\platforms\\android\\app\\build\\generated\\res\\google-services\\debug\\values\\values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,199,311,393,497,600,720,821",
-                        "endColumns": "143,111,81,103,102,119,100,77",
-                        "endOffsets": "194,306,388,492,595,715,816,894"
-                    },
-                    "to": {
-                        "startLines": "409,410,411,412,413,414,415,417",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "38833,38977,39089,39171,39275,39378,39498,39658",
-                        "endColumns": "143,111,81,103,102,119,100,77",
-                        "endOffsets": "38972,39084,39166,39270,39373,39493,39594,39731"
                     }
                 },
                 {

@@ -9,12 +9,9 @@
 
 <ion-content padding>
   <ion-item>
-    <ion-label>Language</ion-label>
-    <ion-select value="English" okText="Okay" cancelText="Dismiss">
-      <ion-select-option value="English">English</ion-select-option>
-      <ion-select-option value="Deutsch">Deutsch</ion-select-option>
-      <ion-select-option value="Russisch">Russisch</ion-select-option>
-      <ion-select-option value="Armenisch">Armenisch</ion-select-option>
+    <ion-label [translate]="'Language'">Language</ion-label>
+    <ion-select #LangChanger [value]="actualLanguage" okText="Okay" cancelText="Dismiss" (ionChange)="onLangChange(LangChanger.value)">
+      <ion-select-option [value]="lang.blang" *ngFor="let lang of Langs; let i = index">{{ lang.flag }} {{ lang.name }}</ion-select-option>      
     </ion-select>
   </ion-item>
 </ion-content>

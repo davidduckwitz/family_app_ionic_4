@@ -62,7 +62,7 @@ var SettingsPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>settings</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-item>\n    <ion-label>Language</ion-label>\n    <ion-select value=\"English\" okText=\"Okay\" cancelText=\"Dismiss\">\n      <ion-select-option value=\"English\">English</ion-select-option>\n      <ion-select-option value=\"Deutsch\">Deutsch</ion-select-option>\n      <ion-select-option value=\"Russisch\">Russisch</ion-select-option>\n      <ion-select-option value=\"Armenisch\">Armenisch</ion-select-option>\n    </ion-select>\n  </ion-item>\n</ion-content>\n\n  <!-- Tab bar -->\n  <ion-tab-bar slot=\"bottom\" class=\"tbs-10\" style=\"max-height: 10%;\">\n    <ion-tab-button tab=\"dashboard\" [routerLink]=\"['/user']\">\n      <img src=\"/assets/icon/mypage.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"account\" [routerLink]=\"['/family']\">\n      <img src=\"/assets/icon/family_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"contact\" [routerLink]=\"['/communication']\">\n      <img src=\"/assets/icon/communication_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"calendar\" [routerLink]=\"['/calendar']\">\n      <img src=\"/assets/icon/calendar_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"tracking\" [routerLink]=\"['/tracking']\">\n      <img src=\"/assets/icon/tracking2_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n    <ion-tab-button tab=\"settings\" [routerLink]=\"['/settings']\">\n      <img src=\"/assets/icon/settings_blue.png\" style=\"width: 40px; height: 40px;\">\n    </ion-tab-button>\n  </ion-tab-bar>"
+module.exports = "<ion-header>\r\n  <ion-toolbar color=\"primary\">\r\n      <ion-buttons slot=\"start\">\r\n          <ion-menu-button></ion-menu-button>               \r\n        </ion-buttons>\r\n    <ion-title text-center>Settings</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content padding>\r\n  <ion-item>\r\n    <ion-label [translate]=\"'Language'\">Language</ion-label>\r\n    <ion-select #LangChanger [value]=\"actualLanguage\" okText=\"Okay\" cancelText=\"Dismiss\" (ionChange)=\"onLangChange(LangChanger.value)\">\r\n      <ion-select-option [value]=\"lang.blang\" *ngFor=\"let lang of Langs; let i = index\">{{ lang.flag }} {{ lang.name }}</ion-select-option>      \r\n    </ion-select>\r\n  </ion-item>\r\n</ion-content>\r\n\r\n  <!-- Tab bar -->\r\n  <ion-tab-bar slot=\"bottom\" class=\"tbs-10\" style=\"max-height: 10%;\">\r\n    <ion-tab-button tab=\"dashboard\" [routerLink]=\"['/user']\">\r\n      <img src=\"/assets/icon/mypage.png\" style=\"width: 40px; height: 40px;\">\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"account\" [routerLink]=\"['/family']\">\r\n      <img src=\"/assets/icon/family_blue.png\" style=\"width: 40px; height: 40px;\">\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"contact\" [routerLink]=\"['/communication']\">\r\n      <img src=\"/assets/icon/communication_blue.png\" style=\"width: 40px; height: 40px;\">\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"calendar\" [routerLink]=\"['/calendar']\">\r\n      <img src=\"/assets/icon/calendar_blue.png\" style=\"width: 40px; height: 40px;\">\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"tracking\" [routerLink]=\"['/tracking']\">\r\n      <img src=\"/assets/icon/tracking2_blue.png\" style=\"width: 40px; height: 40px;\">\r\n    </ion-tab-button>\r\n    <ion-tab-button tab=\"settings\" [routerLink]=\"['/settings']\">\r\n      <img src=\"/assets/icon/settings_blue.png\" style=\"width: 40px; height: 40px;\">\r\n    </ion-tab-button>\r\n  </ion-tab-bar>"
 
 /***/ }),
 
@@ -88,6 +88,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SettingsPage", function() { return SettingsPage; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -98,10 +99,46 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var SettingsPage = /** @class */ (function () {
-    function SettingsPage() {
+    function SettingsPage(translate) {
+        this.translate = translate;
+        this.Langs = [
+            {
+                name: 'Deutsch',
+                blang: 'de-DE',
+                flag: 'DE'
+            },
+            {
+                name: 'English',
+                blang: 'en-GB',
+                flag: 'GB'
+            },
+            {
+                name: 'Russian',
+                blang: 'ru-RU',
+                flag: 'RU'
+            },
+            {
+                name: 'Armenian',
+                blang: 'am-AM',
+                flag: 'AM'
+            }
+        ];
+        this.actualLanguage = localStorage.getItem('language');
     }
     SettingsPage.prototype.ngOnInit = function () {
+    };
+    SettingsPage.prototype.onLangChange = function (lang) {
+        if (this.actualLanguage === null) {
+            this.actualLanguage = 'en';
+        }
+        else {
+            this.translate.use(lang);
+        }
+        localStorage.setItem('language', lang);
+        this.actualLanguage = lang;
+        console.log(lang);
     };
     SettingsPage = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -109,7 +146,7 @@ var SettingsPage = /** @class */ (function () {
             template: __webpack_require__(/*! ./settings.page.html */ "./src/app/settings/settings.page.html"),
             styles: [__webpack_require__(/*! ./settings.page.scss */ "./src/app/settings/settings.page.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_1__["TranslateService"]])
     ], SettingsPage);
     return SettingsPage;
 }());

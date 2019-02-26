@@ -8,7 +8,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { MenuController } from '@ionic/angular';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AuthenticationService } from './services/authentication.service';
 import { MessagesService } from './services/messages.service';
 import * as $ from 'jquery';
@@ -31,6 +31,13 @@ import { FilePath } from '@ionic-native/file-path/ngx';
 import { ChatModalComponent } from './components/chat-modal/chat-modal.component';
 import { EmojiPickerComponent } from './components/emoji-picker/emoji-picker.component';
 
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 const config = {
     apiKey: 'AIzaSyAu7Kqpv1oFM6fFX3MATrZHUE_gARBiHHY',
     authDomain: 'myfamilyapp-84d63.firebaseapp.com',
@@ -50,7 +57,20 @@ const config = {
     ChatModalComponent,
     EmojiPickerComponent],
   entryComponents: [FamilyModalComponent, AddtofamilyModalComponent, AddfamilyModalComponent, ChatModalComponent],
-  imports: [FormsModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  imports: [
+    FormsModule, 
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule, 
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: (createTranslateLoader),
+          deps: [HttpClient]
+      }
+    }),
+  ],
   providers: [
     StatusBar,
     SplashScreen,
