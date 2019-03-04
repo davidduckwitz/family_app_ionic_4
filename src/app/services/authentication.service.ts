@@ -45,4 +45,14 @@ export class AuthenticationService {
     return user;
   }
 
+  setUserAvatar(avatar: string, user: number) {
+    const params = new HttpParams()
+      .set('image', avatar)
+      .set('user', user.toString());
+
+    return this.httpClient
+      .post('http://familyapp.arina-web-innovations.online/api/v1/setUserAvatar.php', params)
+      .pipe(map((response: Object) => response));
+  }
+
 }

@@ -81,25 +81,6 @@ export class FamilyPage implements OnInit {
     });
   }
 
-  locate() {
-    this.geolocation.getCurrentPosition().then((resp) => {
-      this.Mylocation.lat = resp.coords.latitude;
-      this.Mylocation.lng = resp.coords.longitude;
-      const encodedLoation = JSON.stringify(this.Mylocation);
-          this.trackingService.setNewPosition(
-            this.user.userid,
-            this.user.image,
-            encodedLoation,
-            this.SelectedFamily)
-          .subscribe(messages => {
-           console.log(encodedLoation);
-           this.presentAlert('success', encodedLoation);
-          });
-     }).catch((error) => {
-      this.presentAlert('danger', 'Error getting location' + error.status);
-     });
-  }
-
   openModal(value: any) {
     this.familyModal(value);
   }

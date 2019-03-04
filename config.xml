@@ -88,18 +88,18 @@
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="Tracking in Family App" />
     </plugin>
-    <plugin name="cordova-plugin-camera" spec="^4.0.3" />
-    <plugin name="cordova-plugin-file" spec="^6.0.1" />
     <plugin name="cordova-plugin-ionic-webview" spec="^2.3.3">
         <variable name="ANDROID_SUPPORT_ANNOTATIONS_VERSION" value="19.+" />
     </plugin>
     <plugin name="cordova-sqlite-storage" spec="^3.0.0" />
-    <plugin name="cordova-plugin-filepath" spec="^1.5.1" />
     <plugin name="phonegap-plugin-push" spec="^2.2.3">
         <variable name="SENDER_ID" value="735730595325" />
         <variable name="ANDROID_SUPPORT_V13_VERSION" value="19.+" />
         <variable name="FCM_VERSION" value="11.6.2" />
     </plugin>
+    <plugin name="cordova-plugin-camera" spec="^4.0.3" />
+    <plugin name="cordova-plugin-file" spec="^6.0.1" />
+    <plugin name="cordova-plugin-filepath" spec="^1.5.1" />
     <engine name="ios" spec="4.5.5" />
     <engine name="android" spec="7.0.0" />
 </widget>

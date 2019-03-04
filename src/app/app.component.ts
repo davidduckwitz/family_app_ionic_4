@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
 
     },
     {
-      title: 'Tracking (PRO)',
+      title: 'Tracking',
       url: '/tracking',
       photo: '/assets/icon/tracking2_blue.png'
 
@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Logout',
       url: '/login',
-      photo: '/assets/icon/logout.png'
+      photo: '/assets/icon/logout_blue.png'
     }
   ];
 
@@ -81,6 +81,7 @@ export class AppComponent implements OnInit {
     } else {
       if ( translate.getBrowserCultureLang() ) {
         translate.use(translate.getBrowserCultureLang());
+        console.log('Language from Browser:' + translate.getBrowserCultureLang());
       } else {
         translate.use('en-GB');
       }
