@@ -8,11 +8,10 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
+   <ion-item>
     <ion-label>New Conversation</ion-label>
     <ion-select #newConv placeholder="Select Familymember" (ionChange)="onChangeNewConv(newConv.value)" >
-      <ion-select-option value="4" >Arina Amirian</ion-select-option>
-      <ion-select-option value="1">Dave No. 1</ion-select-option>
+      <ion-select-option [value]="member.user_id" *ngFor="let member of chatmembers">{{ member.firstname +' '+member.lastname}}</ion-select-option>      
     </ion-select>
   </ion-item>
   <ion-row>
