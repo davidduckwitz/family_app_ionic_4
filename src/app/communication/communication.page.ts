@@ -38,6 +38,13 @@ export class CommunicationPage implements OnInit {
       this.conversations = conversations;
     });
   }
+  
+  getMembersForChatByUserId(id: number) {
+    this.messagesService.getChatMembersByUserId(id).subscribe(members => {
+		console.log(members);
+      this.chatmembers = members[0];
+    });
+  }
 
   onChangeNewConv(to_user_id) {
     this.messagesService.createConversation(this.currentUser.userid, to_user_id).subscribe(conversations => {
