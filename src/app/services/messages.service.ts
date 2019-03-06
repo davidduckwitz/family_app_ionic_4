@@ -47,4 +47,13 @@ export class MessagesService {
       .post('http://familyapp.arina-web-innovations.online/api/v1/createconversation.php', params)
       .pipe(map((response: Object) => response));
   }
+  
+  getChatMembersByUserId(id: number) {
+    const params = new HttpParams()
+      .append('userid', id.toString())
+     ;
+     return this.httpClient.get('http://familyapp.arina-web-innovations.online/api/v1/loadchatmembers.php', {params: params})
+       .pipe(map((response: Object) => response));
+  }
+  
 }
