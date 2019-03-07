@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title (click)="dismissModal()">
+        schließen 
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+    <ion-grid>
+        <ion-row  align-items-center>
+          <ion-col>
+
+              <ion-card text-center>
+                  <ion-item  text-center>                    
+                    <ion-label slot="center">{{ value.firstname }} {{ value.lastname }}</ion-label>
+                    <ion-row  align-items-center>
+                        <ion-col>
+                            <ion-button fill="outline">Call</ion-button>
+                        </ion-col>
+                        <ion-col>
+                            <ion-button fill="outline">Chat</ion-button>
+                        </ion-col>
+                        <ion-col>
+                            <ion-button fill="outline" href="mailto:{{ value.email }}">Email: {{ value.email }}</ion-button>
+                        </ion-col>
+                    </ion-row>                   
+                  </ion-item>
+                
+                  <ion-card-content>
+                      <div text-center>
+                          <h1>{{ value.firstname }} {{ value.lastname }}</h1>
+                          <small><a href="mailto:{{ value.email }}">{{ value.email }}</a></small>
+                          <ion-avatar slot="center" class="avatar">
+                            <img [src]="value.image" *ngIf="value.image">
+                            	<img [src]="'http://www.bitcoin-tech.com//components/com_community/assets/default-male-avatar.png'" *ngIf="!value.image">
+                          </ion-avatar>
+                        </div>
+                  </ion-card-content>
+                </ion-card>
+                
+            </ion-col>
+        </ion-row>
+      </ion-grid>  
+      
+</ion-content>

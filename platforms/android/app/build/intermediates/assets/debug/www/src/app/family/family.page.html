@@ -1,0 +1,84 @@
+<ion-header translucent="" class="header header-ios header-translucent header-translucent-ios hydrated">
+  <ion-toolbar class="hydrated" color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>               
+        </ion-buttons>
+    <ion-title class="title-ios hydrated">Family</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>  
+    <ion-col>
+      <ion-button expand="full" *ngIf="SelectedFamily > 0" (click)="openAddMemberModal(SelectedFamily)">
+        <ion-icon style="height: 20px;" name="person-add"></ion-icon>
+           Add Member
+      </ion-button>           
+    </ion-col>
+    <ion-col>
+      <ion-button expand="full" (click)="addFamilyModal()">
+        <ion-icon style="height: 20px;" name="person-add"></ion-icon>
+         Add Family
+      </ion-button>           
+    </ion-col>
+  </ion-row>
+  <ion-row>
+  <ion-col col-4>
+      <!-- Enter Code -->
+      <ion-input type="text" placeholder="Family Code eingeben" #familycode></ion-input>
+      <ion-button color="warning" (click)="addFamilyCode(familycode.value)">ENTER Family Code</ion-button>           
+      <ion-select #newFam placeholder="Select Your Family" (ionChange)="onChangeNewfam($event)">
+        <ion-select-option [value]="group.id" *ngFor="let group of family">
+          <span *ngIf="group.invite !== 'true'">
+            {{ group.name }} ({{ group.hash }})
+          </span>
+          <span *ngIf="group.invite === 'true'">
+            {{ group.name }} 
+          </span>
+        </ion-select-option>                           
+      </ion-select>
+  </ion-col>
+  <ion-col col-8>
+    Family Quickselect                      
+    <ion-button ion-button color="warning" *ngFor="let group of family; let i = index"  (click)="loadFamilyMembers(group.id)">{{ i + 1 }}</ion-button>           
+    <!-- Searchbar with value -->
+    <ion-searchbar value="Name"></ion-searchbar>
+    <span *ngIf="familymembers.length === 0">
+          <ion-button tab="person-add" *ngIf="SelectedFamily > 0" (click)="openAddMemberModal(SelectedFamily)">
+            <ion-icon style="height: 20px;" name="person-add"></ion-icon>
+              Add Familymember
+          </ion-button>              
+      </span>
+    <ion-item ion-button class="hydrated" (click)="openModal(member)" *ngFor="let member of familymembers" detail>
+        <ion-avatar slot="start" class="hydrated">
+          <img [src]="member.image" >              
+        </ion-avatar>
+        <ion-label class="sc-ion-label-md-h sc-ion-label-md-s hydrated">
+          <h2>{{ member.firstname }} {{ member.lastname }} ( {{ member.username }} )</h2>            
+        </ion-label>              
+    </ion-item>    
+  </ion-col>
+  </ion-row>  
+</ion-content>
+
+  <!-- Tab bar -->
+  <ion-tab-bar slot="bottom" class="tbs-10" style="max-height: 10%;">
+    <ion-tab-button tab="dashboard" [routerLink]="['/user']"> 
+      <img src="/assets/icon/mypage.png" style="width: 40px; height: 40px;">
+    </ion-tab-button>
+    <ion-tab-button tab="account" [routerLink]="['/family']">
+      <img src="/assets/icon/family_blue.png" style="width: 40px; height: 40px;">
+    </ion-tab-button>
+    <ion-tab-button tab="contact" [routerLink]="['/communication']">
+      <img src="/assets/icon/communication_blue.png" style="width: 40px; height: 40px;">
+    </ion-tab-button>
+    <ion-tab-button tab="calendar" [routerLink]="['/calendar']">
+      <img src="/assets/icon/calendar_blue.png" style="width: 40px; height: 40px;">
+    </ion-tab-button>
+    <ion-tab-button tab="tracking" [routerLink]="['/tracking']">
+      <img src="/assets/icon/tracking2_blue.png" style="width: 40px; height: 40px;">
+    </ion-tab-button>
+    <ion-tab-button tab="settings" [routerLink]="['/settings']">
+      <img src="/assets/icon/settings_blue.png" style="width: 40px; height: 40px;">
+    </ion-tab-button>
+  </ion-tab-bar>

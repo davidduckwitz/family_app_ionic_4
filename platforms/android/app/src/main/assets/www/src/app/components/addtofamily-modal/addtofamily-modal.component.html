@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title (click)="dismissModal()">
+      schließen 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class='modal-content'>
+<h1>Add a new Familymember</h1>
+  <p>
+    {{ family_id }}
+    <ion-list>
+  
+		  <ion-item>
+			<ion-label position="floating">Firstname</ion-label>
+			<ion-input type="text" #firstna></ion-input>
+			</ion-item>
+			
+		  <ion-item>
+			<ion-label position="floating">Lastname</ion-label>
+			<ion-input type="text" #lastna></ion-input>
+      </ion-item>
+      
+      <ion-item>
+				<ion-label position="floating">Email</ion-label>
+				<ion-input type="email" #userem></ion-input>
+      </ion-item>	
+      
+      <ion-button (click)="addToFamily(this.firstna.value, this.lastna.value, this.userem.value); dismissModal()">
+        Hinzufügen
+      </ion-button>
+
+      <ion-button class="log-in-button" color="red" (click)="dismissModal()">
+          Abbrechen
+        </ion-button>
+		
+		</ion-list>
+  </p>
+</ion-content>

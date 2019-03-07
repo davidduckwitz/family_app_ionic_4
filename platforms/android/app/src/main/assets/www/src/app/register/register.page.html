@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-row>
+        <ion-col>
+          <h1 class="logo" [routerLink]="['/home']">FAMILY APP</h1>      
+          <p class="description">A Project by <a href="https://davidduckwitz.de" target="_blank">David Duckwitz & Arina ;)</a></p>
+        </ion-col>
+    </ion-row>
+
+	  <ion-list>
+  
+		  <ion-item>
+				<ion-label position="floating">Firstname</ion-label>
+				<ion-input type="text" #firstname></ion-input>
+			</ion-item>
+
+			<ion-item>
+					<ion-label position="floating">Lastname</ion-label>
+					<ion-input type="text" #lastname></ion-input>
+				</ion-item>
+
+				<ion-item>
+						<ion-label position="floating">Nickname / Alias</ion-label>
+						<ion-input type="text" #userna></ion-input>
+					</ion-item>
+			
+			<ion-item>
+				<ion-label position="floating">Email</ion-label>
+				<ion-input type="email" #userem></ion-input>
+			</ion-item>
+		
+		  <ion-item>
+				<ion-label position="floating">Password</ion-label>
+				<ion-input type="password" #pass></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+				<ion-label position="floating">Confirm Password</ion-label>
+				<ion-input type="password" #cpass></ion-input>
+		  </ion-item>
+		
+		</ion-list>
+  
+		<ion-button fill="solid" expand="block" color="dark" (click)="register(this.firstname.value, this.lastname.value, this.userna.value, this.userem.value, this.pass.value, this.cpass.value)">Signup</ion-button>
+</ion-content>

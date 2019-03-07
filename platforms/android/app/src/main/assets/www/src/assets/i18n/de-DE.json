@@ -1,0 +1,19 @@
+{
+	"Calendar": "Kalender",
+	"Communication": "Kommunikation",
+	"Family": "Familie",
+	"Hello": "Hallo",
+	"Language": "Sprache",
+	"Logout": "Ausloggen",
+	"Menu": "Menü",
+	"Pages": {
+		"Calendar": "Kalender",
+		"Communication": "Kommunikation",
+		"Settings": "Einstellungen",
+		"Tracking": "Tracking",
+		"family": "Familie"
+	},
+	"Settings": "Einstellungen",
+	"Tracking": "Tracking",
+	"VIEW": "ANZEIGEN"
+}

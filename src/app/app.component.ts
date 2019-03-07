@@ -6,6 +6,7 @@ import { Router, NavigationEnd, RouterEvent } from '@angular/router';
 import { MenuController, AlertController } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthenticationService } from './services/authentication.service';
+import { FiremessagingService } from './services/firemessaging.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -59,6 +60,7 @@ export class AppComponent implements OnInit {
     }
   ];
 
+    message;
 
   constructor(
     // public push: Push,
@@ -69,8 +71,9 @@ export class AppComponent implements OnInit {
     public menuCtrl: MenuController,
     private router: Router,
     public alertCtrl: AlertController,
-    private authenticationService: AuthenticationService
-  ) { 
+    private authenticationService: AuthenticationService,
+    private fcmmessagingService: FiremessagingService
+  ) {
     // this language will be used as a fallback when a translation isn't found in the current language
     translate.setDefaultLang('en-GB');
     console.log(translate.getBrowserCultureLang());
@@ -117,6 +120,10 @@ export class AppComponent implements OnInit {
       this.currentUser = this.authenticationService.getUser();
       if (this.currentUser !== null ) {
         if (this.currentUser.userid ) {
+          this.fcmmessagingService.requestPermission(this.currentUser.userid);
+          this.fcmmessagingService.receiveMessage();
+          this.message = this.fcmmessagingService.currentMessage;
+
           this.router.navigate(['/user']);
         }
       }

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "735730595325",
+    "firebase_url": "https://myfamilyapp-84d63.firebaseio.com",
+    "project_id": "myfamilyapp-84d63",
+    "storage_bucket": "myfamilyapp-84d63.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:735730595325:android:91da557695507e06",
+        "android_client_info": {
+          "package_name": "com.davidduckwitz.FamilyApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "735730595325-q1aovoht3h51c8l1koifuvqb14p7mul8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyAp4n4Rpo7jQ_vv0Qw5XCHIWvlRiXKGg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,53 @@
+<ion-app>
+  <ion-split-pane>
+    <!--  our side menu  -->
+    <ion-menu>
+      <ion-header>
+        <ion-toolbar color="primary">
+            <ion-buttons slot="user">
+                <ion-back-button></ion-back-button>
+                <ion-menu-button></ion-menu-button>
+              </ion-buttons>
+          <ion-title click="toggleMenu()">Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
+
+            <ion-item [routerLink]="p.url">
+                <img src="{{p.photo}}" style="width: 40px; height: 40px;">
+                &nbsp;                   &nbsp;
+                &nbsp;
+              <ion-label [innerHTML]="p.title | translate" color="primary"> 
+                  {{p.title}}
+                </ion-label>
+              </ion-item>
+
+          <!-- <app-menu-item [link]="p">
+          </app-menu-item> -->
+   
+        </ion-menu-toggle>
+
+        </ion-list>        
+            <!-- Tab bar -->
+            <ion-tab-bar slot="bottom">
+              <ion-tab-button tab="account">
+                <ion-icon name="person"></ion-icon>
+              </ion-tab-button>
+              <ion-tab-button tab="contact">
+                <ion-icon name="call"></ion-icon>
+              </ion-tab-button>
+              <ion-tab-button tab="settings">
+                <ion-icon name="settings"></ion-icon>
+              </ion-tab-button>
+            </ion-tab-bar>          
+      </ion-content>
+    </ion-menu>
+  
+    <!-- the main content -->
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
+
+

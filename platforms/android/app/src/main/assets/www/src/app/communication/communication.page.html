@@ -1,0 +1,51 @@
+<ion-header>    
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>               
+        </ion-buttons>
+      <ion-title class="title-ios hydrated">Communication</ion-title>
+  </ion-toolbar> 
+</ion-header>
+
+<ion-content>
+   <ion-item>
+    <ion-label>New Conversation</ion-label>
+    <ion-select #newConv placeholder="Select Familymember" (ionChange)="onChangeNewConv(newConv.value)" >
+      <ion-select-option [value]="member.user_id" *ngFor="let member of chatmembers">{{ member.firstname +' '+member.lastname}}</ion-select-option>      
+    </ion-select>
+  </ion-item>
+  <ion-row>
+    <ion-col>
+      <ion-item (click)="chatModal(conversation.conversation_id, conversation.userid, currentUser.userid)" *ngFor="let conversation of conversations">
+        <ion-avatar item-left>
+          <img [src]="conversation.image" *ngIf="conversation.image">
+        </ion-avatar>
+      <h2>{{conversation.firstname}} {{conversation.lastname}}</h2>
+      <p slot="end">{{ conversation.message_text }}</p>
+      </ion-item>         
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+  <!-- Tab bar -->
+  <ion-tab-bar slot="bottom" class="tbs-10" style="max-height: 10%;">
+    <ion-tab-button tab="dashboard" [routerLink]="['/user']">
+      <img src="/assets/icon/mypage.png" style="width: 40px; height: 40px;">
+    </ion-tab-button>
+    <ion-tab-button tab="account" [routerLink]="['/family']">
+      <img src="/assets/icon/family_blue.png" style="width: 40px; height: 40px;">
+    </ion-tab-button>
+    <ion-tab-button tab="contact" [routerLink]="['/communication']">
+      <img src="/assets/icon/communication_blue.png" style="width: 40px; height: 40px;">
+    </ion-tab-button>
+    <ion-tab-button tab="calendar" [routerLink]="['/calendar']">
+      <img src="/assets/icon/calendar_blue.png" style="width: 40px; height: 40px;">
+    </ion-tab-button>
+    <ion-tab-button tab="tracking" [routerLink]="['/tracking']">
+      <img src="/assets/icon/tracking2_blue.png" style="width: 40px; height: 40px;">
+    </ion-tab-button>
+    <ion-tab-button tab="settings" [routerLink]="['/settings']">
+      <img src="/assets/icon/settings_blue.png" style="width: 40px; height: 40px;">
+    </ion-tab-button>
+  </ion-tab-bar>
+ 

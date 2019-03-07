@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>               
+        </ion-buttons>
+    <ion-title class="title-ios hydrated">Calendar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="height:85%;">
+  <div *ngIf="calendarOptions">
+      <ng-fullcalendar #ucCalendar [options]="calendarOptions" (eventClick)="eventClick($event.detail)" (eventDrop)="updateEvent($event.detail)"
+          (eventResize)="updateEvent($event.detail)" (dayClick)="dayClick($event.detail)" (clickButton)="clickButton($event.detail)" [(eventsModel)]="events"></ng-fullcalendar>
+  </div>
+</ion-content>
+
+
+  <!-- Tab bar -->
+  <ion-tab-bar slot="bottom" class="tbs-10" style="max-height: 10%;">
+    <ion-tab-button tab="dashboard" [routerLink]="['/user']">
+      <img src="/assets/icon/mypage.png" style="width: 40px; height: 40px;">
+    </ion-tab-button>
+    <ion-tab-button tab="account" [routerLink]="['/family']">
+      <img src="/assets/icon/family_blue.png" style="width: 40px; height: 40px;">
+    </ion-tab-button>
+    <ion-tab-button tab="contact" [routerLink]="['/communication']">
+      <img src="/assets/icon/communication_blue.png" style="width: 40px; height: 40px;">
+    </ion-tab-button>
+    <ion-tab-button tab="calendar" [routerLink]="['/calendar']">
+      <img src="/assets/icon/calendar_blue.png" style="width: 40px; height: 40px;">
+    </ion-tab-button>
+    <ion-tab-button tab="tracking" [routerLink]="['/tracking']">
+      <img src="/assets/icon/tracking2_blue.png" style="width: 40px; height: 40px;">
+    </ion-tab-button>
+    <ion-tab-button tab="settings" [routerLink]="['/settings']">
+      <img src="/assets/icon/settings_blue.png" style="width: 40px; height: 40px;">
+    </ion-tab-button>
+  </ion-tab-bar>
+ 

@@ -1,0 +1,46 @@
+<ion-content class="login-content" padding>
+  <ion-row>
+      <ion-col>
+        <h1 class="logo" [routerLink]="['/home']">
+          <ion-label color="primary">
+              FAMILY APP
+              <img src="/assets/icon/family-icon.png" style="width: 50px; height: 50px;">
+
+          </ion-label>
+        </h1>      
+        <p class="description">A Project by <a href="https://davidduckwitz.de" target="_blank">David Duckwitz & Arina ;)</a></p>
+      </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col>
+        <ion-list style="border: 1px solid lightgrey;">
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-input type="text" #email></ion-input>
+            </ion-item>          
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="password" #pass></ion-input>
+            </ion-item>          
+          </ion-list>
+          <ion-col>
+              <ion-button class="log-in-button" color="dark" (click)="loginV1(this.email.value, this.pass.value)">Login</ion-button>             
+          </ion-col>
+          <ion-col>              
+              <ion-button class="log-in-button" color="light" [routerLink]="['/register']">SIGN UP</ion-button>
+          </ion-col> 
+          <ion-col>              
+            <ion-button class="log-in-button" color="light" (click)="devloginV1('davidduckwitz@gmail.com','123456')">DEV LOGIN</ion-button>
+        </ion-col>      
+       
+      </ion-col>
+    </ion-row>
+    <ion-row>  
+    <ion-col>
+      <ion-button class="log-in-button" color="danger" expand="block" (click)="doGoogleLogin()">
+        LOG IN WITH GOOGLE
+      </ion-button>
+    </ion-col>
+   
+  </ion-row>
+</ion-content>

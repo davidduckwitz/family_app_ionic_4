@@ -1,0 +1,19 @@
+{
+	"Calendar": "календарь",
+	"Communication": "связь",
+	"Family": "Семья",
+	"Hello": "Привет",
+	"Language": "язык",
+	"Logout": "Выйти",
+	"Menu": "меню",
+	"Pages": {
+		"Calendar": "календарь",
+		"Communication": "связь",
+		"Settings": "Einstellungen",
+		"Tracking": "Tracking",
+		"family": "Семья"
+	},
+	"Settings": "Параметры",
+	"Tracking": "Отслеживания",
+	"VIEW": "вид"
+}
