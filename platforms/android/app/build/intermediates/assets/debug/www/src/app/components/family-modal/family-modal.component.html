@@ -9,41 +9,30 @@
     </ion-toolbar>
   </ion-header>
 
-<ion-content padding>
-    <ion-grid>
-        <ion-row  align-items-center>
-          <ion-col>
+<ion-content padding>   
+  <ion-card text-center>
+    <ion-card-content text-center>                    
+      <h1>{{ value.firstname }} {{ value.lastname }}</h1>
+      <small><a href="mailto:{{ value.email }}">{{ value.email }}</a></small>
+      <ion-avatar slot="center" class="avatar">
+        <img [src]="value.image" *ngIf="value.image">
+        <img [src]="'http://www.bitcoin-tech.com//components/com_community/assets/default-male-avatar.png'" *ngIf="!value.image">
+      </ion-avatar>                    
+    </ion-card-content>
 
-              <ion-card text-center>
-                  <ion-item  text-center>                    
-                    <ion-label slot="center">{{ value.firstname }} {{ value.lastname }}</ion-label>
-                    <ion-row  align-items-center>
-                        <ion-col>
-                            <ion-button fill="outline">Call</ion-button>
-                        </ion-col>
-                        <ion-col>
-                            <ion-button fill="outline">Chat</ion-button>
-                        </ion-col>
-                        <ion-col>
-                            <ion-button fill="outline" href="mailto:{{ value.email }}">Email: {{ value.email }}</ion-button>
-                        </ion-col>
-                    </ion-row>                   
-                  </ion-item>
-                
-                  <ion-card-content>
-                      <div text-center>
-                          <h1>{{ value.firstname }} {{ value.lastname }}</h1>
-                          <small><a href="mailto:{{ value.email }}">{{ value.email }}</a></small>
-                          <ion-avatar slot="center" class="avatar">
-                            <img [src]="value.image" *ngIf="value.image">
-                            	<img [src]="'http://www.bitcoin-tech.com//components/com_community/assets/default-male-avatar.png'" *ngIf="!value.image">
-                          </ion-avatar>
-                        </div>
-                  </ion-card-content>
-                </ion-card>
-                
-            </ion-col>
+    <ion-item text-center>
+        <ion-row align-items-center text-center>
+          <ion-col text-center>
+            <ion-button fill="outline">Call</ion-button>
+          </ion-col>
+          <ion-col text-center>
+            <ion-button fill="outline" (click)="chatWithUser(value.user_id)">Chat</ion-button>
+          </ion-col>
+          <ion-col text-center>
+            <ion-button fill="outline" href="mailto:{{ value.email }}">Email</ion-button>
+          </ion-col>
         </ion-row>
-      </ion-grid>  
+      </ion-item>
       
+  </ion-card>  
 </ion-content>

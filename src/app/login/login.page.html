@@ -19,18 +19,18 @@
               <ion-input type="text" #email></ion-input>
             </ion-item>          
             <ion-item>
-              <ion-label position="floating">Password</ion-label>
+              <ion-label position="floating" translate>Password</ion-label>
               <ion-input type="password" #pass></ion-input>
             </ion-item>          
           </ion-list>
           <ion-col>
-              <ion-button class="log-in-button" color="dark" (click)="loginV1(this.email.value, this.pass.value)">Login</ion-button>             
+              <ion-button class="log-in-button" color="dark" (click)="loginV1(this.email.value, this.pass.value)" translate>Login</ion-button>             
           </ion-col>
           <ion-col>              
-              <ion-button class="log-in-button" color="light" [routerLink]="['/register']">SIGN UP</ion-button>
+              <ion-button class="log-in-button" color="light" [routerLink]="['/register']" translate>SignUp</ion-button>
           </ion-col> 
           <ion-col>              
-            <ion-button class="log-in-button" color="light" (click)="devloginV1('davidduckwitz@gmail.com','123456')">DEV LOGIN</ion-button>
+            <ion-button class="log-in-button" color="light" (click)="devloginV1('davidduckwitz@gmail.com','123456')" translate>DEV LOGIN</ion-button>
         </ion-col>      
        
       </ion-col>

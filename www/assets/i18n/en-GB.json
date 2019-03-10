@@ -5,15 +5,19 @@
 	"Hello": "Hello",
 	"Language": "Language",
 	"Logout": "Logout",
-	"Menu": "Menu",
-	"Pages": {
-		"Calendar": "Calendar",
-		"Communication": "Communication",
-		"Settings": "",
-		"Tracking": "",
-		"family": "Family"
-	},
+	"Menu": "Menu",	
 	"Settings": "Settings",
 	"Tracking": "Tracking",
-	"VIEW": "VIEW"
+	"View": "View",
+	"Firstname": "Firstname",
+	"Lastname": "Lastname",
+	"Nickname": "Nickname",
+	"SignUp": "SignUp",
+	"Login":"Login",
+	"Confirm Password":"Confirm Password",
+	"Member": "Member",	
+	"Familys": "Familys",
+	"Enter Family Code":"Enter Family Code",
+	"Family Quickselect":"Family Quickselect",
+	"Family Invite Code:": "Family Invite Code:"
 }

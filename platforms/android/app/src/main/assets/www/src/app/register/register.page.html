@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Register</ion-title>
+			<ion-buttons slot="start">
+					<ion-back-button defaultHref="home"></ion-back-button>
+				</ion-buttons>
+    <ion-title text-center>Register</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,36 +18,36 @@
 	  <ion-list>
   
 		  <ion-item>
-				<ion-label position="floating">Firstname</ion-label>
+				<ion-label position="floating" translate>Firstname</ion-label>
 				<ion-input type="text" #firstname></ion-input>
 			</ion-item>
 
 			<ion-item>
-					<ion-label position="floating">Lastname</ion-label>
+					<ion-label position="floating" translate>Lastname</ion-label>
 					<ion-input type="text" #lastname></ion-input>
 				</ion-item>
 
 				<ion-item>
-						<ion-label position="floating">Nickname / Alias</ion-label>
+						<ion-label position="floating" translate>Nickname / Alias</ion-label>
 						<ion-input type="text" #userna></ion-input>
 					</ion-item>
 			
 			<ion-item>
-				<ion-label position="floating">Email</ion-label>
+				<ion-label position="floating" translate>Email</ion-label>
 				<ion-input type="email" #userem></ion-input>
 			</ion-item>
 		
 		  <ion-item>
-				<ion-label position="floating">Password</ion-label>
+				<ion-label position="floating" translate>Password</ion-label>
 				<ion-input type="password" #pass></ion-input>
 		  </ion-item>
 
 		  <ion-item>
-				<ion-label position="floating">Confirm Password</ion-label>
+				<ion-label position="floating" translate>Confirm Password</ion-label>
 				<ion-input type="password" #cpass></ion-input>
 		  </ion-item>
 		
 		</ion-list>
   
-		<ion-button fill="solid" expand="block" color="dark" (click)="register(this.firstname.value, this.lastname.value, this.userna.value, this.userem.value, this.pass.value, this.cpass.value)">Signup</ion-button>
+		<ion-button fill="solid" expand="block" color="dark" (click)="register(this.firstname.value, this.lastname.value, this.userna.value, this.userem.value, this.pass.value, this.cpass.value)" translate>SignUp</ion-button>
 </ion-content>

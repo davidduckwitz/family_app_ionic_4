@@ -18,6 +18,7 @@ export class FamilyPage implements OnInit {
   Mylocation: any = '';
   SelectedFamily = 0;
   family: any = [];
+  inviteCode: string = '';
   familymembers: any = [];
   newMember: any;
   user: any;
@@ -48,6 +49,7 @@ export class FamilyPage implements OnInit {
     this.familyService.getFamilysByUserId(id).subscribe(response => {
       this.family = response;
       if (response[0].id) {
+        this.inviteCode = response[0].hash;
         this.loadFamilyMembers(response[0].id);
       } else {
         this.presentAlert('Success', 'You do not have any Familys yet, Create a Family to start...');

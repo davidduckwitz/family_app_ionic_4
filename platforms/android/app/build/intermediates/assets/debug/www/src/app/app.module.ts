@@ -32,9 +32,9 @@ import { ChatModalComponent } from './components/chat-modal/chat-modal.component
 import { EmojiPickerComponent } from './components/emoji-picker/emoji-picker.component';
 import { environment } from '../environments/environment';
 
-import { FiremessagingService } from "./services/firemessaging.service";
+import { FiremessagingService } from './services/firemessaging.service';
 
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateService, TranslatePipe } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
@@ -76,6 +76,7 @@ export function createTranslateLoader(http: HttpClient) {
     AngularFireMessagingModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
+  exports: [TranslateModule,TranslatePipe],
   providers: [
     StatusBar,
     SplashScreen,

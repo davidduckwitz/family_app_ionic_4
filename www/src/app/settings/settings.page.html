@@ -3,7 +3,7 @@
       <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>               
         </ion-buttons>
-    <ion-title text-center>Settings</ion-title>
+    <ion-title text-center [innerHTML]="'Settings' | translate"></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -35,27 +35,25 @@
         </ion-list>              
   </ion-item>
   <ion-item>
-    <ion-label [translate]="'Language'">Language</ion-label>
+    <ion-label [translate]="'Language'"></ion-label>
     <ion-select #LangChanger [value]="actualLanguage" okText="Okay" cancelText="Dismiss" (ionChange)="onLangChange(LangChanger.value)">
       <ion-select-option [value]="lang.blang" *ngFor="let lang of Langs; let i = index">{{ lang.flag }} {{ lang.name }}</ion-select-option>      
     </ion-select>
   </ion-item>
   <ion-item>
-    <ion-label [translate]="'Firstname'">Firstname</ion-label>
-    <ion-input value="David"></ion-input>
+    <ion-label position="fixed" slot="start"><b [translate]="'Firstname'"></b></ion-label>
+    <ion-input #ufname value="{{ firstname }}"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label [translate]="'Lastname'">Lastname</ion-label>
-    <ion-input value="Duckwitz"></ion-input>
+    <ion-label position="fixed" slot="start"><b [translate]="'Lastname'"></b></ion-label>
+    <ion-input #ulname value="{{ lastname }}" ></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label [translate]="'Nickname / Alias'">Nickname / Alias</ion-label>
-    <ion-input value="Dave"></ion-input>
+      <ion-label position="fixed" slot="start"><b [translate]="'Nickname'"></b></ion-label>
+    <ion-input #uuname value="{{ username }}" ></ion-input>
   </ion-item>
-  <ion-item>
-    <ion-label [translate]="'Email'">Email</ion-label>
-    <ion-input value="davidduckwitz@googlemail.com"></ion-input>
-  </ion-item>      
+  
+  <ion-button (click)="saveUserData(ufname.value, ulname.value, uuname.value)" [translate]="'Save'"></ion-button>        
 </ion-content> 
  
 <!-- Tab bar -->

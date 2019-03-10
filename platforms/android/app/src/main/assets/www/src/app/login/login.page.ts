@@ -60,7 +60,7 @@ export class LoginPage {
           const user = {
             name: response['username'],
             firstname: response['firstname'],
-            lastname: response['firstname'],
+            lastname: response['lastname'],
             email: response['email'],
             image: response['image'],
             userid: response['userid']

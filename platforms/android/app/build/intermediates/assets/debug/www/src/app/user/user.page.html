@@ -33,55 +33,40 @@
   <ion-card>
     <ion-item [routerLink]="['/family']">
       <img src="/assets/icon/family_blue.png" style="width: 40px; height: 40px;" slot="start">
-      <ion-label>Familys</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
-    </ion-item>
-    <ion-card-content>
-      Manage your Familys, send or enter invite codes and get Details about Familymembers
-    </ion-card-content>
+      <ion-label [innerHTML]="'Family' | translate"></ion-label>
+      <ion-button fill="outline" slot="end" [innerHTML]="'View' | translate"></ion-button>
+    </ion-item>    
   </ion-card>
 
   <ion-card>
     <ion-item [routerLink]="['/communication']">
       <img src="/assets/icon/communication_blue.png" style="width: 40px; height: 40px;" slot="start">
-      <ion-label>Communication</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
-    </ion-item>
-    <ion-card-content>
-      Stay in contact with your Familymembers - Chat with text and Emojis
-    </ion-card-content>
+      <ion-label [innerHTML]="'Communication' | translate"></ion-label>
+      <ion-button fill="outline" slot="end" [innerHTML]="'View' | translate"></ion-button>
+    </ion-item>    
   </ion-card>
 
   <ion-card>
     <ion-item [routerLink]="['/calendar']">
       <img src="/assets/icon/calendar_blue.png" style="width: 40px; height: 40px;" slot="start">
-      <ion-label>Calendar</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
-    </ion-item>
-    <ion-card-content>
-      Manage your Dates, Events and Birthdays
-    </ion-card-content>
+      <ion-label [innerHTML]="'Calendar' | translate"></ion-label>
+      <ion-button fill="outline" slot="end" [innerHTML]="'View' | translate"></ion-button>
+    </ion-item>    
   </ion-card>
 
   <ion-card>
     <ion-item [routerLink]="['/tracking']">
       <img src="/assets/icon/tracking2_blue.png" style="width: 40px; height: 40px;" slot="start">
-      <ion-label>Tracking</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
-    </ion-item>
-    <ion-card-content>
-      Display your Position and get Position of your Familymembers (only if they push their location)
-    </ion-card-content>
+      <ion-label [innerHTML]="'Tracking' | translate"></ion-label>
+      <ion-button fill="outline" slot="end" [innerHTML]="'View' | translate"></ion-button>
+    </ion-item>   
   </ion-card>
 
   <ion-card>
     <ion-item [routerLink]="['/settings']">
       <img src="/assets/icon/settings_blue.png" style="width: 40px; height: 40px;" slot="start">
-      <ion-label>Settings</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
-    </ion-item>
-    <ion-card-content>
-      Manage your Account
-    </ion-card-content>
+      <ion-label [innerHTML]="'Settings' | translate"></ion-label>
+      <ion-button fill="outline" slot="end"[innerHTML]="'View' | translate"></ion-button>
+    </ion-item>    
   </ion-card>
 </ion-content>

@@ -12,29 +12,35 @@
 <ion-content padding class='modal-content'>
 <h1>Add a new Familymember</h1>
   <p>
-    {{ family_id }}
+ 
     <ion-list>
   
 		  <ion-item>
-			<ion-label position="floating">Firstname</ion-label>
+			<ion-label position="floating" translate>Firstname</ion-label>
 			<ion-input type="text" #firstna></ion-input>
 			</ion-item>
 			
 		  <ion-item>
-			<ion-label position="floating">Lastname</ion-label>
+			<ion-label position="floating" translate>Lastname</ion-label>
 			<ion-input type="text" #lastna></ion-input>
       </ion-item>
       
       <ion-item>
-				<ion-label position="floating">Email</ion-label>
+				<ion-label position="floating" translate>Email</ion-label>
 				<ion-input type="email" #userem></ion-input>
       </ion-item>	
       
-      <ion-button (click)="addToFamily(this.firstna.value, this.lastna.value, this.userem.value); dismissModal()">
-        Hinzufügen
+      <ion-button 
+        translate 
+        (click)="addToFamily(this.firstna.value, this.lastna.value, this.userem.value); dismissModal()">
+        Add
       </ion-button>
 
-      <ion-button class="log-in-button" color="red" (click)="dismissModal()">
+      <ion-button 
+        class="log-in-button" 
+        color="danger" 
+        (click)="dismissModal()"
+        translate>
           Abbrechen
         </ion-button>
 		

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, Input } from '@angular/core';
 import { MessagesService } from '../../services/messages.service';
 import { AuthenticationService } from '../../services/authentication.service';
 import { ModalController, Platform, Events, Content } from '@ionic/angular';
@@ -9,7 +9,7 @@ import { ApplicationRef } from '@angular/core';
   templateUrl: './chat-modal.component.html',
   styleUrls: ['./chat-modal.component.scss']
 })
-export class ChatModalComponent implements OnInit {
+export class ChatModalComponent implements OnInit, OnDestroy {
   @ViewChild(Content) content: Content;
   @ViewChild('chat_input') messageInput: ElementRef;
   @Input() conversation_id: number;
@@ -21,7 +21,7 @@ export class ChatModalComponent implements OnInit {
   editorMsg = '';
   showEmojiPicker = false;
   myevents: any;
-
+  relaodMessagesTimer: any;
   constructor(private messagesService: MessagesService,
     public modalController: ModalController,
     private authenticationService: AuthenticationService,
@@ -34,6 +34,10 @@ export class ChatModalComponent implements OnInit {
   ngOnInit() {
     // get message list
     this.getMsg(this.conversation_id);
+    this.relaodMessagesTimer = setInterval(() => {
+      this.getMsg(this.conversation_id);
+     }, 3000);
+
   }
 
   onFocus() {
@@ -54,8 +58,10 @@ export class ChatModalComponent implements OnInit {
 
   getMsg(id: number) {
     this.messagesService.getMessagesByConversationId(id).subscribe(messages => {
-      this.msgList = messages;
-      this.scrollToBottom();
+      if (this.msgList.length !== messages.length) {
+        this.msgList = messages;
+        this.scrollToBottom();
+      }
     });
   }
 
@@ -120,4 +126,7 @@ export class ChatModalComponent implements OnInit {
     this.modalController.dismiss({});
   }
 
+  ngOnDestroy(){
+    clearInterval(this.relaodMessagesTimer);
+  }
 }

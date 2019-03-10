@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
+import { TranslateModule } from '@ngx-translate/core';
 import { SettingsPage } from './settings.page';
 
 const routes: Routes = [
@@ -19,8 +20,10 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule,
     RouterModule.forChild(routes)
   ],
+  exports: [TranslateModule],
   declarations: [SettingsPage]
 })
 export class SettingsPageModule {}

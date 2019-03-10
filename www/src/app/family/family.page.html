@@ -1,53 +1,55 @@
 <ion-header translucent="" class="header header-ios header-translucent header-translucent-ios hydrated">
   <ion-toolbar class="hydrated" color="primary">
       <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>               
-        </ion-buttons>
-    <ion-title class="title-ios hydrated">Family</ion-title>
+        <ion-menu-button></ion-menu-button>               
+      </ion-buttons>
+      <ion-title class="title-ios hydrated" [innerHTML]="'Family' | translate"></ion-title>
+      <ion-buttons slot="end">
+        <ion-button expand="full" (click)="addFamilyModal()" style="width:50px;">
+            <ion-icon size="large" name="add-circle-outline">Add Family</ion-icon>             
+        </ion-button>
+        <ion-button expand="full" *ngIf="SelectedFamily > 0" (click)="openAddMemberModal(SelectedFamily)" style="width:50px">
+          <ion-icon size="large" name="person-add">Add Member</ion-icon>              
+        </ion-button>                         
+      </ion-buttons>       
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-row>  
+<ion-content padding>  
+  <ion-row>
     <ion-col>
-      <ion-button expand="full" *ngIf="SelectedFamily > 0" (click)="openAddMemberModal(SelectedFamily)">
-        <ion-icon style="height: 20px;" name="person-add"></ion-icon>
-           Add Member
-      </ion-button>           
-    </ion-col>
-    <ion-col>
-      <ion-button expand="full" (click)="addFamilyModal()">
-        <ion-icon style="height: 20px;" name="person-add"></ion-icon>
-         Add Family
-      </ion-button>           
+        <ion-select #newFam placeholder="Select Your Family" (ionChange)="onChangeNewfam($event)">
+            <ion-select-option [value]="group.id" *ngFor="let group of family">
+              <span *ngIf="group.invite !== 'true'">
+                {{ group.name }} ({{ group.hash }})
+              </span>
+              <span *ngIf="group.invite === 'true'">
+                {{ group.name }} 
+              </span>
+            </ion-select-option>                           
+          </ion-select>
     </ion-col>
   </ion-row>
   <ion-row>
   <ion-col col-4>
       <!-- Enter Code -->
       <ion-input type="text" placeholder="Family Code eingeben" #familycode></ion-input>
-      <ion-button color="warning" (click)="addFamilyCode(familycode.value)">ENTER Family Code</ion-button>           
-      <ion-select #newFam placeholder="Select Your Family" (ionChange)="onChangeNewfam($event)">
-        <ion-select-option [value]="group.id" *ngFor="let group of family">
-          <span *ngIf="group.invite !== 'true'">
-            {{ group.name }} ({{ group.hash }})
-          </span>
-          <span *ngIf="group.invite === 'true'">
-            {{ group.name }} 
-          </span>
-        </ion-select-option>                           
-      </ion-select>
+      <ion-button color="warning" (click)="addFamilyCode(familycode.value)" [innerHTML]="'Enter Family Code' | translate"></ion-button>           
+      
   </ion-col>
   <ion-col col-8>
-    Family Quickselect                      
+    <b [innerHTML]="'Family Quickselect' | translate"></b>                      
     <ion-button ion-button color="warning" *ngFor="let group of family; let i = index"  (click)="loadFamilyMembers(group.id)">{{ i + 1 }}</ion-button>           
     <!-- Searchbar with value -->
     <ion-searchbar value="Name"></ion-searchbar>
-    <span *ngIf="familymembers.length === 0">
-          <ion-button tab="person-add" *ngIf="SelectedFamily > 0" (click)="openAddMemberModal(SelectedFamily)">
-            <ion-icon style="height: 20px;" name="person-add"></ion-icon>
-              Add Familymember
-          </ion-button>              
+    <span *ngIf="familymembers.length === 0" text-center>
+        <b [innerHTML]="'Family Invite Code:' | translate"></b> {{ inviteCode }}
+      <ion-button tab="person-add" *ngIf="SelectedFamily > 0" (click)="openAddMemberModal(SelectedFamily)">
+        <ion-icon style="height: 20px;" name="person-add"></ion-icon>          
+      </ion-button>              
+    </span>
+    <span *ngIf="familymembers.length > 0" text-center>
+        <b [innerHTML]="'Family Invite Code:' | translate"></b> {{ inviteCode }}             
       </span>
     <ion-item ion-button class="hydrated" (click)="openModal(member)" *ngFor="let member of familymembers" detail>
         <ion-avatar slot="start" class="hydrated">

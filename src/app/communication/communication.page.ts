@@ -31,7 +31,7 @@ export class CommunicationPage implements OnInit {
   ngOnInit() {
     this.currentUser = this.authenticationService.getUser();
     this.getConversationsByUserId(this.currentUser.userid);
-
+    this.getMembersForChatByUserId(this.currentUser.userid);
   }
 
   getConversationsByUserId(id: number) {
@@ -39,11 +39,12 @@ export class CommunicationPage implements OnInit {
       this.conversations = conversations;
     });
   }
-  
+
   getMembersForChatByUserId(id: number) {
     this.messagesService.getChatMembersByUserId(id).subscribe(members => {
-		console.log(members);
-      this.chatmembers = members[0];
+      if (members.length > 0) {
+        this.chatmembers = members[1];
+      }
     });
   }
 
@@ -54,7 +55,6 @@ export class CommunicationPage implements OnInit {
       } else {
         this.getConversationsByUserId(2);
       }
-      console.log(conversations);
       this.chatModal(conversations['conversationid'], to_user_id);
     });
   }
