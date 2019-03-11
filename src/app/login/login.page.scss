@@ -1,5 +1,8 @@
 .login-content{
-  --background: white;
+  --background: url('../../assets/images/eminem.jpg') no-repeat top center;
+  --background-position: center; /* Center the image */
+  --background-repeat: no-repeat; /* Do not repeat the image */
+  --background-size: cover; /* Resize the background image to cover the entire */
 }
 
 .logo {
@@ -20,4 +23,3 @@
   margin-top: 40px;
   font-weight: bold;
 }
-

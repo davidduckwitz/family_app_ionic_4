@@ -11,9 +11,13 @@
 
 <ion-content class="login-content" padding>
   <ion-row>
-    <ion-col>
-      <h1 class="logo">FAMILY APP</h1>      
-      <p class="description">Courtesy of <a href="https://davidduckwitz.de" target="_blank">David Duckwitz</a> & Arina ;)</p>
+    <ion-col text-center>
+      <h1 class="logo" [routerLink]="['/home']">
+        <ion-label color="primary" text-center>
+          <img src="/assets/icon/family-icon.png" style="width: 50px; height: 50px;">
+          <p>FAMILY APP</p>
+        </ion-label>
+      </h1>
     </ion-col>
   </ion-row>
   <ion-row>

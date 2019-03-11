@@ -21,6 +21,17 @@ export class AuthenticationService {
       .pipe(map((response: Object) => response));
   }
 
+  googleloginV1(useremail: string, name: string, image: string) {
+    const params = new HttpParams()
+      .set('useremail', useremail)
+      .set('name', name)
+      .set('image', image);
+
+    return this.httpClient
+      .post('http://familyapp.arina-web-innovations.online/api/v1/googlepluslogin.php', params)
+      .pipe(map((response: Object) => response));
+  }
+
   registerV1(firstname: string, lastname: string,username: string, useremail: string, password: string) {
     const params = new HttpParams()
     .set('firstname', firstname)

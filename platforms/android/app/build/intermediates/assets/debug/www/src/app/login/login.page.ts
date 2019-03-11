@@ -33,20 +33,43 @@ export class LoginPage {
       })
       .then(user => {
         // save user data on the native storage
-         const loadeduser = {
-          name: user.displayName,
-          email: user.email,
-          picture: user.imageUrl
-        };
-        this.authenticationService.setUser(loadeduser);
-        this.router.navigate(['/user']);
         loading.dismiss();
+        this.useGooglePlusloginV1(user.email, user.displayName, user.imageUrl);
+         
+        
       }, err => {
         console.log(err);
         if (!this.platform.is('cordova')) {
           this.presentAlert('success', 'Cordova kann im Browser nicht geladen werden');
         }
         loading.dismiss();
+      });
+  }
+
+  useGooglePlusloginV1(email: string, name: string, image: string) {
+   
+    this.authenticationService.googleloginV1(email, name, image)
+      .subscribe(response => {
+        this.presentAlert('Success', response['message']);
+        if (response['status'] === 1) {
+          this.presentAlert('Success', response['message']);
+          const user = {
+            name: response['username'],
+            firstname: response['firstname'],
+            lastname: response['lastname'],
+            email: response['email'],
+            image: response['image'],
+            userid: response['userid']
+          };
+            // this.presentAlert('success', 'Cordova kann im Browser nicht geladen werden');
+            this.authenticationService.setUser(user);
+            this.router.navigate(['/user']);
+        } else {
+        this.presentAlert('Danger', response['message']);
+        }
+      }, error => {
+        console.log(error.status);
+        this.presentAlert('Danger', error.status);
       });
   }
 
