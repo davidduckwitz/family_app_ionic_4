@@ -34,5 +34,15 @@
         </ion-row>
       </ion-item>
       
-  </ion-card>  
+  </ion-card>
+  <ion-list>
+    <ion-item>
+      <ion-label position="fixed" slot="start"><b [translate]="'Birthday'"></b></ion-label>
+      <ion-input #birthday type="date" value="10.10.1983}" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed" slot="start"><b [translate]="'Hobbys'"></b></ion-label>
+      <ion-input #hobbys value="Soccer, Computer, My Girl" ></ion-input>
+    </ion-item>
+  </ion-list>  
 </ion-content>

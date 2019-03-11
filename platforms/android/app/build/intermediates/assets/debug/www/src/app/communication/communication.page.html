@@ -21,7 +21,7 @@
           <img [src]="conversation.image" *ngIf="conversation.image">
         </ion-avatar>
       <h2>{{conversation.firstname}} {{conversation.lastname}}</h2>
-      <p slot="end">{{ conversation.message_text }}</p>
+      <p slot="end" class="wrap-text">{{ conversation.message_text }}</p>
       </ion-item>         
     </ion-col>
   </ion-row>

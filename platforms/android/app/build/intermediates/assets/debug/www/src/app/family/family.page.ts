@@ -36,9 +36,43 @@ export class FamilyPage implements OnInit {
       this.loadFamily(this.user.userid);
   }
 
+  async enterFamilyHash() {
+    const alert = await this.alertController.create({
+      header: 'Family Code',
+      inputs: [
+        {
+          name: 'hash',
+          type: 'text',
+          placeholder: 'Code'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Ok',
+          handler: (code) => {
+            console.log('Confirm Ok', code.hash);
+            this.addFamilyCode(code.hash);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
   addFamilyCode(hash: string) {
     this.familyService.addTamilyByHash(hash, this.user.userid).subscribe(response => {
-      this.loadFamily(this.user.userid);
+      
+      setTimeout(() => {
+        this.loadFamily(this.user.userid);
+    }, 2000);
     }, error => {
           console.log(error.status);
           this.presentAlert('Success', error.status);
